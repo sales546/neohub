@@ -1,1 +1,302 @@
-/* Globals stylesheet emptied to allow custom theme CSS to style the layout cleanly */
+/* NeoHub Premium UI/UX Modernization Overrides */
+
+/* Typography sharing and system fonts */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  --font-heading: 'Plus Jakarta Sans', sans-serif;
+  --font-body: 'Outfit', sans-serif;
+  --brand-orange: #ff5b2e;
+  --brand-orange-hover: #e04b20;
+  --bg-translucent: rgba(255, 255, 255, 0.85);
+  --shadow-subtle: 0 4px 20px rgba(0, 0, 0, 0.03);
+  --shadow-medium: 0 10px 30px rgba(0, 0, 0, 0.05);
+  --shadow-heavy: 0 20px 40px rgba(0, 0, 0, 0.08);
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+}
+
+/* Global resets & Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body) !important;
+  color: #2d3748 !important;
+  background-color: #fafbfc !important;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, 
+.slide-heading-one, .about-main-heading, .service-title, 
+.why-choose-us-title, .pricing-plans h5, .testimonial-main-heading,
+.blog-main-heading {
+  font-family: var(--font-heading) !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.02em !important;
+}
+
+/* Custom modern scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #f7fafc;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--brand-orange);
+  border-radius: 10px;
+  border: 2px solid #f7fafc;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-orange-hover);
+}
+
+/* Glassmorphic Header Navigation */
+#header_navigation {
+  background: var(--bg-translucent) !important;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5) !important;
+  box-shadow: var(--shadow-subtle) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+#header_navigation.stickynavbar {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+  box-shadow: var(--shadow-medium) !important;
+}
+
+/* Menu links styling */
+.main-navigation #menu-primary-menu a {
+  font-family: var(--font-heading) !important;
+  font-weight: 600 !important;
+  font-size: 15px !important;
+  color: #1a202c !important;
+  padding: 24px 22px !important;
+  transition: all 0.2s ease !important;
+  position: relative;
+}
+
+.main-navigation #menu-primary-menu a:hover {
+  color: var(--brand-orange) !important;
+}
+
+.main-navigation #menu-primary-menu li.current-menu-item > a {
+  color: var(--brand-orange) !important;
+}
+
+.main-navigation #menu-primary-menu li.current-menu-item > a::after {
+  content: '';
+  position: absolute;
+  bottom: 16px;
+  left: 22px;
+  right: 22px;
+  height: 3px;
+  background: var(--brand-orange);
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+/* Logo box alignment */
+.logo img {
+  max-height: 48px;
+  width: auto;
+  transition: transform 0.3s ease;
+}
+.logo a:hover img {
+  transform: scale(1.02);
+}
+
+/* Slider forms & normal inputs */
+input[type="text"], 
+input[type="email"], 
+input[type="tel"], 
+input[type="date"],
+select, 
+textarea {
+  width: 100% !important;
+  background: #ffffff !important;
+  border: 1px solid #e2e8f0 !important;
+  border-radius: var(--radius-sm) !important;
+  padding: 14px 18px !important;
+  font-size: 15px !important;
+  font-family: var(--font-body) !important;
+  color: #1a202c !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.02) !important;
+}
+
+input[type="text"]:focus, 
+input[type="email"]:focus, 
+input[type="tel"]:focus, 
+input[type="date"]:focus,
+select:focus, 
+textarea:focus {
+  border-color: var(--brand-orange) !important;
+  box-shadow: 0 0 0 4px rgba(255, 91, 46, 0.15) !important;
+  outline: none !important;
+}
+
+/* Beautiful modern buttons */
+.btn, 
+.slider-btn, 
+.about-btn, 
+.spaces-btn, 
+.plan-btn, 
+.gallery-btn, 
+.submit-box .submit input[type="submit"] {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 50px !important;
+  padding: 14px 32px !important;
+  font-family: var(--font-heading) !important;
+  font-weight: 600 !important;
+  font-size: 15px !important;
+  text-transform: none !important;
+  letter-spacing: 0.2px !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  cursor: pointer !important;
+  box-shadow: 0 4px 14px rgba(255, 91, 46, 0.2) !important;
+  border: none !important;
+  background: var(--brand-orange) !important;
+  color: #ffffff !important;
+}
+
+.btn:hover, 
+.slider-btn:hover, 
+.about-btn:hover, 
+.spaces-btn:hover, 
+.plan-btn:hover, 
+.gallery-btn:hover, 
+.submit-box .submit input[type="submit"]:hover {
+  transform: translateY(-2px) !important;
+  background: var(--brand-orange-hover) !important;
+  box-shadow: 0 8px 24px rgba(255, 91, 46, 0.35) !important;
+  color: #ffffff !important;
+}
+
+.btn:active, 
+.slider-btn:active, 
+.about-btn:active {
+  transform: translateY(0px) !important;
+}
+
+/* Spaces Card Grid & General Cards customization */
+.service-box-outer, 
+.pricing-plans-outer-box, 
+.service-active-content-box,
+.testimonial-content-main-box,
+.blog-image-box {
+  background: #ffffff !important;
+  border-radius: var(--radius-md) !important;
+  border: 1px solid rgba(0, 0, 0, 0.04) !important;
+  box-shadow: var(--shadow-medium) !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  overflow: hidden;
+}
+
+.service-box-outer:hover, 
+.pricing-plans-outer-box:hover, 
+.service-active-content-box:hover,
+.blog-image-box:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: var(--shadow-heavy) !important;
+  border-color: rgba(255, 91, 46, 0.15) !important;
+}
+
+/* Service Benefits Box */
+.service-box-outer {
+  padding: 30px 24px !important;
+}
+.services-img-box {
+  background: rgba(255, 91, 46, 0.05) !important;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px !important;
+  transition: all 0.3s ease;
+}
+.service-box-outer:hover .services-img-box {
+  background: var(--brand-orange) !important;
+  transform: scale(1.05);
+}
+.service-box-outer:hover .services-img-box img {
+  filter: brightness(0) invert(1);
+}
+
+/* Faq Accordion Design System */
+.faq-accordion .accordion-item {
+  border: 1px solid #e2e8f0 !important;
+  border-radius: var(--radius-sm) !important;
+  margin-bottom: 12px !important;
+  overflow: hidden;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-subtle);
+}
+
+.faq-accordion .accordion-button {
+  font-family: var(--font-heading) !important;
+  font-weight: 600 !important;
+  padding: 18px 24px !important;
+  font-size: 16px !important;
+  background: #ffffff !important;
+  color: #1a202c !important;
+  border: none !important;
+}
+
+.faq-accordion .accordion-button:not(.collapsed) {
+  background: rgba(255, 91, 46, 0.03) !important;
+  color: var(--brand-orange) !important;
+  box-shadow: none !important;
+}
+
+.faq-accordion .accordion-body {
+  padding: 20px 24px !important;
+  line-height: 1.6 !important;
+  background: #ffffff !important;
+  color: #4a5568 !important;
+}
+
+/* Tabs Switcher */
+.about-tab-buttons button {
+  background: none !important;
+  border: none !important;
+  font-family: var(--font-heading) !important;
+  font-weight: 600 !important;
+  font-size: 15px !important;
+  padding: 12px 24px !important;
+  color: #718096 !important;
+  border-bottom: 2px solid transparent !important;
+  transition: all 0.2s ease;
+}
+
+.about-tab-buttons button.active {
+  color: var(--brand-orange) !important;
+  border-bottom: 2px solid var(--brand-orange) !important;
+}
+
+/* Testimonial Quote Styling */
+.testimonial-quote-box {
+  padding: 24px !important;
+  border-bottom: 1px solid #edf2f7;
+}
+
+.testimonial-para-content-box {
+  padding: 24px !important;
+  font-size: 16px !important;
+  line-height: 1.7 !important;
+  color: #4a5568 !important;
+}
+
+/* Floating WhatsApp Widget */
+.whatsapp-widget {
+  box-shadow: 0 8px 30px rgba(37, 211, 102, 0.35) !important;
+}

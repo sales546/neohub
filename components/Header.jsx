@@ -76,7 +76,7 @@ export default function Header() {
                           <i className="fas fa-times"></i>
                         </a>
                         <div className="menu clearfix">
-                          <ul className="clearfix mobile_nav">
+                          <ul id="menu-primary-menu" className="clearfix mobile_nav">
                             {navLinks.map((link) => {
                               const isActive = pathname === link.href;
                               return (

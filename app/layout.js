@@ -1,6 +1,7 @@
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Script from "next/script";
 
 export const metadata = {
   title: "NeoHub | Premium Coworking Space in Gomti Nagar, Lucknow",
@@ -37,16 +38,16 @@ export default function RootLayout({ children }) {
         <link rel="preload" href="/assets/slider1_0fe6417c.jpg" as="image" fetchPriority="high" />
 
         {/* Core Scripts */}
-        <script src="/js/jquery.min_473229ac.js" defer></script>
-        <script src="/js/jquery-migrate.min_21ecf914.js" defer></script>
-        <script src="/js/bootstrap.min_f734c8d0.js" defer></script>
-        <script src="/js/slick.min_5aa94391.js" defer></script>
-        <script src="/js/aos_8b2a62b9.js" defer></script>
-        <script src="/js/wow.min_74b66322.js" defer></script>
-        <script src="/js/jquery.superfish_9438091b.js" defer></script>
-        <script src="/js/owl.carousel_9bede7ae.js" defer></script>
-        <script src="/js/jquery.magnific-popup.min_b664f4c2.js" defer></script>
-        <script src="/js/custom_73561f33.js" defer></script>
+        <Script src="/js/jquery.min_473229ac.js" strategy="afterInteractive" />
+        <Script src="/js/jquery-migrate.min_21ecf914.js" strategy="afterInteractive" />
+        <Script src="/js/bootstrap.min_f734c8d0.js" strategy="afterInteractive" />
+        <Script src="/js/slick.min_5aa94391.js" strategy="afterInteractive" />
+        <Script src="/js/aos_8b2a62b9.js" strategy="afterInteractive" />
+        <Script src="/js/wow.min_74b66322.js" strategy="afterInteractive" />
+        <Script src="/js/jquery.superfish_9438091b.js" strategy="afterInteractive" />
+        <Script src="/js/owl.carousel_9bede7ae.js" strategy="afterInteractive" />
+        <Script src="/js/jquery.magnific-popup.min_b664f4c2.js" strategy="afterInteractive" />
+        <Script src="/js/custom_73561f33.js" strategy="afterInteractive" />
       </head>
       <body>
         <Header />

@@ -1,17 +1,7 @@
 "use client";
 
 import { useState } from "react";
-
-const amenityOptions = [
-  "Fast Internet",
-  "24 Hr Access",
-  "HD Projector",
-  "Cleaning Services",
-  "Car Parking",
-  "Office Equipment",
-  "Personal Lockers",
-  "Coffee Machine",
-];
+import { submitLead, openWhatsAppForLead, formatTourWhatsApp } from "@/lib/submitLead";
 
 export default function HomeSliderForm() {
   const [formData, setFormData] = useState({
@@ -20,56 +10,62 @@ export default function HomeSliderForm() {
     phone: "",
     date: "",
     email: "",
-    amenity: "Fast Internet",
   });
   const [status, setStatus] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    setStatus("Thank you! We will contact you shortly.");
-    setFormData({ name: "", company: "", phone: "", date: "", email: "", amenity: "Fast Internet" });
+    setLoading(true);
+    setError("");
+    setStatus("");
+
+    try {
+      const result = await submitLead({ type: "tour", payload: formData });
+      setStatus(result.message);
+      openWhatsAppForLead(formatTourWhatsApp(formData));
+      setFormData({ name: "", company: "", phone: "", date: "", email: "" });
+    } catch (err) {
+      setError(err.message || "Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit} aria-label="Booking form" noValidate>
-      <div className="row slider-form-box" style={{ gap: "10px 0px", justifyContent: "space-between" }}>
-        <div className="col-lg-6 get-box">
-          <p><input size="40" maxLength="400" aria-required="true" placeholder="Name" type="text" name="name" value={formData.name} onChange={handleChange} required /></p>
+    <form className="neo-form" onSubmit={handleSubmit} aria-label="Booking form" noValidate>
+      <div className="neo-form-grid neo-form-grid--compact">
+        <div className="neo-form-field">
+          <label htmlFor="hero-name">Full name</label>
+          <input id="hero-name" type="text" name="name" placeholder="Your name" value={formData.name} onChange={handleChange} required />
         </div>
-        <div className="col-lg-6 get-box">
-          <p><input size="40" maxLength="400" aria-required="true" placeholder="Company Name" type="text" name="company" value={formData.company} onChange={handleChange} required /></p>
+        <div className="neo-form-field">
+          <label htmlFor="hero-company">Company</label>
+          <input id="hero-company" type="text" name="company" placeholder="Company name" value={formData.company} onChange={handleChange} />
         </div>
-        <div className="col-lg-6 get-box">
-          <p><input size="40" maxLength="400" aria-required="true" placeholder="Phone" type="tel" name="phone" value={formData.phone} onChange={handleChange} required /></p>
+        <div className="neo-form-field">
+          <label htmlFor="hero-phone">Phone</label>
+          <input id="hero-phone" type="tel" name="phone" inputMode="tel" placeholder="+91 70004 81286" value={formData.phone} onChange={handleChange} required />
         </div>
-        <div className="col-lg-6 get-box">
-          <p><input aria-required="true" placeholder="Date" type="date" name="date" value={formData.date} onChange={handleChange} required /></p>
+        <div className="neo-form-field">
+          <label htmlFor="hero-date">Preferred date</label>
+          <input id="hero-date" type="date" name="date" value={formData.date} onChange={handleChange} />
         </div>
-        <div className="col-lg-12 get-box">
-          <p><input size="40" maxLength="400" aria-required="true" placeholder="Mail Address" type="email" name="email" value={formData.email} onChange={handleChange} required /></p>
-        </div>
-        <div className="col-lg-12 get-box">
-          <p>
-            <select aria-required="true" name="amenity" value={formData.amenity} onChange={handleChange}>
-              {amenityOptions.map((opt) => (
-                <option key={opt} value={opt}>{opt}</option>
-              ))}
-            </select>
-          </p>
-        </div>
-        <div className="submit-box d-flex pt-2">
-          <div className="submit btn">
-            <p><input type="submit" value="Submit Now" /></p>
-          </div>
+        <div className="neo-form-field neo-form-field--full">
+          <label htmlFor="hero-email">Email</label>
+          <input id="hero-email" type="email" name="email" placeholder="you@company.com" value={formData.email} onChange={handleChange} />
         </div>
       </div>
-      {status && (
-        <div style={{ padding: "10px", marginTop: "10px", color: "#28a745", textAlign: "center" }}>{status}</div>
-      )}
+      <button type="submit" className="neo-form-submit" disabled={loading}>
+        {loading ? "Submitting..." : "Submit Now"}
+      </button>
+      {error ? <div className="form-status-message form-status-message--error" role="alert">{error}</div> : null}
+      {status ? <div className="form-status-message" role="status" aria-live="polite">{status}</div> : null}
     </form>
   );
 }

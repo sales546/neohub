@@ -1,10 +1,28 @@
+import Link from "next/link";
 import AboutTabs from "@/components/AboutTabs";
 import HomeSliderForm from "@/components/HomeSliderForm";
+import HomeGallery from "@/components/HomeGallery";
+import {
+  trustStats,
+  pricingPlans,
+  testimonials,
+  blogPreviews,
+  aboutHighlights,
+  buildPlanWhatsAppUrl,
+} from "@/lib/siteData";
 
 export const metadata = {
   title: "NeoHub Coworking Space Lucknow | Premium Shared Office Gomti Nagar",
-  description: "Boost your productivity at NeoHub, Lucknow's leading coworking space in Levana Cyber Heights, Gomti Nagar. Flexible hot desking, dedicated workstations, private office cabins, and high-tech meeting rooms.",
-  keywords: ["coworking space in lucknow", "shared office space lucknow", "office space in gomti nagar", "private cabins lucknow", "conference rooms lucknow", "levana cyber heights office"],
+  description:
+    "Boost your productivity at NeoHub, Lucknow's leading coworking space in Levana Cyber Heights, Gomti Nagar. Flexible hot desking, dedicated workstations, private office cabins, and high-tech meeting rooms.",
+  keywords: [
+    "coworking space in lucknow",
+    "shared office space lucknow",
+    "office space in gomti nagar",
+    "private cabins lucknow",
+    "conference rooms lucknow",
+    "levana cyber heights office",
+  ],
 };
 
 const sliderImages = [
@@ -14,12 +32,12 @@ const sliderImages = [
 ];
 
 const partnerLogos = [
-  { src: "/assets/image1_2ff040a7.png", alt: "Partner 1" },
-  { src: "/assets/image2_af4b6da2.png", alt: "Partner 2" },
-  { src: "/assets/image3_3fe5ea43.png", alt: "Partner 3" },
-  { src: "/assets/image4_86546124.png", alt: "Partner 4" },
-  { src: "/assets/image5_26f56b87.png", alt: "Partner 5" },
-  { src: "/assets/image6_86f48442.png", alt: "Partner 6" },
+  { src: "/assets/image1_2ff040a7.png", alt: "NeoHub partner" },
+  { src: "/assets/image2_af4b6da2.png", alt: "NeoHub partner" },
+  { src: "/assets/image3_3fe5ea43.png", alt: "NeoHub partner" },
+  { src: "/assets/image4_86546124.png", alt: "NeoHub partner" },
+  { src: "/assets/image5_26f56b87.png", alt: "NeoHub partner" },
+  { src: "/assets/image6_86f48442.png", alt: "NeoHub partner" },
 ];
 
 const services = [
@@ -40,14 +58,70 @@ const aboutTabs = [
 ];
 
 const spacesCarousel = [
-  { title: "Premium Private Cabins", desc: "Secure, lockable cabins tailored for startups and businesses requiring high privacy and dedicated bandwidth.", image: "/assets/Private-Spaces_dfb4e03e.png", alt: "Private office spaces at NeoHub Lucknow" },
-  { title: "Flexible Hot Desking", desc: "On-demand workspace access by the day or month, giving you the freedom to work from any open seat in the hub.", image: "/assets/Hot-Desking_ade72a77.png", alt: "Hot desking coworking tables at NeoHub Gomti Nagar" },
-  { title: "Event & Workshop Spaces", desc: "Versatile event layouts with AV systems and projector screens to host meetups, workshops, and company announcements.", image: "/assets/Wellness-Campaigns_180e8285.png", alt: "Coworking office break rooms and wellness amenities" },
-  { title: "Private Meeting Cabins", desc: "Acoustic-insulated compact cabins designed for focused team discussions, video calls, or executive interviews.", image: "/assets/Debate-Benefits_fe3d6cf8.png", alt: "Startup team workspaces in Lucknow" },
-  { title: "Dedicated Workstations", desc: "Your own reserved desk in a shared environment, complete with lockable drawers and premium ergonomic chairs.", image: "/assets/Customized-Desks_f656af2d.png", alt: "Dedicated desks and ergonomic workstations" },
-  { title: "State-of-the-Art Conference Rooms", desc: "High-tech meeting rooms equipped with smart TVs, video conferencing gear, writeable boards, and tea/coffee services.", image: "/assets/Conference-Rooms_feaacc5e.png", alt: "High-tech corporate meeting rooms" },
-  { title: "Shared Coworking Desks", desc: "Flexible, plug-and-play seating options in our open-plan area, perfect for freelancers and digital nomads.", image: "/assets/Co-Working-Areas_81ff66f9.png", alt: "Shared coworking areas and hot desks" },
-  { title: "Enterprise Office Suites", desc: "Fully furnished, private suites configured for team sizes of 5 to 50+ members with custom server and networking options.", image: "/assets/B2B-Opportunities_96b28b64.png", alt: "Business opportunities and networking lounges" },
+  {
+    title: "Premium Private Cabins",
+    href: "/private-cabins",
+    desc: "Secure, lockable cabins tailored for startups and businesses requiring high privacy and dedicated bandwidth.",
+    image: "/assets/Private-Spaces_dfb4e03e.png",
+    alt: "Private office spaces at NeoHub Lucknow",
+    info: [["Capacity", "4–15 seats"], ["Status", "Available"], ["Access", "24/7"], ["Type", "Private Cabin"], ["WiFi", "Gigabit"], ["From", "₹9,000/mo"]],
+  },
+  {
+    title: "Flexible Hot Desking",
+    href: "/hot-desk",
+    desc: "On-demand workspace access by the day or month, giving you the freedom to work from any open seat in the hub.",
+    image: "/assets/Hot-Desking_ade72a77.png",
+    alt: "Hot desking coworking tables at NeoHub Gomti Nagar",
+    info: [["Pass", "Daily / Monthly"], ["Status", "Available"], ["Access", "24/7"], ["Type", "Hot Desk"], ["WiFi", "Gigabit"], ["From", "₹3,500/mo"]],
+  },
+  {
+    title: "Event & Workshop Spaces",
+    href: "/contact",
+    desc: "Versatile event layouts with AV systems and projector screens to host meetups, workshops, and company announcements.",
+    image: "/assets/Wellness-Campaigns_180e8285.png",
+    alt: "Coworking office break rooms and wellness amenities",
+    info: [["Layout", "Flexible"], ["Status", "On request"], ["AV", "Included"], ["Type", "Event Space"], ["WiFi", "Gigabit"], ["Booking", "Enquire"]],
+  },
+  {
+    title: "Private Meeting Cabins",
+    href: "/meeting-rooms",
+    desc: "Acoustic-insulated compact cabins designed for focused team discussions, video calls, or executive interviews.",
+    image: "/assets/Debate-Benefits_fe3d6cf8.png",
+    alt: "Startup team workspaces in Lucknow",
+    info: [["Seats", "4–8"], ["Status", "Available"], ["Access", "Hourly"], ["Type", "Meeting Cabin"], ["WiFi", "Gigabit"], ["Booking", "Enquire"]],
+  },
+  {
+    title: "Dedicated Workstations",
+    href: "/dedicated-desk",
+    desc: "Your own reserved desk in a shared environment, complete with lockable drawers and premium ergonomic chairs.",
+    image: "/assets/Customized-Desks_f656af2d.png",
+    alt: "Dedicated desks and ergonomic workstations",
+    info: [["Desk", "Reserved"], ["Status", "Available"], ["Access", "24/7"], ["Type", "Dedicated Desk"], ["WiFi", "Gigabit"], ["From", "₹6,000/mo"]],
+  },
+  {
+    title: "State-of-the-Art Conference Rooms",
+    href: "/conference-hall",
+    desc: "High-tech meeting rooms equipped with smart TVs, video conferencing gear, writeable boards, and tea/coffee services.",
+    image: "/assets/Conference-Rooms_feaacc5e.png",
+    alt: "High-tech corporate meeting rooms",
+    info: [["Seats", "8–20"], ["Status", "Available"], ["AV", "HD Projector"], ["Type", "Conference"], ["WiFi", "Gigabit"], ["Booking", "Enquire"]],
+  },
+  {
+    title: "Shared Coworking Desks",
+    href: "/hot-desk",
+    desc: "Flexible, plug-and-play seating options in our open-plan area, perfect for freelancers and digital nomads.",
+    image: "/assets/Co-Working-Areas_81ff66f9.png",
+    alt: "Shared coworking areas and hot desks",
+    info: [["Seating", "Open plan"], ["Status", "Available"], ["Access", "24/7"], ["Type", "Coworking"], ["WiFi", "Gigabit"], ["From", "₹3,500/mo"]],
+  },
+  {
+    title: "Enterprise Office Suites",
+    href: "/private-cabins",
+    desc: "Fully furnished, private suites configured for team sizes of 5 to 50+ members with custom server and networking options.",
+    image: "/assets/B2B-Opportunities_96b28b64.png",
+    alt: "Business opportunities and networking lounges",
+    info: [["Teams", "5–50+"], ["Status", "Available"], ["Access", "24/7"], ["Type", "Enterprise"], ["WiFi", "Dedicated"], ["From", "Custom"]],
+  },
 ];
 
 const whyChooseItems = [
@@ -59,30 +133,21 @@ const whyChooseItems = [
   { icon: "/assets/icon-img6_0b074c5f.png", title: "Vibrant Community", desc: "Network and grow alongside fellow creators, developers, and entrepreneurs in our regular events." },
 ];
 
-const counterStats = [
-  { icon: "/assets/icon1_8ad8abbc.png", value: "969", suffix: "+", label: "Successful Deals" },
-  { icon: "/assets/icon2_6f181832.png", value: "128", suffix: "+", label: "Total Properties" },
-  { icon: "/assets/icon3_b0096398.png", value: "969", suffix: "+", label: "Award Won" },
-  { icon: "/assets/icon4_18a9771f.png", value: "93", suffix: "%", label: "Satisfaction Rate" },
+const counterIcons = [
+  "/assets/icon1_8ad8abbc.png",
+  "/assets/icon2_6f181832.png",
+  "/assets/icon3_b0096398.png",
+  "/assets/icon4_18a9771f.png",
 ];
 
-const pricingPlans = [
-  { icon: "/assets/icon3_c99efff8.png", name: "Private Office", price: "9,000", tag: "", desc: "At NeoHub, we provide premium workstations, redundant high-speed internet, executive conference rooms, and private offices to keep your team working productively." },
-  { icon: "/assets/icon2_09453942.png", name: "Dedicated Desk", price: "6,000", tag: "Best", desc: "Get your own dedicated desk at NeoHub Lucknow. A reserved workstation in a professional, collaborative environment with secure storage and 24/7 access to all shared spaces." },
-  { icon: "/assets/icon1_011513e6.png", name: "Membership", price: "3,500", tag: "", desc: "Enjoy flexible hot-desking options perfect for freelancers and remote professionals. Gain entry to dynamic common areas, high-speed internet, and a thriving local community." },
-];
+const counterStats = trustStats.map((stat, index) => ({
+  ...stat,
+  icon: counterIcons[index] || counterIcons[0],
+}));
 
-const testimonials = [
-  { image: "/assets/testimg4_89125531.png", name: "Julia Anderson", role: "Co-Founder, TechStart Lucknow", rating: 5, text: "Switching to NeoHub has been a game-changer for our remote development team. The high-speed fiber backups are flawless, and the community here has helped us collaborate on multiple B2B projects." },
-  { image: "/assets/testimg3_98d93f4b.png", name: "Rohan Sharma", role: "Creative Director, Pixel Media", rating: 5, text: "The dedicated desks at NeoHub provide the perfect balance of a private setup and a lively office atmosphere. Having unlimited premium tea and coffee alongside continuous housekeeping makes the work hours a breeze." },
-  { image: "/assets/testimg2_9ded9eee.png", name: "Priya Patel", role: "Independent Consultant", rating: 5, text: "The meeting cabins and conference rooms at Levana Cyber Heights are top-notch. Our corporate clients are always impressed by the professional reception setup and the seamless presentation systems." },
-  { image: "/assets/testimg1_4d709d5b.png", name: "Amit Verma", role: "Founder, EduTech Ventures", rating: 5, text: "Highly flexible and cost-effective workspace. We scaled our team from 3 to 15 members in just three months without any lease issues. NeoHub handles everything, allowing us to focus on our business growth." },
-];
-
-const blogPreviews = [
-  { image: "/assets/image7_6ac1b0f1.png", date: "11", month: "Apr", title: "How Modern Coworking Spaces are Accelerating Lucknow's Startup Growth." },
-  { image: "/assets/image6_5720d7a6.png", date: "11", month: "Apr", title: "5 Critical Productivity Hacks for Teams Working in Shared Office Environments." },
-  { image: "/assets/image5-1_6a8d661c.png", date: "11", month: "Apr", title: "Choosing Between Dedicated Workstations and Private Cabins: A Detailed Guide." },
+const aboutHighlightIcons = [
+  "/assets/count-img1_7f169963.png",
+  "/assets/count-img2_1b7c2edd.png",
 ];
 
 const QuoteSvg = () => (
@@ -101,15 +166,14 @@ export default function HomePage() {
   return (
     <>
       {/* Hero Slider */}
-      <section id="slider">
+      <section id="slider" className="position-relative">
         <div className="slider-main-outer-box main-wrapper-carousel">
           <div className="owl-carousel">
             {sliderImages.map((img, i) => (
               <div key={i} className="slider-inner-bg-image-outer-box">
                 <div className="container slider-content-main-box" style={{ justifyContent: "center" }}>
-                  <div className="row slider-content-box position-relative">
-                    <div className="col-xl-5 col-lg-5 col-md-5 col-12 slider-main-form-box position-relative ms-2"></div>
-                    <div className="col-xl-6 col-lg-6 col-md-6 col-12 slider-content-column text-md-start text-center ps-lg-5 ps-md-3 pt-sm-0 pt-4">
+                  <div className="row slider-content-box position-relative align-items-center">
+                    <div className="col-xl-7 col-lg-7 col-md-7 col-12 slider-content-column text-md-start text-center pe-lg-5 pe-md-3 pt-sm-0 pt-4">
                       <div className="slider-box text-sm-start text-center">
                         <h6 className="slide-small-heading">Welcome To NeoHub Coworking</h6>
                         <h1 className="slide-heading-one">Comfortable Coworking Meeting Spaces</h1>
@@ -117,7 +181,7 @@ export default function HomePage() {
                           To provide professionals, freelancers, and businesses in Lucknow with a world-class, flexible workspace ecosystem that drives efficiency, collaboration, and innovation.
                         </p>
                         <div className="slider-button-box pt-xl-4 pt-lg-4 pt-md-4 pt-sm-3 pb-3 pt-0 d-sm-flex d-block">
-                          <a className="slider-btn btn" href="/spaces"><span>Explore More</span></a>
+                          <Link className="slider-btn btn" href="/spaces"><span>Explore More</span></Link>
                         </div>
                       </div>
                       <div className="slide-info">
@@ -134,11 +198,10 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* Slider Form */}
-        <div className="container slider-form-box-outer mt-md-5 mt-4">
-          <div className="col-lg-5 col-md-6 slider-box-shadow-box-shadow">
-            <div className="slider-touch-form-box">
-              <h3 className="text-center pb-lg-4 pb-2">Start Working at NeoHub Coworking Space</h3>
+        <div className="container hero-form-right">
+          <div className="hero-form-right-inner">
+            <div className="slider-touch-form-box neo-form-card">
+              <h3 className="pb-lg-3 pb-2">Start Working at NeoHub Coworking Space</h3>
               <HomeSliderForm />
             </div>
           </div>
@@ -177,7 +240,7 @@ export default function HomePage() {
                     <div className="services-img-box">
                       <img src={svc.icon} className="mx-auto d-block" alt={svc.title} width="400" height="400" />
                     </div>
-                    <h5 className="service-title"><a href="#">{svc.title}</a></h5>
+                    <h5 className="service-title"><Link href="/spaces">{svc.title}</Link></h5>
                     <p>{svc.desc}</p>
                   </div>
                 </div>
@@ -200,7 +263,7 @@ export default function HomePage() {
                 </div>
                 <AboutTabs tabs={aboutTabs} />
                 <div className="about-button-box pt-xl-4 pt-lg-4 pt-md-3 pt-3 pb-md-0 pb-4">
-                  <a className="about-btn btn" href="/about-us">Explore More</a>
+                  <Link className="about-btn btn" href="/about-us">Explore More</Link>
                 </div>
               </div>
               <div className="col-lg-6 col-md-6 aos-init mb-md-0 mb-5" data-aos="fade-left" style={{ position: "relative" }}>
@@ -209,16 +272,18 @@ export default function HomePage() {
                     <img src="/assets/image_33ea1c1c.png" alt="About NeoHub" />
                   </div>
                   <div className="about-counter-box d-flex">
-                    <div className="about-box text-start">
-                      <div className="about-icon-img"><img src="/assets/count-img1_7f169963.png" alt="" /></div>
-                      <h3 className="about-inner-title"><span className="about-counter-value">17</span><span>+</span></h3>
-                      <h5 className="about-inner-paragraph">Locations in city center</h5>
-                    </div>
-                    <div className="about-box text-start">
-                      <div className="about-icon-img"><img src="/assets/count-img2_1b7c2edd.png" alt="" /></div>
-                      <h3 className="about-inner-title"><span className="about-counter-value">25</span><span>+</span></h3>
-                      <h5 className="about-inner-paragraph">Year Of Experience</h5>
-                    </div>
+                    {aboutHighlights.map((item, index) => (
+                      <div key={item.label} className="about-box text-start">
+                        <div className="about-icon-img">
+                          <img src={aboutHighlightIcons[index]} alt="" />
+                        </div>
+                        <h3 className="about-inner-title">
+                          <span className="about-counter-value">{item.value}</span>
+                          <span>{item.suffix}</span>
+                        </h3>
+                        <h5 className="about-inner-paragraph">{item.label}</h5>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -241,10 +306,10 @@ export default function HomePage() {
                   <div className="col-lg-4 col-md-6 pe-md-0 mb-2">
                     <div className="service-active-content-box">
                       <div className="service-active-inner-box">
-                        <h4 className="pt-2"><a href="#">{space.title}</a></h4>
+                        <h4 className="pt-2"><Link href={space.href}>{space.title}</Link></h4>
                         <p className="service-active-text pb-xl-4 pb-2">{space.desc}</p>
                         <div className="spaces-information-outer-box pb-2">
-                          {[["Size", "580 Sq Ft"], ["Status", "Available"], ["Bathrooms", "02"], ["Type", "Flat"], ["WiFi", "50 Mb/s"], ["Price", "₹5,999.00"]].map(([label, value], j) => (
+                          {space.info.map(([label, value], j) => (
                             <div key={j} className="spaces-information">
                               <p className="spaces-information-title">{label}</p>
                               <p className="spaces-information-text">{value}</p>
@@ -252,7 +317,7 @@ export default function HomePage() {
                           ))}
                         </div>
                         <div className="spaces-button-box pt-md-4 pt-4 pb-2">
-                          <a className="spaces-btn btn" href="#">Book Now</a>
+                          <a className="spaces-btn btn" href={buildPlanWhatsAppUrl(space.title)} target="_blank" rel="noopener noreferrer">Book Now</a>
                         </div>
                       </div>
                     </div>
@@ -352,7 +417,7 @@ export default function HomePage() {
             <h3 className="about-main-heading align-self-center">Our Pricing plans</h3>
           </div>
           <div className="owl-carousel">
-            {[...pricingPlans, ...pricingPlans, ...pricingPlans].map((plan, i) => (
+            {pricingPlans.map((plan, i) => (
               <div key={i} className="text-center pricing-plans position-relative aos-init" data-aos="flip-up">
                 <div className="pricing-plans-outer-box position-relative">
                   <div className="pricing-plans-box">
@@ -366,7 +431,7 @@ export default function HomePage() {
                     </div>
                     <div className="pricing-package text-center"><p>{plan.desc}</p></div>
                     <div className="plan-button-box pt-xl-3 pt-lg-4 pt-md-3 pt-3">
-                      <a className="plan-btn btn" href="#">Book Now</a>
+                      <a className="plan-btn btn" href={buildPlanWhatsAppUrl(plan.name)} target="_blank" rel="noopener noreferrer">Book Now</a>
                     </div>
                   </div>
                 </div>
@@ -430,29 +495,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Gallery Promo */}
-      <section id="Our_gallery" style={{ position: "relative" }}>
-        <div className="container position-relative">
-          <div className="col-12 gallery-outer pb-xl-4">
-            <div id="gallery">
-              <div className="gallery-head-outer-box">
-                <div className="gallery-head-box heading-box text-md-start text-center">
-                  <h6>Promo</h6>
-                  <h3 className="blog-main-heading align-self-center">
-                    Join Co-Working Space Today and Elevate Your Work Experience!
-                  </h3>
-                  <div className="gallery-button-box">
-                    <a className="gallery-btn btn mt-lg-4 mt-0" href="#">Book Now</a>
-                  </div>
-                </div>
-              </div>
-              {[1, 2, 3, 4, 5].map((n) => (
-                <img key={n} src={`/assets/galleryimg${n}_${["3b163f91", "cf31ca9e", "d90d3227", "426fab93", "5319e1bc"][n - 1]}.png`} alt="NeoHub gallery" />
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <HomeGallery />
 
       {/* Blog Preview */}
       <section id="blog" className="position-relative">
@@ -476,27 +519,22 @@ export default function HomePage() {
                     <div className="blog-img-box position-relative">
                       <div className="post-img"><img src={post.image} alt={post.title} /></div>
                       <div className="blog-date-admin-box">
-                        <a className="date-item align-self-center">
-                          <div className="date">{post.date}</div>
-                          <div className="month">{post.month}</div>
-                        </a>
+                        <span className="date-item align-self-center">
+                          <span className="date">{post.date}</span>
+                          <span className="month">{post.month}</span>
+                        </span>
                       </div>
                     </div>
                     <div className="blog-contents-box text-lg-start text-start">
                       <div className="d-flex justify-content-lg-start justify-content-sm-start justify-content-start">
                         <div className="blog-admin-box">
-                          <a style={{ textAlign: "center" }} href="#">
-                            <div className="d-flex">
-                              <i className="fa fa-user"></i>
-                              <span className="ms-2 news-author">By NeoHub Team</span>
-                            </div>
-                          </a>
+                          <span className="news-author">By NeoHub Team</span>
                         </div>
                         <div className="post-comments align-self-center ps-3">
                           <i className="fas fa-comments"></i><span className="ms-2">0 Comment</span>
                         </div>
                       </div>
-                      <h5 className="pt-2"><a href="#">{post.title}</a></h5>
+                      <h5 className="pt-2"><Link href={post.href}>{post.title}</Link></h5>
                     </div>
                   </div>
                 ))}

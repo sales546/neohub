@@ -2,22 +2,18 @@ import Link from "next/link";
 
 const quickLinks = [
   { href: "/about-us", label: "About Us" },
-  { href: "#", label: "Pricing" },
-  { href: "/spaces", label: "Spaces" },
+  { href: "/spaces", label: "Pricing & Spaces" },
   { href: "/blog", label: "Blogs" },
-  { href: "#", label: "Support" },
-  { href: "#", label: "Term & Condition" },
-  { href: "#", label: "Privacy Policy" },
   { href: "/faqs", label: "FAQ's" },
   { href: "/contact", label: "Contact Us" },
 ];
 
 const locations = [
-  "Gomti Nagar",
-  "Vibhuti Khand",
-  "Hazratganj",
-  "Aliganj",
-  "Indira Nagar",
+  { href: "/gomti-nagar", label: "Gomti Nagar" },
+  { href: "/vibhuti-khand", label: "Vibhuti Khand" },
+  { href: "/hazratganj", label: "Hazratganj" },
+  { href: "/aliganj", label: "Aliganj" },
+  { href: "/indira-nagar", label: "Indira Nagar" },
 ];
 
 export default function Footer() {
@@ -26,7 +22,7 @@ export default function Footer() {
       <div className="clearfix"></div>
 
       <div id="footer" className="position-relative">
-        <div id="footer_box" className="darkbox position-relative" style={{ backgroundColor: "#000" }}>
+        <div id="footer_box" className="darkbox position-relative" style={{ backgroundColor: "#0b0f19" }}>
           <div className="container">
             <div className="row footer-content">
               {/* Footer Column 1 - Brand */}
@@ -52,7 +48,7 @@ export default function Footer() {
                 <div className="footer-call-outer-box d-sm-flex d-block mt-3">
                   <div className="footer-call-box d-flex mt-3">
                     <div className="call-icon pe-3 align-self-center">
-                      <i className="fa fa-phone"></i>
+                      <i className="fas fa-phone" aria-hidden="true"></i>
                     </div>
                     <div className="call-content-box align-self-center text-start">
                       <div className="call-title">Call Anytime</div>
@@ -63,7 +59,7 @@ export default function Footer() {
                   </div>
                   <div className="footer-call-box d-flex mt-3">
                     <div className="call-icon pe-3 align-self-center">
-                      <i className="fas fa-envelope"></i>
+                      <i className="fas fa-envelope" aria-hidden="true"></i>
                     </div>
                     <div className="call-content-box align-self-center text-start">
                       <div className="call-title">Email Address</div>
@@ -98,7 +94,7 @@ export default function Footer() {
                   <ul className="menu">
                     {locations.map((location, index) => (
                       <li key={index} className="menu-item">
-                        <a href="#">{location}</a>
+                        <Link href={location.href}>{location.label}</Link>
                       </li>
                     ))}
                   </ul>
@@ -114,14 +110,14 @@ export default function Footer() {
         <div className="footer-svg-box"></div>
       </div>
 
-      {/* Copyright */}
-      <div className="copyright" style={{ backgroundColor: "#000" }}>
+      {/* Legal links + return-to-top anchor */}
+      <div className="copyright" style={{ backgroundColor: "#070a13", borderTop: "1px solid rgba(255,255,255,0.05)" }}>
         <div className="container">
-          <div className="copyright-box row">
-            <div className="col-12 copyright-text text-center">
-              <p className="footer-copy"></p>
-            </div>
-          </div>
+          <nav className="footer-legal-links" aria-label="Legal">
+            <Link href="/privacy-policy">Privacy Policy</Link>
+            <Link href="/terms">Terms of Service</Link>
+            <Link href="/contact">Contact</Link>
+          </nav>
           <a href="#" id="return-to-top"></a>
         </div>
       </div>

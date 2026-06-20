@@ -10,30 +10,37 @@ export default function FaqAccordion({ items }) {
   };
 
   return (
-    <div id="accordion">
+    <div id="accordion" className="faq-accordion">
       <div className="accordion" id="accordionExample">
-        {items.map((item, index) => (
-          <div className="accordion-item" key={index}>
-            <div className="accordion-header" id={`heading${index}`}>
-              <a
-                className={`accordion-button${openIndex !== index ? " collapsed" : ""}`}
-                role="button"
-                onClick={() => toggleItem(index)}
-                aria-expanded={openIndex === index}
-                aria-controls={`collapse${index}`}
+        {items.map((item, index) => {
+          const isOpen = openIndex === index;
+          const panelId = `faq-panel-${index}`;
+          const headerId = `faq-header-${index}`;
+
+          return (
+            <div className="accordion-item" key={index}>
+              <h3 className="accordion-header" id={headerId}>
+                <button
+                  type="button"
+                  className={`accordion-button${!isOpen ? " collapsed" : ""}`}
+                  onClick={() => toggleItem(index)}
+                  aria-expanded={isOpen}
+                  aria-controls={panelId}
+                >
+                  {item.question}
+                </button>
+              </h3>
+              <div
+                id={panelId}
+                className={`accordion-collapse collapse${isOpen ? " show" : ""}`}
+                role="region"
+                aria-labelledby={headerId}
               >
-                {item.question}
-              </a>
+                <div className="accordion-body">{item.answer}</div>
+              </div>
             </div>
-            <div
-              id={`collapse${index}`}
-              className={`accordion-collapse collapse${openIndex === index ? " show" : ""}`}
-              aria-labelledby={`heading${index}`}
-            >
-              <div className="accordion-body">{item.answer}</div>
-            </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

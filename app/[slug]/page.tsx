@@ -5,11 +5,15 @@ import { constructMetadata } from '@/lib/seo/metadata';
 import JsonLd from '@/components/seo/JsonLd';
 import FAQSchema from '@/components/seo/FAQSchema';
 import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
+import FaqAccordion from '@/components/FaqAccordion';
+import PageBanner from '@/components/PageBanner';
+import NeoHubLocations from '@/components/NeoHubLocations';
 import { getServiceSchema } from '@/lib/seo/schema';
 import { FAQItem, ServicePricingInfo } from '@/types/seo';
 
 // Slugs data
 const localities = ['gomti-nagar', 'vibhuti-khand', 'hazratganj', 'aliganj', 'indira-nagar'] as const;
+const localitiesWithLocations = ['gomti-nagar', 'vibhuti-khand'] as const;
 const services = ['private-cabins', 'dedicated-desk', 'hot-desk', 'virtual-office', 'meeting-rooms', 'conference-hall'] as const;
 
 type LocalitySlug = typeof localities[number];
@@ -281,61 +285,59 @@ export default async function ProgrammaticPage({ params }: PageProps) {
     ];
 
     return (
-      <div className="bg-[#110b29] text-white min-h-screen py-16 px-4 sm:px-6 lg:px-8 font-sans">
+      <>
+        <PageBanner title={`Coworking in ${data.name}`} breadcrumbLabel={data.name} />
         <BreadcrumbSchema items={breadcrumbItems} />
         <FAQSchema items={data.faqs} />
 
-        <div className="max-w-4xl mx-auto">
-          {/* Header section */}
-          <div className="text-center mb-12">
-            <span className="text-[#FF5B2E] text-sm font-semibold tracking-widest uppercase">NeoHub Lucknow</span>
-            <h1 className="text-4xl sm:text-5xl font-bold mt-2 mb-4 leading-tight">{data.slogan}</h1>
-            <p className="text-lg text-gray-300 leading-relaxed">{data.description}</p>
-          </div>
+        <div className="seo-page">
+          <div className="container">
+            <div className="seo-page-inner">
+              <div className="seo-hero">
+                <span className="seo-eyebrow">NeoHub Lucknow</span>
+                <h2 className="seo-title">{data.slogan}</h2>
+                <p className="seo-lead">{data.description}</p>
+              </div>
 
-          {/* Landmarks flex grid */}
-          <div className="bg-[#1c1145] p-8 rounded-xl border border-gray-800 mb-12">
-            <h2 className="text-2xl font-semibold mb-4 text-[#FF5B2E]">Strategic Proximity & Near Landmarks</h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-              {data.landmarks.map((landmark, i) => (
-                <div key={i} className="bg-[#110b29] p-4 rounded-lg text-center border border-gray-900 font-medium">
-                  {landmark}
+              <div className="seo-card">
+                <h2 className="seo-card-title">Strategic Proximity &amp; Near Landmarks</h2>
+                <div className="seo-landmarks-grid">
+                  {data.landmarks.map((landmark, i) => (
+                    <div key={i} className="seo-landmark-item">{landmark}</div>
+                  ))}
                 </div>
-              ))}
-            </div>
-          </div>
+              </div>
 
-          {/* Map Embed Section */}
-          <div className="mb-12">
-            <h2 className="text-2xl font-semibold mb-6 text-[#FF5B2E]">Find Us in {data.name}</h2>
-            <div className="aspect-w-16 aspect-h-9 rounded-xl overflow-hidden border border-gray-800 shadow-2xl">
-              <iframe
-                src={data.mapEmbedUrl}
-                width="100%"
-                height="450"
-                style={{ border: 0 }}
-                allowFullScreen={true}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title={`NeoHub Coworking Space Map - ${data.name}`}
-              ></iframe>
-            </div>
-          </div>
-
-          {/* FAQ Accordions */}
-          <div className="bg-[#1c1145] p-8 rounded-xl border border-gray-800">
-            <h2 className="text-2xl font-semibold mb-6 text-[#FF5B2E]">Frequently Asked Questions</h2>
-            <div className="space-y-6">
-              {data.faqs.map((faq, i) => (
-                <div key={i} className="border-b border-gray-800 pb-4 last:border-b-0">
-                  <h3 className="text-lg font-medium text-white mb-2">{faq.question}</h3>
-                  <p className="text-gray-400">{faq.answer}</p>
+              {localitiesWithLocations.includes(slug as typeof localitiesWithLocations[number]) ? (
+                <div className="seo-card">
+                  <NeoHubLocations showMaps title={`NeoHub Centres in ${data.name}`} />
                 </div>
-              ))}
+              ) : (
+                <div className="seo-section">
+                  <h2 className="seo-card-title">Find Us in {data.name}</h2>
+                  <div className="seo-map-wrap">
+                    <iframe
+                      src={data.mapEmbedUrl}
+                      width="100%"
+                      height="450"
+                      style={{ border: 0 }}
+                      allowFullScreen={true}
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title={`NeoHub Coworking Space Map - ${data.name}`}
+                    ></iframe>
+                  </div>
+                </div>
+              )}
+
+              <div className="seo-card">
+                <h2 className="seo-card-title">Frequently Asked Questions</h2>
+                <FaqAccordion items={data.faqs} />
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 
@@ -350,68 +352,60 @@ export default async function ProgrammaticPage({ params }: PageProps) {
     ];
 
     return (
-      <div className="bg-[#110b29] text-white min-h-screen py-16 px-4 sm:px-6 lg:px-8 font-sans">
+      <>
+        <PageBanner title={data.name} breadcrumbLabel={data.name} />
         <JsonLd data={serviceSchema} />
         <BreadcrumbSchema items={breadcrumbItems} />
         <FAQSchema items={data.faqs} />
 
-        <div className="max-w-4xl mx-auto">
-          {/* Header section */}
-          <div className="text-center mb-12">
-            <span className="text-[#FF5B2E] text-sm font-semibold tracking-widest uppercase">Office Solutions</span>
-            <h1 className="text-4xl sm:text-5xl font-bold mt-2 mb-4 leading-tight">{data.name} in Gomti Nagar</h1>
-            <p className="text-lg text-gray-300 leading-relaxed">{data.pricingDescription}</p>
-          </div>
-
-          {/* Pricing Grid */}
-          <div className="grid md:grid-cols-2 gap-6 mb-12">
-            {data.pricing.map((priceItem, i) => (
-              <div key={i} className="bg-[#1c1145] p-8 rounded-xl border border-gray-800 text-center relative overflow-hidden flex flex-col justify-between">
-                <span className="absolute top-0 right-0 bg-[#FF5B2E] text-white text-xs px-4 py-1 font-bold rounded-bl-lg">Lucknow Rate</span>
-                <div>
-                  <h3 className="text-xl font-bold text-white mb-4">{priceItem.name}</h3>
-                  <p className="text-5xl font-extrabold text-[#FF5B2E] mb-2">₹{parseInt(priceItem.price).toLocaleString()}</p>
-                  <p className="text-sm text-gray-400 mb-6">per {priceItem.unit}</p>
-                </div>
-                <a
-                  href={`https://wa.me/917000481286?text=Hi%20NeoHub%20I%20am%20interested%20in%20${encodeURIComponent(priceItem.name)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-transparent hover:bg-[#FF5B2E] border-2 border-[#FF5B2E] text-white py-3 px-6 rounded-lg font-semibold transition-all duration-300"
-                >
-                  Book Instant Tour
-                </a>
+        <div className="seo-page">
+          <div className="container">
+            <div className="seo-page-inner">
+              <div className="seo-hero">
+                <span className="seo-eyebrow">Office Solutions</span>
+                <h2 className="seo-title">{data.name} in Gomti Nagar</h2>
+                <p className="seo-lead">{data.pricingDescription}</p>
               </div>
-            ))}
-          </div>
 
-          {/* Service Features */}
-          <div className="bg-[#1c1145] p-8 rounded-xl border border-gray-800 mb-12">
-            <h2 className="text-2xl font-semibold mb-6 text-[#FF5B2E]">What is Included in Your Membership</h2>
-            <div className="grid md:grid-cols-2 gap-4">
-              {data.features.map((feature, i) => (
-                <div key={i} className="flex items-center gap-3">
-                  <span className="text-[#FF5B2E] text-xl">✓</span>
-                  <span className="text-gray-300 font-medium">{feature}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+              <div className="seo-pricing-grid">
+                {data.pricing.map((priceItem, i) => (
+                  <div key={i} className="seo-price-card">
+                    <span className="seo-price-badge">Lucknow Rate</span>
+                    <h3 className="seo-price-name">{priceItem.name}</h3>
+                    <p className="seo-price-amount">₹{parseInt(priceItem.price).toLocaleString()}</p>
+                    <p className="seo-price-unit">per {priceItem.unit}</p>
+                    <a
+                      href={`https://wa.me/917000481286?text=Hi%20NeoHub%20I%20am%20interested%20in%20${encodeURIComponent(priceItem.name)}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="seo-cta-btn"
+                    >
+                      Book Instant Tour
+                    </a>
+                  </div>
+                ))}
+              </div>
 
-          {/* FAQ Accordions */}
-          <div className="bg-[#1c1145] p-8 rounded-xl border border-gray-800">
-            <h2 className="text-2xl font-semibold mb-6 text-[#FF5B2E]">Frequently Asked Questions</h2>
-            <div className="space-y-6">
-              {data.faqs.map((faq, i) => (
-                <div key={i} className="border-b border-gray-800 pb-4 last:border-b-0">
-                  <h3 className="text-lg font-medium text-white mb-2">{faq.question}</h3>
-                  <p className="text-gray-400">{faq.answer}</p>
+              <div className="seo-card">
+                <h2 className="seo-card-title">What is Included in Your Membership</h2>
+                <div className="seo-features-grid">
+                  {data.features.map((feature, i) => (
+                    <div key={i} className="seo-feature-item">
+                      <span className="seo-feature-check" aria-hidden="true">✓</span>
+                      <span>{feature}</span>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
+
+              <div className="seo-card">
+                <h2 className="seo-card-title">Frequently Asked Questions</h2>
+                <FaqAccordion items={data.faqs} />
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </>
     );
   }
 }

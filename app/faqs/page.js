@@ -29,7 +29,8 @@ const faqData = [
   },
   {
     question: "Where is NeoHub Coworking Space located in Lucknow?",
-    answer: "We are located at Levana Cyber Heights, TC-212, 2nd Floor, Vibhuti Khand, Gomti Nagar, Lucknow, Uttar Pradesh 226010. Our office is situated in the main business district, right opposite Indira Gandhi Pratishthan.",
+    answer:
+      "NeoHub has three coworking centres in Gomti Nagar: (1) Levana Cyber Heights, 2nd Floor, TC-212, opposite Indira Gandhi Pratishthan — +91 70004 81286; (2) Bhavya Corporate Tower, 4th Floor — +91 88539 03826, open 24 hours; (3) Experion, 6th Floor, 611 — opens 9 am Mon. See our Contact page for directions.",
   },
   {
     question: "What are the operating hours of NeoHub?",

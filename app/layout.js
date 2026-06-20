@@ -1,7 +1,8 @@
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Script from "next/script";
+import LegacyStyles from "@/components/LegacyStyles";
+import LegacyScripts from "@/components/LegacyScripts";
 
 export const metadata = {
   title: "NeoHub | Premium Coworking Space in Gomti Nagar, Lucknow",
@@ -11,48 +12,22 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <head>
-        {/* Core Theme Styles */}
-        <link rel="stylesheet" href="/css/bootstrap.min_6cfe888d.css" />
-        <link rel="stylesheet" href="/css/fontawesome-all_0a9feffb.css" />
-        <link rel="stylesheet" href="/css/slick_67d00419.css" />
-        <link rel="stylesheet" href="/css/owl.carousel_d2cb4880.css" />
-        <link rel="stylesheet" href="/css/magnific-popup_56b8c1f7.css" />
-        <link rel="stylesheet" href="/css/aos_38ea42bd.css" />
-        <link rel="stylesheet" href="/css/effect_1aee6830.css" />
-        <link rel="stylesheet" href="/css/google-font_4f9101ab.css" />
-        <link rel="stylesheet" href="/css/style_206b964a.css" />
-        <link rel="stylesheet" href="/css/style_2adeb509.css" />
-        <link rel="stylesheet" href="/css/styles_d724dc9a.css" />
-        <link rel="stylesheet" href="/css/header-footer_7e7a6dd2.css" />
-        <link rel="stylesheet" href="/css/all-pages_4b179c03.css" />
-        <link rel="stylesheet" href="/css/media_7c066626.css" />
-        <link rel="stylesheet" href="/css/animation_0204c680.css" />
-        <link rel="stylesheet" href="/css/homepage_baf58d7b.css" />
-
-        {/* Google Fonts */}
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand:wght@300;400;500;600;700&display=swap|Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap|Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" />
-
-        {/* Preload hero image */}
+        <LegacyStyles />
         <link rel="preload" href="/assets/slider1_0fe6417c.jpg" as="image" fetchPriority="high" />
-
-        {/* Core Scripts */}
-        <Script src="/js/jquery.min_473229ac.js" strategy="afterInteractive" />
-        <Script src="/js/jquery-migrate.min_21ecf914.js" strategy="afterInteractive" />
-        <Script src="/js/bootstrap.min_f734c8d0.js" strategy="afterInteractive" />
-        <Script src="/js/slick.min_5aa94391.js" strategy="afterInteractive" />
-        <Script src="/js/aos_8b2a62b9.js" strategy="afterInteractive" />
-        <Script src="/js/wow.min_74b66322.js" strategy="afterInteractive" />
-        <Script src="/js/jquery.superfish_9438091b.js" strategy="afterInteractive" />
-        <Script src="/js/owl.carousel_9bede7ae.js" strategy="afterInteractive" />
-        <Script src="/js/jquery.magnific-popup.min_b664f4c2.js" strategy="afterInteractive" />
-        <Script src="/js/custom_73561f33.js" strategy="afterInteractive" />
       </head>
       <body>
+        <noscript>
+          <style>{`html body { visibility: visible !important; }`}</style>
+        </noscript>
+        <a href="#main-content" className="skip-to-main">
+          Skip to main content
+        </a>
         <Header />
-        {children}
+        <main id="main-content">{children}</main>
         <Footer />
+        <LegacyScripts />
 
         {/* Floating WhatsApp Widget */}
         <a

@@ -89,10 +89,14 @@
 
 
   // nav tab js start
-  var tabLinks = document.querySelectorAll('.nav-link');
+  var tabLinks = document.querySelectorAll('.nav-link[data-bs-target]');
   // Add click event listener to each tab link
   tabLinks.forEach(function(tabLink) {
     tabLink.addEventListener('click', function() {
+      var targetAttr = tabLink.getAttribute('data-bs-target');
+      if (!targetAttr) {
+        return;
+      }
       // Remove "active" class from all tab links
       tabLinks.forEach(function(link) {
           link.classList.remove('active');
@@ -105,8 +109,11 @@
           content.classList.remove('show', 'active');
       });
       // Get the corresponding tab content and add "show" and "active" classes
-      var targetId = tabLink.getAttribute('data-bs-target').slice(1);
-      document.getElementById(targetId).classList.add('show', 'active');
+      var targetId = targetAttr.slice(1);
+      var targetEl = document.getElementById(targetId);
+      if (targetEl) {
+        targetEl.classList.add('show', 'active');
+      }
     });
   });
   // nav tab js ends

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { submitLead, openWhatsAppForLead, formatTourWhatsApp } from "@/lib/submitLead";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -10,94 +11,59 @@ export default function ContactForm() {
     subject: "",
   });
   const [status, setStatus] = useState("");
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: Integrate with your backend/API
-    setStatus("Thank you! We will get back to you shortly.");
-    setFormData({ name: "", email: "", phone: "", subject: "" });
+    setLoading(true);
+    setError("");
+    setStatus("");
+
+    try {
+      const result = await submitLead({ type: "contact", payload: formData });
+      setStatus(result.message);
+      openWhatsAppForLead(formatTourWhatsApp(formData));
+      setFormData({ name: "", email: "", phone: "", subject: "" });
+    } catch (err) {
+      setError(err.message || "Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit} aria-label="Contact form" noValidate>
-      <div className="row" style={{ gap: "20px 0px", justifyContent: "space-between" }}>
-        <div className="col-lg-12 get-box">
-          <p>
-            <input
-              size="40"
-              maxLength="400"
-              aria-required="true"
-              placeholder="Name"
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-            />
-          </p>
+    <form className="neo-form" onSubmit={handleSubmit} aria-label="Contact form" noValidate>
+      <div className="neo-form-grid">
+        <div className="neo-form-field">
+          <label htmlFor="contact-name">Full name</label>
+          <input id="contact-name" type="text" name="name" placeholder="Your name" value={formData.name} onChange={handleChange} required />
         </div>
-        <div className="col-lg-12 get-box">
-          <p>
-            <input
-              size="40"
-              maxLength="400"
-              aria-required="true"
-              placeholder="Email Address"
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-            />
-          </p>
+        <div className="neo-form-field">
+          <label htmlFor="contact-email">Email</label>
+          <input id="contact-email" type="email" name="email" placeholder="you@company.com" value={formData.email} onChange={handleChange} required />
         </div>
-        <div className="col-lg-12 get-box">
-          <p>
-            <input
-              size="40"
-              maxLength="400"
-              aria-required="true"
-              placeholder="Phone"
-              type="tel"
-              name="phone"
-              value={formData.phone}
-              onChange={handleChange}
-              required
-            />
-          </p>
+        <div className="neo-form-field neo-form-field--full">
+          <label htmlFor="contact-phone">Phone</label>
+          <input id="contact-phone" type="tel" name="phone" inputMode="tel" placeholder="+91 70004 81286" value={formData.phone} onChange={handleChange} required />
         </div>
-        <div className="col-lg-12 get-box">
-          <p>
-            <textarea
-              cols="40"
-              rows="10"
-              maxLength="2000"
-              aria-required="true"
-              placeholder="Subject"
-              name="subject"
-              value={formData.subject}
-              onChange={handleChange}
-              required
-            />
-          </p>
-        </div>
-        <div className="submit-box d-flex">
-          <div className="submit btn">
-            <p>
-              <input type="submit" value="Send Message" />
-            </p>
-          </div>
+        <div className="neo-form-field neo-form-field--full">
+          <label htmlFor="contact-subject">How can we help?</label>
+          <textarea id="contact-subject" name="subject" rows={4} placeholder="Tell us about your workspace needs..." value={formData.subject} onChange={handleChange} required />
         </div>
       </div>
-      {status && (
-        <div className="form-status-message" style={{ padding: "10px", marginTop: "10px", color: "#28a745" }}>
-          {status}
-        </div>
-      )}
+      <button type="submit" className="neo-form-submit" disabled={loading}>
+        {loading ? "Sending..." : "Send Message"}
+      </button>
+      <p className="neo-form-privacy">
+        By submitting, you agree to our <a href="/privacy-policy">Privacy Policy</a>.
+      </p>
+      {error ? <div className="form-status-message form-status-message--error" role="alert">{error}</div> : null}
+      {status ? <div className="form-status-message" role="status" aria-live="polite">{status}</div> : null}
     </form>
   );
 }

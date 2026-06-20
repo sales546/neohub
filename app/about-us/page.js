@@ -1,17 +1,23 @@
 import PageBanner from "@/components/PageBanner";
 import AboutTabs from "@/components/AboutTabs";
+import { trustStats, aboutHighlights } from "@/lib/siteData";
 
 export const metadata = {
   title: "About Us | NeoHub Coworking Space Gomti Nagar Lucknow",
   description: "Learn about the mission, vision, and core values of NeoHub Lucknow. We are dedicated to providing the best flexible workspace solutions at Levana Cyber Heights.",
 };
 
-const counterStats = [
-  { icon: "/assets/icon1_8ad8abbc.png", value: "969", suffix: "+", label: "Successful Deals" },
-  { icon: "/assets/icon2_6f181832.png", value: "128", suffix: "+", label: "Total Properties" },
-  { icon: "/assets/icon3_b0096398.png", value: "969", suffix: "+", label: "Award Won" },
-  { icon: "/assets/icon4_18a9771f.png", value: "93", suffix: "%", label: "Satisfaction Rate" },
+const counterIcons = [
+  "/assets/icon1_8ad8abbc.png",
+  "/assets/icon2_6f181832.png",
+  "/assets/icon3_b0096398.png",
+  "/assets/icon4_18a9771f.png",
 ];
+
+const counterStats = trustStats.map((stat, index) => ({
+  ...stat,
+  icon: counterIcons[index] || counterIcons[0],
+}));
 
 const tabsData = [
   {
@@ -65,24 +71,15 @@ export default function AboutPage() {
                     </div>
 
                     <div className="about-counter-box d-flex">
-                      <div className="about-box text-start">
-                        <div className="about-icon-img">
-                          <img src="/assets/count-img1_7f169963.png" alt="Locations" />
+                      {aboutHighlights.map((item) => (
+                        <div key={item.label} className="about-box text-start">
+                          <h3 className="about-inner-title">
+                            <span className="about-counter-value">{item.value}</span>
+                            <span>{item.suffix}</span>
+                          </h3>
+                          <h5 className="about-inner-paragraph">{item.label}</h5>
                         </div>
-                        <h3 className="about-inner-title">
-                          <span className="about-counter-value">17</span><span>+</span>
-                        </h3>
-                        <h5 className="about-inner-paragraph">Locations in city center</h5>
-                      </div>
-                      <div className="about-box text-start">
-                        <div className="about-icon-img">
-                          <img src="/assets/count-img2_1b7c2edd.png" alt="Experience" />
-                        </div>
-                        <h3 className="about-inner-title">
-                          <span className="about-counter-value">25</span><span>+</span>
-                        </h3>
-                        <h5 className="about-inner-paragraph">Year Of Experience</h5>
-                      </div>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -94,29 +91,23 @@ export default function AboutPage() {
         <section id="counter-sec" className="position-relative">
           <div className="container">
             <div className="our-counter-box text-md-start text-center">
-              <div className="counter-counter-box row" style={{ backgroundSize: "100% 100%", backgroundPosition: "bottom" }}>
-                <div className="owl-carousel">
-                  {counterStats.map((stat, index) => (
-                    <div key={index} className="counter-outer-box aos-init" data-aos="flip-left">
-                      <div className="row" style={{ justifyContent: "center" }}>
-                        <div className="col-md-2 col-sm-2 col-2 align-self-center" style={{ width: "fit-content" }}>
-                          <div className="counter-icon-img">
-                            <img src={stat.icon} alt={stat.label} />
-                          </div>
-                        </div>
-                        <div className="col-md-8 col-sm-7 col-7 ps-0">
-                          <div className="counter-box">
-                            <h3>
-                              <span className="counter-value">{stat.value}</span>
-                              <span>{stat.suffix}</span>
-                            </h3>
-                            <p className="counter-title">{stat.label}</p>
-                          </div>
-                        </div>
+              <div className="counter-stats-grid">
+                {counterStats.map((stat, index) => (
+                  <div key={index} className="counter-outer-box aos-init" data-aos="flip-left">
+                    <div className="counter-stat-inner">
+                      <div className="counter-icon-img">
+                        <img src={stat.icon} alt={stat.label} />
+                      </div>
+                      <div className="counter-box">
+                        <h3>
+                          <span className="counter-value">{stat.value}</span>
+                          <span>{stat.suffix}</span>
+                        </h3>
+                        <p className="counter-title">{stat.label}</p>
                       </div>
                     </div>
-                  ))}
-                </div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import PageBanner from "@/components/PageBanner";
 
 export const metadata = {
@@ -52,39 +53,30 @@ export default function BlogPage() {
       <div id="full-width-blog">
         <div className="container">
           <div className="content_page row pt-5 pb-5">
-            {blogPosts.map((post, index) => (
-              <div key={index} className="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-3 mb-3">
+            {blogPosts.map((post) => (
+              <div key={post.title} className="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-3 mb-3">
                 <div className="blog-image-box" style={{ position: "relative" }}>
                   <div className="blog-img-box position-relative">
                     <div className="post-img">
-                      <img src={post.image} alt={post.title} />
+                      <img src={post.image} alt={post.title} loading="lazy" />
                     </div>
                     <div className="blog-date-admin-box">
-                      <a className="date-item align-self-center">
-                        <div className="date">{post.date}</div>
-                        <div className="month">{post.month}</div>
-                      </a>
+                      <span className="date-item align-self-center">
+                        <span className="date">{post.date}</span>
+                        <span className="month">{post.month}</span>
+                      </span>
                     </div>
                   </div>
 
                   <div className="blog-contents-box text-lg-start text-start">
                     <div className="d-flex justify-content-lg-start justify-content-sm-start justify-content-start">
                       <div className="blog-admin-box">
-                        <a style={{ textAlign: "center" }} href="#">
-                          <div className="d-flex">
-                            <i className="fa fa-user"></i>
-                            <span className="ms-2 news-author">By NeoHub Team</span>
-                          </div>
-                        </a>
-                      </div>
-                      <div className="post-comments align-self-center ps-3">
-                        <i className="fas fa-comments"></i>
-                        <span className="ms-2">0 Comment</span>
+                        <span className="news-author">By NeoHub Team</span>
                       </div>
                     </div>
 
                     <h5 className="pt-2">
-                      <a href="#">{post.title}</a>
+                      <Link href="/contact">{post.title}</Link>
                     </h5>
                   </div>
                 </div>
@@ -92,14 +84,12 @@ export default function BlogPage() {
             ))}
           </div>
 
-          <div className="navigation_pagination">
-            <span aria-current="page" className="page-numbers current">1</span>
-            <a className="page-numbers" href="#">2</a>
-            <a className="next page-numbers" href="#">Next &raquo;</a>
+          <div className="text-center pb-4">
+            <Link className="hero-secondary-btn" href="/contact" style={{ color: "#0f172a", borderColor: "#e2e8f0" }}>
+              Ask our team about workspace insights
+            </Link>
           </div>
-          <div className="clearfix"></div>
         </div>
-        <div className="clearfix"></div>
       </div>
     </>
   );

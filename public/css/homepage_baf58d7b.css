@@ -1,0 +1,153 @@
+:root {
+  --white: #ffffff;
+  --black: #000000;
+  --yellow: #FFC107;
+  --blue: #002F6C;
+}
+
+/*-------------- Owl crousel ---------------*/
+body.home{
+  background-color: #fff;
+}
+/* SLIDER */
+#slider {
+  position: relative;
+  padding: 0px;
+}
+.slider-inner-bg-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.slider-inner-bg-image{
+  height: 700px;
+  width: 100%;
+  /* clip-path: polygon(0% 0%, 99.948% 0%, 99.948% 0%, 99.962% 2.204%, 99.927% 8.249%, 99.727% 17.282%, 99.247% 28.453%, 98.371% 40.909%, 96.985% 53.799%, 94.972% 66.272%, 92.217% 77.475%, 88.604% 86.557%, 84.019% 92.666%, 84.019% 92.666%, 77.214% 96.489%, 68.244% 98.798%, 57.79% 99.854%, 46.528% 99.919%, 35.138% 99.255%, 24.297% 98.124%, 14.685% 96.789%, 6.979% 95.511%, 1.858% 94.552%, 0% 94.174%, 0% 0%); */
+}
+#slider
+.slider-inner-bg-image:after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.slider-box{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+#slider .slide-small-heading{
+  color: #fff;
+}
+.slider-para {
+  color: #fff;
+  width: 81%;
+}
+.slider-content-main-box{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 25%;
+  z-index: 1;
+}
+a.slider-btn.btn {
+  background: var(--orange);
+  color: #fff;
+}
+a.slider-btn.btn:hover {
+  color: var(--white);
+}
+a.slider-btn.btn:after{
+  background: #000;
+}
+#slider .slide-info .active-slide {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 50px;
+}
+#slider .slide-info {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 25px;
+  padding-top: 8%;
+  color: #fff;
+}
+.slider-touch-form-box h3{
+  font: 700 28px / 35px var(--pri-font);
+}
+.slider-inner-bg-image-outer-box{
+  /* padding-bottom: 6%; */
+}
+.slider-touch-form-box input[type="date"],.slider-touch-form-box select,.slider-touch-form-box input[type="text"], .slider-touch-form-box input[type="tel"], .slider-touch-form-box input[type="email"], .slider-touch-form-box input[type="number"], .contact-touch-form-box input[type="date"], .contact-touch-form-box input[type="phone"], .contact-touch-form-box input[type="password"], .contact-touch-form-box textarea, .contact-touch-form-box select {
+  font-size: 14px !important;
+  padding: 14px 18px !important;
+  width: 100%;
+  border-radius: 6px;
+  line-height: 16px;
+  font-family: var(--pri-font);
+  border: none;
+  background: #99999924;
+}
+.slider-touch-form-box form .submit.btn {
+  font: 500 14px / 20px var(--pri-font);
+  color: var(--white);
+  background: var(--black);
+  border: none;
+  border-radius: 6px;
+  padding: 8px 28px;
+  width: max-content;
+}
+.slider-video-btn{
+  position: absolute;
+  right: 30px;
+  display: flex;
+  justify-content: end;
+  top: 36px;
+  width: fit-content;
+}
+.slider-play-icon{
+  background: var(--orange);
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 75px;
+  box-shadow: 0px 0px 0px 15px rgba(217, 217, 217, 0.2);
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in;
+  animation-name: pulse;
+}
+.slider-play-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+
+
+.slider-touch-form-box .wpcf7 form .wpcf7-response-output {
+  margin: 1em 0.5em 0em;
+}
+.slider-touch-form-box{
+  background: #fff;
+  padding: 30px 35px;
+  border-radius: 20px 100px 20px 20px;
+  box-shadow: 0px 0px 7px 0px #00000047;
+}
+.slider-form-box-outer {
+  position: absolute;
+    left: 0;
+    right: 0;
+}
+.slider-box-shadow-box-shadow{
+  margin: auto;
+  top: unset;
+  position: absolute;
+  left: 0;
+  bottom: -70px;
+  z-index: 1;
+}

@@ -13,10 +13,9 @@ import {
   htmlToPlainText,
 } from "@/lib/blog/queries";
 import { getBlogPostingSchema, getBreadcrumbSchema, getFAQPageSchema } from "@/lib/seo/schema";
+import { BASE_URL, buildOgImageUrl, constructMetadata } from "@/lib/seo/metadata";
 
 export const revalidate = 300;
-
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://neohubspaces.in";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -43,64 +42,43 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const post = await getBlogPostBySlug(slug);
   if (!post) {
-    return { title: "Blog post not found | NeoHub Lucknow" };
+    return constructMetadata({
+      title: "Blog post not found",
+      description: "This NeoHub blog article could not be found.",
+      canonical: `/blog/${slug}`,
+      noIndex: true,
+    });
   }
 
   const title = post.meta_title || post.title;
   const description =
     post.meta_description || post.excerpt || htmlToPlainText(post.body_html, 155);
-  const image = post.og_image_url || post.cover_image_url || "/assets/og-default.png";
+  const cover = post.og_image_url || post.cover_image_url;
   const canonicalPath = post.canonical_url || `/blog/${post.slug}`;
-  const imageUrl = image.startsWith("http") ? image : `${BASE_URL}${image}`;
+  const ogImage =
+    cover ||
+    buildOgImageUrl(title, post.excerpt || "NeoHub coworking insights · Lucknow");
 
-  return {
+  const canonical =
+    canonicalPath.startsWith("http") && !canonicalPath.startsWith(BASE_URL)
+      ? `/blog/${post.slug}`
+      : canonicalPath.replace(BASE_URL, "") || `/blog/${post.slug}`;
+
+  return constructMetadata({
     title,
     description,
-    keywords: post.tags?.length ? post.tags.join(", ") : undefined,
-    alternates: {
-      canonical: canonicalPath.startsWith("http") ? canonicalPath : `${BASE_URL}${canonicalPath}`,
-    },
-    robots: post.noindex
-      ? { index: false, follow: true }
-      : {
-          index: true,
-          follow: true,
-          googleBot: {
-            index: true,
-            follow: true,
-            "max-image-preview": "large",
-            "max-snippet": -1,
-          },
-        },
-    openGraph: {
-      type: "article",
-      title,
-      description,
-      url: `${BASE_URL}/blog/${post.slug}`,
-      siteName: "NeoHub Coworking Space",
-      publishedTime: post.published_at || undefined,
-      modifiedTime: post.updated_at || undefined,
-      authors: [post.author || "NeoHub Team"],
-      tags: post.tags || undefined,
-      images: [
-        {
-          url: imageUrl,
-          width: 1200,
-          height: 630,
-          alt: post.cover_image_alt || post.title,
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: [imageUrl],
-    },
-    other: {
-      "ai-crawlers": post.noindex ? "noindex" : "index, follow",
-    },
-  };
+    canonical,
+    absoluteTitle: true,
+    ogImage,
+    ogSubtitle: post.excerpt || "NeoHub coworking insights · Lucknow",
+    ogType: "article",
+    noIndex: Boolean(post.noindex),
+    keywords: post.tags || [],
+    publishedTime: post.published_at || undefined,
+    modifiedTime: post.updated_at || undefined,
+    authors: [post.author || "NeoHub Team"],
+    imageAlt: post.cover_image_alt || post.title,
+  });
 }
 
 export default async function BlogDetailPage({ params }: PageProps) {

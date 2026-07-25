@@ -67,9 +67,9 @@ const localityData: Record<LocalitySlug, {
   'hazratganj': {
     name: 'Hazratganj',
     metaTitle: 'Coworking Office Space Hazratganj Lucknow | Flexible Desks',
-    metaDescription: 'Find flexible coworking office spaces near Hazratganj, Lucknow. NeoHub offers premium shared cabins and hot desks with fast commuting links from Hazratganj Metro Station.',
-    slogan: 'Professional Workspaces with Direct Connectivity to Hazratganj',
-    description: 'For teams looking to stay close to Lucknow\'s heritage commercial core, NeoHub provides high-speed, well-connected virtual and shared office access. Positioned within minutes of Hazratganj, our Gomti Nagar hub serves as the perfect operations facility while offering meeting rooms for client presentations near the downtown center.',
+    metaDescription: 'Find flexible coworking office spaces near Hazratganj, Lucknow. NeoHub’s Gomti Nagar centres offer premium shared cabins and hot desks with easy commuting links from Hazratganj.',
+    slogan: 'Served from NeoHub Gomti Nagar — easy access from Hazratganj',
+    description: 'NeoHub does not operate a separate Hazratganj building. Teams from Hazratganj are served from our Gomti Nagar centres (Cyber Heights, Bhavya, Experion) with flexible desks, private cabins, and meeting rooms — a short commute from Lucknow’s heritage commercial core.',
     landmarks: ['Hazratganj Metro Station', 'Sahara Ganj Mall', 'Lucknow GPO', 'General Post Office'],
     mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.026770932204!2d81.000788!3d26.863868!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be296aaaaaaab%3A0x6b402ef465baee0f!2sLevana%20Cyber%20Heights!5e0!3m2!1sen!2sin!4v1716949392211!5m2!1sen!2sin',
     faqs: [
@@ -82,9 +82,9 @@ const localityData: Record<LocalitySlug, {
   'aliganj': {
     name: 'Aliganj',
     metaTitle: 'Shared Coworking Space Aliganj Lucknow | Virtual Office',
-    metaDescription: 'Establish your office near Aliganj, Lucknow. Rent meeting rooms, dedicated desks, and virtual office addresses at NeoHub. Modern infrastructure for local businesses.',
-    slogan: 'Connect Your Aliganj Enterprise to Lucknow\'s Premium Coworking Space',
-    description: 'NeoHub enables startups and small businesses in Aliganj to upgrade to a Grade-A office infrastructure. Avoid the hassles of lease overheads and high utility bills. Get corporate hot desks and private cabins with instant setup, tea/coffee access, and gigabit internet backups.',
+    metaDescription: 'Coworking near Aliganj, Lucknow — NeoHub serves Aliganj teams from Gomti Nagar with meeting rooms, dedicated desks, and private cabins.',
+    slogan: 'Served from NeoHub Gomti Nagar — convenient for Aliganj teams',
+    description: 'NeoHub’s physical hubs are in Gomti Nagar. Startups and SMEs from Aliganj use our Cyber Heights, Bhavya, and Experion centres for Grade-A desks, cabins, and meeting rooms — without long leases or utility overheads.',
     landmarks: ['Aliganj Post Office', 'Kapoorthala Commercial Complex', 'Chandra Shekhar Azad Park'],
     mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.026770932204!2d81.000788!3d26.863868!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be296aaaaaaab%3A0x6b402ef465baee0f!2sLevana%20Cyber%20Heights!5e0!3m2!1sen!2sin!4v1716949392211!5m2!1sen!2sin',
     faqs: [
@@ -97,9 +97,9 @@ const localityData: Record<LocalitySlug, {
   'indira-nagar': {
     name: 'Indira Nagar',
     metaTitle: 'Coworking Desk Spaces Indira Nagar Lucknow | NeoHub',
-    metaDescription: 'Searching for a coworking space near Indira Nagar, Lucknow? Join NeoHub Coworking Space. Dedicated desks, hot desks, and client conference rooms near Shalimar Metropolis.',
-    slogan: 'Premium Workplace Infrastructure Close to Indira Nagar',
-    description: 'Located adjacent to Indira Nagar, NeoHub at Cyber Heights offers a highly convenient office environment for residents of Indira Nagar. Avoid long daily commutes. Access high-speed internet, ergonomic desks, and professional meeting rooms just around the corner.',
+    metaDescription: 'Coworking near Indira Nagar, Lucknow — NeoHub serves Indira Nagar professionals from Gomti Nagar with desks, cabins, and conference rooms.',
+    slogan: 'Served from NeoHub Gomti Nagar — short commute from Indira Nagar',
+    description: 'NeoHub’s centres are in Gomti Nagar (Cyber Heights, Bhavya, Experion). Professionals from Indira Nagar use our desks, cabins, and meeting rooms with a short commute — high-speed internet and professional facilities without managing a private lease.',
     landmarks: ['Indira Nagar Metro Station', 'Bhootnath Market', 'Shalimar Metropolis Mall'],
     mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.026770932204!2d81.000788!3d26.863868!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be296aaaaaaab%3A0x6b402ef465baee0f!2sLevana%20Cyber%20Heights!5e0!3m2!1sen!2sin!4v1716949392211!5m2!1sen!2sin',
     faqs: [
@@ -248,7 +248,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: data.metaTitle,
       description: data.metaDescription,
       canonical: `/${slug}`,
-      keywords: [`coworking in ${data.name}`, `office space in ${data.name}`, `best desk ${data.name}`]
+      absoluteTitle: true,
+      ogSubtitle: data.slogan,
+      keywords: [`coworking in ${data.name}`, `office space in ${data.name}`, `best desk ${data.name}`],
     });
   }
 
@@ -258,11 +260,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: data.metaTitle,
       description: data.metaDescription,
       canonical: `/${slug}`,
-      keywords: [data.name, `${data.name} lucknow`, `${data.name} gomti nagar`]
+      absoluteTitle: true,
+      ogSubtitle: `${data.name} at NeoHub · Gomti Nagar, Lucknow`,
+      keywords: [data.name, `${data.name} lucknow`, `${data.name} gomti nagar`],
     });
   }
 
-  return {};
+  return constructMetadata({
+    title: "Page not found",
+    description: "The page you requested is not available on NeoHub.",
+    canonical: `/${slug}`,
+    noIndex: true,
+  });
 }
 
 // Unified Render Component

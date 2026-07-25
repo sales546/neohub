@@ -1,6 +1,8 @@
-import { testimonials } from "@/lib/siteData";
+import { getPublishedTestimonials } from "@/lib/testimonials";
 
-export default function HomeTestimonials() {
+export default async function HomeTestimonials() {
+  const testimonials = await getPublishedTestimonials();
+
   return (
     <section id="testimonial" className="home-section home-section--muted">
       <div className="container">
@@ -13,15 +15,15 @@ export default function HomeTestimonials() {
         </div>
         <div className="home-testimonial-grid">
           {testimonials.map((t) => (
-            <article key={t.name} className="testimonial-content-main-box home-testimonial-card">
+            <article key={t.id || t.name} className="testimonial-content-main-box home-testimonial-card">
               <div className="home-testimonial-head">
-                <img width="56" height="56" src={t.image} alt={t.name} />
+                <img width="56" height="56" src={t.image || "/assets/testimg1_4d709d5b.png"} alt={t.name} />
                 <div>
                   <h5 className="testimonial-title-box">{t.name}</h5>
                   <p className="testimonial-contents">{t.role}</p>
                 </div>
                 <div className="testi-rating" aria-label={`${t.rating} out of 5 stars`}>
-                  {Array.from({ length: t.rating }).map((_, i) => (
+                  {Array.from({ length: t.rating || 5 }).map((_, i) => (
                     <span key={i}><i className="fas fa-star" aria-hidden="true"></i></span>
                   ))}
                 </div>

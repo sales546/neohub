@@ -9,7 +9,7 @@ export default function BlogCard({ post }) {
       <div className="blog-img-box position-relative">
         <Link href={`/blog/${post.slug}`} className="post-img">
           <img
-            src={post.cover_image_url || "/assets/blog1.jpg"}
+            src={post.cover_image_url || "/assets/blog-covers/neohub-gomti-nagar-hub.jpg"}
             alt={post.cover_image_alt || post.title}
             loading="lazy"
             width={800}

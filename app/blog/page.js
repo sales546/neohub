@@ -15,6 +15,7 @@ export const metadata = constructMetadata({
   description:
     "Practical guides on coworking spaces, private cabins, workstation pricing, and meeting rooms in Gomti Nagar, Lucknow — written for startups and growing teams.",
   canonical: "/blog",
+  ogSubtitle: "Guides for startups & growing teams in Lucknow",
   keywords: [
     "coworking blog lucknow",
     "office space tips gomti nagar",

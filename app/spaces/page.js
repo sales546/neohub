@@ -1,10 +1,15 @@
 import Link from "next/link";
 import PageBanner from "@/components/PageBanner";
+import { constructMetadata } from "@/lib/seo/metadata";
 
-export const metadata = {
-  title: "Premium Shared Spaces & Meeting Rooms in Lucknow | NeoHub",
-  description: "Discover our private office cabins, dedicated desks, flexible hot desking, meeting cabins, and high-tech conference rooms at Levana Cyber Heights, Gomti Nagar.",
-};
+export const metadata = constructMetadata({
+  title: "Premium Shared Spaces & Meeting Rooms",
+  description:
+    "Discover private office cabins, dedicated desks, flexible hot desking, meeting cabins, and high-tech conference rooms at NeoHub, Levana Cyber Heights, Gomti Nagar.",
+  canonical: "/spaces",
+  ogSubtitle: "Cabins · Workstations · Conference rooms in Lucknow",
+  keywords: ["coworking spaces lucknow", "meeting rooms gomti nagar", "private cabin pricing"],
+});
 
 const spacesData = [
   {

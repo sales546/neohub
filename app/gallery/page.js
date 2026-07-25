@@ -1,10 +1,16 @@
 import PageBanner from "@/components/PageBanner";
 import { galleryImages } from "@/lib/siteData";
+import { constructMetadata } from "@/lib/seo/metadata";
 
-export const metadata = {
-  title: "Office Gallery & Virtual Tour | NeoHub Coworking Lucknow",
-  description: "Take a tour of our office space. See high-resolution images of our workspaces, conference rooms, hot desks, and private office cabins in Cyber Heights.",
-};
+export const metadata = constructMetadata({
+  title: "Office Gallery & Workspace Tour",
+  description:
+    "Browse NeoHub's office gallery — workspaces, conference rooms, hot desks, and private cabins at Levana Cyber Heights, Gomti Nagar, Lucknow.",
+  canonical: "/gallery",
+  ogSubtitle: "See the NeoHub coworking experience",
+  ogImage: "/assets/slider1_0fe6417c.jpg",
+  keywords: ["neohub gallery", "coworking office photos lucknow", "cyber heights office tour"],
+});
 
 export default function GalleryPage() {
   return (

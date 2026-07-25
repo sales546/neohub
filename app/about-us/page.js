@@ -2,10 +2,16 @@ import PageBanner from "@/components/PageBanner";
 import AboutTabs from "@/components/AboutTabs";
 import { trustStats, aboutHighlights } from "@/lib/siteData";
 
-export const metadata = {
-  title: "About Us | NeoHub Coworking Space Gomti Nagar Lucknow",
-  description: "Learn about the mission, vision, and core values of NeoHub Lucknow. We are dedicated to providing the best flexible workspace solutions at Levana Cyber Heights.",
-};
+import { constructMetadata } from "@/lib/seo/metadata";
+
+export const metadata = constructMetadata({
+  title: "About NeoHub Coworking Space",
+  description:
+    "Learn about NeoHub's mission, vision, and values. Premium flexible workspaces at Levana Cyber Heights, Gomti Nagar, Lucknow for startups and growing teams.",
+  canonical: "/about-us",
+  ogSubtitle: "Mission, vision & workspace culture in Lucknow",
+  keywords: ["about neohub", "coworking company lucknow", "neohub gomti nagar"],
+});
 
 const counterIcons = [
   "/assets/icon1_8ad8abbc.png",

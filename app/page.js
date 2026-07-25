@@ -5,26 +5,29 @@ import HomeGallery from "@/components/HomeGallery";
 import {
   trustStats,
   pricingPlans,
-  testimonials,
   aboutHighlights,
   partnerLogos,
   buildPlanWhatsAppUrl,
 } from "@/lib/siteData";
 import { formatBlogDate, getBlogPosts } from "@/lib/blog/queries";
+import { getPublishedTestimonials } from "@/lib/testimonials";
+import { constructMetadata } from "@/lib/seo/metadata";
 
-export const metadata = {
+export const metadata = constructMetadata({
   title: "NeoHub Coworking Space Lucknow | Premium Shared Office Gomti Nagar",
   description:
     "Boost your productivity at NeoHub, Lucknow's leading coworking space in Levana Cyber Heights, Gomti Nagar. Flexible hot desking, dedicated workstations, private office cabins, and high-tech meeting rooms.",
+  canonical: "/",
+  absoluteTitle: true,
+  ogSubtitle: "Levana Cyber Heights · Gomti Nagar · Lucknow",
   keywords: [
-    "coworking space in lucknow",
     "shared office space lucknow",
     "office space in gomti nagar",
     "private cabins lucknow",
     "conference rooms lucknow",
     "levana cyber heights office",
   ],
-};
+});
 
 const sliderImages = [
   "/assets/slider1_0fe6417c.jpg",
@@ -157,7 +160,10 @@ const SpaceSvg = () => (
 export const revalidate = 300;
 
 export default async function HomePage() {
-  const latestPosts = await getBlogPosts({ limit: 3 });
+  const [latestPosts, testimonials] = await Promise.all([
+    getBlogPosts({ limit: 3 }),
+    getPublishedTestimonials(),
+  ]);
 
   return (
     <>
@@ -172,9 +178,9 @@ export default async function HomePage() {
                     <div className="col-xl-7 col-lg-7 col-md-7 col-12 slider-content-column text-md-start text-center pe-lg-5 pe-md-3 pt-sm-0 pt-4">
                       <div className="slider-box text-sm-start text-center">
                         <h6 className="slide-small-heading">Welcome To NeoHub Coworking</h6>
-                        <h1 className="slide-heading-one">Comfortable Coworking Meeting Spaces</h1>
+                        <h1 className="slide-heading-one">NeoHub — Premium Coworking in Gomti Nagar, Lucknow</h1>
                         <p className="slider-para animated fadeInUp delay-1s">
-                          To provide professionals, freelancers, and businesses in Lucknow with a world-class, flexible workspace ecosystem that drives efficiency, collaboration, and innovation.
+                          Private cabins, dedicated workstations, and conference rooms across Cyber Heights, Bhavya, and Experion — built for startups and growing teams.
                         </p>
                         <div className="slider-button-box pt-xl-4 pt-lg-4 pt-md-4 pt-sm-3 pb-3 pt-0 d-sm-flex d-block">
                           <Link className="slider-btn btn" href="/spaces"><span>Explore More</span></Link>
@@ -456,19 +462,19 @@ export default async function HomePage() {
               <div className="our-testimonial-box position-relative pb-lg-4">
                 <div className="owl-carousel owl-carousel-box">
                   {testimonials.map((t, i) => (
-                    <div key={i} className="testimonial-content-main-box">
+                    <div key={t.id || i} className="testimonial-content-main-box">
                       <div className="testimonial-content-box position-relative">
                         <div className="content-box text-start align-self-center">
                           <div className="testimonial-quote-box d-flex position-relative">
                             <div className="testimonial-client-image">
-                              <img width="60" height="60" src={t.image} alt={t.name} />
+                              <img width="60" height="60" src={t.image || "/assets/testimg1_4d709d5b.png"} alt={t.name} />
                             </div>
                             <div className="testimonial-client-content ps-md-2 ps-sm-3 ps-2 align-self-center">
                               <h5 className="testimonial-title-box">{t.name}</h5>
                               <p className="testimonial-contents">{t.role}</p>
                             </div>
                             <div className="testi-rating text-center align-self-center">
-                              {Array.from({ length: t.rating }).map((_, j) => (
+                              {Array.from({ length: t.rating || 5 }).map((_, j) => (
                                 <span key={j}><i className="fas fa-star"></i></span>
                               ))}
                             </div>

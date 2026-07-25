@@ -1,9 +1,13 @@
 import PageBanner from "@/components/PageBanner";
+import { constructMetadata } from "@/lib/seo/metadata";
 
-export const metadata = {
-  title: "Privacy Policy | NeoHub Coworking Space Lucknow",
-  description: "Privacy policy for NeoHub Coworking Space at Levana Cyber Heights, Gomti Nagar, Lucknow.",
-};
+export const metadata = constructMetadata({
+  title: "Privacy Policy",
+  description:
+    "Privacy policy for NeoHub Coworking Space at Levana Cyber Heights, Gomti Nagar, Lucknow — how we collect and use enquiry data.",
+  canonical: "/privacy-policy",
+  ogSubtitle: "How NeoHub handles your data",
+});
 
 export default function PrivacyPolicyPage() {
   return (

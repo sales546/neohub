@@ -1710,6 +1710,41 @@ textarea:focus-visible,
   line-height: 1.5;
 }
 
+/* Honeypot — visually hidden from humans, filled by many bots */
+.neo-hp {
+  position: absolute !important;
+  left: -10000px !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+}
+
+.neo-form-field--error input,
+.neo-form-field--error select,
+.neo-form-field--error textarea {
+  border-color: #dc2626 !important;
+  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12);
+}
+
+.neo-field-error {
+  display: block;
+  margin-top: 6px;
+  color: #b91c1c;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.neo-optional {
+  color: #64748b;
+  font-weight: 500;
+  font-size: 0.9em;
+}
+
+.nh-field .neo-field-error {
+  margin-top: 4px;
+}
+
 .neo-form-privacy a {
   color: var(--brand-orange) !important;
   font-weight: 600;

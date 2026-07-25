@@ -2,10 +2,19 @@ export interface SeoMetadataProps {
   title: string;
   description: string;
   canonical?: string;
+  /** Absolute URL or site path. Defaults to dynamic /api/og preview. */
   ogImage?: string;
-  ogType?: 'website' | 'article';
+  /** Subtitle shown on the generated OG image */
+  ogSubtitle?: string;
+  ogType?: "website" | "article";
+  /** When true, title is used as-is (no "| NeoHub Lucknow" template) */
+  absoluteTitle?: boolean;
   noIndex?: boolean;
   keywords?: string[] | string;
+  publishedTime?: string;
+  modifiedTime?: string;
+  authors?: string[];
+  imageAlt?: string;
 }
 
 export interface BreadcrumbItem {

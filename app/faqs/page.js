@@ -1,10 +1,16 @@
 import PageBanner from "@/components/PageBanner";
 import FaqAccordion from "@/components/FaqAccordion";
+import FAQSchema from "@/components/seo/FAQSchema";
+import { constructMetadata } from "@/lib/seo/metadata";
 
-export const metadata = {
-  title: "Frequently Asked Questions | NeoHub Coworking Space Lucknow",
-  description: "Get answers to FAQs about membership plans, pricing, amenities, high-speed internet, conference rooms, and private cabins at NeoHub Lucknow in Gomti Nagar.",
-};
+export const metadata = constructMetadata({
+  title: "Frequently Asked Questions",
+  description:
+    "FAQs on NeoHub membership plans, pricing, amenities, internet, conference rooms, and private cabins in Gomti Nagar, Lucknow.",
+  canonical: "/faqs",
+  ogSubtitle: "Pricing, amenities & membership answers",
+  keywords: ["neohub faq", "coworking pricing lucknow", "coworking membership questions"],
+});
 
 const faqData = [
   {
@@ -34,13 +40,20 @@ const faqData = [
   },
   {
     question: "What are the operating hours of NeoHub?",
-    answer: "Our coworking space operates from 9:00 AM to 9:00 PM, Monday through Saturday. Dedicated office cabin clients can also request custom access cards depending on their team requirements.",
+    answer:
+      "Bhavya Corporate Tower (primary) is open 24 hours. Cyber Heights (Levana) is 9:00 AM–5:00 PM. Experion is 9:00 AM–10:00 PM. Confirm current hours when you book a tour; private cabin members can request extended access options.",
+  },
+  {
+    question: "Do you serve teams from Hazratganj, Aliganj, and Indira Nagar?",
+    answer:
+      "Yes. NeoHub’s physical centres are in Gomti Nagar (Vibhuti Khand). We regularly serve professionals commuting from Hazratganj, Aliganj, Indira Nagar, and nearby Lucknow areas with flexible desks, cabins, and meeting rooms.",
   },
 ];
 
 export default function FaqsPage() {
   return (
     <>
+      <FAQSchema items={faqData} />
       <PageBanner title="FAQ's" />
 
       <section id="faq-page">

@@ -1,9 +1,14 @@
 import PageBanner from "@/components/PageBanner";
+import { constructMetadata } from "@/lib/seo/metadata";
 
-export const metadata = {
-  title: "Terms of Service | NeoHub Coworking Space Lucknow",
-  description: "Terms of service for workspace memberships and bookings at NeoHub Coworking Space, Lucknow.",
-};
+export const metadata = constructMetadata({
+  title: "Terms of Service",
+  description:
+    "Terms of service for workspace memberships and bookings at NeoHub Coworking Space, Lucknow.",
+  canonical: "/terms",
+  ogSubtitle: "Membership & booking terms",
+  noIndex: false,
+});
 
 export default function TermsPage() {
   return (

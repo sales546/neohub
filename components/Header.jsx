@@ -73,7 +73,7 @@ export default function Header() {
         <div className="container">
           <div className="header-main-outer-box">
             <div className="row header-outer-box">
-              <div className="col-xl-2 col-lg-3 col-md-4 col-sm-5 col-12 logo-main-box align-self-center ps-sm-4 ps-0">
+              <div className="col-xl-2 col-lg-3 col-md-4 col-8 col-sm-5 logo-main-box align-self-center ps-sm-4 ps-2">
                 <div className="logo">
                   <Link href="/" rel="home" aria-label="NeoHub Home">
                     <img src="/assets/logo_67f6779b.png" alt="NeoHub" />
@@ -82,7 +82,7 @@ export default function Header() {
                 </div>
               </div>
 
-              <div className="col-xl-10 col-lg-9 col-md-8 col-sm-7 col-12 header-main-box align-self-center">
+              <div className="col-xl-10 col-lg-9 col-md-8 col-4 col-sm-7 header-main-box align-self-center">
                 <div className="headerbar">
                   <div className="menubar right_menu">
                     <div className="toggle-nav mobile-menu">
@@ -148,7 +148,7 @@ export default function Header() {
                                 </li>
                               );
                             })}
-                            <li className="menu-item d-lg-none mt-3 px-3">
+                            <li className="menu-item header-cta-mobile mt-3 px-3">
                               <a
                                 href={WHATSAPP_TOUR_URL}
                                 target="_blank"
@@ -163,7 +163,7 @@ export default function Header() {
                       </nav>
                     </div>
 
-                    <div className="d-none d-lg-flex align-items-center justify-content-end">
+                    <div className="header-cta-desktop align-items-center justify-content-end">
                       <a
                         href={WHATSAPP_TOUR_URL}
                         target="_blank"

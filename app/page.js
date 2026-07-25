@@ -216,9 +216,16 @@ export default async function HomePage() {
           <div className="partners-head-content-box align-self-center text-center">
             <div className="patnerimage-box">
               <div className="owl-carousel">
-                {partnerLogos.map((logo, i) => (
-                  <div key={i} className="patner-image">
-                    <img src={logo.src} alt={logo.alt} />
+                {partnerLogos.map((logo) => (
+                  <div key={logo.src} className="patner-image">
+                    <img
+                      src={logo.src}
+                      alt={logo.alt}
+                      width={160}
+                      height={80}
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </div>
                 ))}
               </div>

@@ -9,9 +9,11 @@ export default function BlogCard({ post }) {
       <div className="blog-img-box position-relative">
         <Link href={`/blog/${post.slug}`} className="post-img">
           <img
-            src={post.cover_image_url || "/assets/image7_6ac1b0f1.png"}
+            src={post.cover_image_url || "/assets/blog1.jpg"}
             alt={post.cover_image_alt || post.title}
             loading="lazy"
+            width={800}
+            height={500}
           />
         </Link>
         {date.day ? (

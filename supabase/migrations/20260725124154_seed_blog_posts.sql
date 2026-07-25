@@ -42,7 +42,7 @@ INSERT INTO public.blog_post (
 <h3>Can a team of 20 start without a long lease?</h3>
 <p>Yes. Managed coworking is built for month-to-month scaling. At NeoHub, teams typically start with workstations or a cabin and expand across Cyber Heights, Bhavya, or Experion as hiring continues.</p>
 <p><a href="/contact">Book a walkthrough at NeoHub Gomti Nagar</a> if you want current seat availability across all three locations.</p>',
-  '/assets/image7_6ac1b0f1.png',
+  '/assets/blog1.jpg',
   'Open coworking floor at NeoHub Gomti Nagar Lucknow',
   'NeoHub Team',
   '{"coworking space gomti nagar","coworking lucknow","shared office lucknow"}',
@@ -51,7 +51,7 @@ INSERT INTO public.blog_post (
   '2026-07-18T09:30:00.000Z'::timestamptz,
   'Best Coworking Space in Gomti Nagar Lucknow | NeoHub Guide',
   'A practical checklist for choosing the best coworking space in Gomti Nagar, Lucknow — covering seats, cabins, internet, pricing, and multi-location access.',
-  '/assets/image7_6ac1b0f1.png',
+  '/assets/blog1.jpg',
   'coworking space in gomti nagar',
   false,
   7
@@ -103,7 +103,7 @@ INSERT INTO public.blog_post (
 <h3>Are meeting rooms included?</h3>
 <p>Conference rooms are bookable by the hour — ₹500/hour at Cyber Heights and Bhavya, ₹600/hour at Experion — so both workstation and cabin members can host clients professionally.</p>
 <p><a href="/dedicated-desk">See workstation plans</a> or <a href="/private-cabins">explore private cabins</a>.</p>',
-  '/assets/image5-1_6a8d661c.png',
+  '/assets/space-private.jpg',
   'Private cabin and dedicated workstations comparison at NeoHub',
   'NeoHub Team',
   '{"dedicated desk lucknow","private cabin office","workspace types"}',
@@ -112,7 +112,7 @@ INSERT INTO public.blog_post (
   '2026-07-15T08:00:00.000Z'::timestamptz,
   'Dedicated Desk vs Private Cabin Lucknow | NeoHub Comparison',
   'Compare dedicated desks and private cabins in Lucknow coworking spaces — privacy, cost, capacity, and when to upgrade from a workstation to a cabin.',
-  '/assets/image5-1_6a8d661c.png',
+  '/assets/space-private.jpg',
   'dedicated desk vs private cabin',
   false,
   6
@@ -161,7 +161,7 @@ INSERT INTO public.blog_post (
 <h3>Do prices change by floor or view?</h3>
 <p>Base published rates are listed above. Exact cabin configuration and seat count can change the final quote — always get a written proposal for your layout.</p>
 <p><a href="/contact">Request a custom quote for your team size</a>.</p>',
-  '/assets/image6_5720d7a6.png',
+  '/assets/space-desk.jpg',
   'Pricing guide for coworking desks and cabins in Lucknow',
   'NeoHub Team',
   '{"coworking pricing lucknow","office rent gomti nagar","conference room rates"}',
@@ -170,7 +170,7 @@ INSERT INTO public.blog_post (
   '2026-07-12T11:15:00.000Z'::timestamptz,
   'Coworking Space Pricing Lucknow 2026 | NeoHub Rates',
   'Transparent 2026 coworking pricing in Lucknow: workstation, private cabin, and conference room rates across NeoHub Cyber Heights, Bhavya, and Experion.',
-  '/assets/image6_5720d7a6.png',
+  '/assets/space-desk.jpg',
   'coworking space pricing lucknow',
   false,
   5
@@ -202,7 +202,7 @@ INSERT INTO public.blog_post (
 <h3>Will my team look “less serious” in a coworking space?</h3>
 <p>Not if the centre is Grade-A. Clients care about punctual meetings, privacy, and internet uptime — all of which a well-run Gomti Nagar coworking floor can deliver.</p>
 <p><a href="/spaces">Explore NeoHub workspace formats</a> built for early and growth-stage teams.</p>',
-  '/assets/image4-1_a85b66a9.png',
+  '/assets/blog2.jpg',
   'Startup team working in a Lucknow coworking space',
   'NeoHub Team',
   '{"startup office lucknow","coworking for startups","flexible office"}',
@@ -211,7 +211,7 @@ INSERT INTO public.blog_post (
   '2026-07-08T07:45:00.000Z'::timestamptz,
   'Why Lucknow Startups Choose Coworking | NeoHub Insights',
   'Learn why Lucknow startups prefer coworking over traditional offices — speed of setup, lower CapEx, flexible seating, and built-in meeting rooms.',
-  '/assets/image4-1_a85b66a9.png',
+  '/assets/blog2.jpg',
   'startup office lucknow',
   false,
   6
@@ -250,7 +250,7 @@ INSERT INTO public.blog_post (
 <h3>Can I book the same day?</h3>
 <p>Same-day inventory depends on the centre calendar. For important client meetings, reserve at least 24 hours ahead.</p>
 <p><a href="/meeting-rooms">View meeting room options</a> or <a href="/contact">request a slot this week</a>.</p>',
-  '/assets/image3-1_4fa9ed6f.png',
+  '/assets/space-conf.jpg',
   'Conference room ready for client meetings in Gomti Nagar',
   'NeoHub Team',
   '{"meeting rooms lucknow","conference room gomti nagar","hourly meeting room"}',
@@ -259,7 +259,7 @@ INSERT INTO public.blog_post (
   '2026-07-04T10:20:00.000Z'::timestamptz,
   'Meeting Rooms in Gomti Nagar Lucknow | From ₹500/Hour',
   'Book meeting rooms and conference spaces in Gomti Nagar, Lucknow. NeoHub hourly rates, what is included, and tips for client-ready presentations.',
-  '/assets/image3-1_4fa9ed6f.png',
+  '/assets/space-conf.jpg',
   'meeting rooms lucknow',
   false,
   5
@@ -292,7 +292,7 @@ INSERT INTO public.blog_post (
 <h3>Do all centres offer conference booking?</h3>
 <p>Yes. Hourly conference inventory is available across the network, with Cyber Heights/Bhavya at ₹500/hour and Experion at ₹600/hour.</p>
 <p><a href="/contact">Schedule tours across NeoHub locations</a> and we will map seat options to your headcount.</p>',
-  '/assets/image2-1_c88aa198.png',
+  '/assets/blog3.jpg',
   'NeoHub coworking locations across Gomti Nagar Lucknow',
   'NeoHub Team',
   '{"neohub locations","cyber heights coworking","bhavya corporate tower","experion lucknow"}',
@@ -301,7 +301,7 @@ INSERT INTO public.blog_post (
   '2026-07-01T06:30:00.000Z'::timestamptz,
   'NeoHub Locations Lucknow | Cyber Heights, Bhavya, Experion',
   'Compare NeoHub’s three Lucknow coworking locations in Gomti Nagar: seat counts, pricing differences, and which centre fits your team.',
-  '/assets/image2-1_c88aa198.png',
+  '/assets/blog3.jpg',
   'neohub coworking lucknow locations',
   false,
   6

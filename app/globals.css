@@ -2109,6 +2109,42 @@ textarea:focus-visible,
   height: 100%;
   display: flex;
   flex-direction: column;
+  overflow: visible !important;
+}
+
+.neo-blog-card .blog-img-box {
+  margin: 0;
+  overflow: visible;
+}
+
+.neo-blog-card .blog-img-box .post-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  overflow: hidden;
+  -webkit-mask-image: url("/assets/blog-mask_896759c9.png");
+  mask-image: url("/assets/blog-mask_896759c9.png");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  background: #eef2f7;
+}
+
+.neo-blog-card .blog-img-box .post-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  transform: none;
+}
+
+.neo-blog-card .blog-date-admin-box {
+  bottom: 8px;
+  right: 14px;
 }
 
 .neo-blog-card-title {
@@ -2199,6 +2235,7 @@ textarea:focus-visible,
   margin: 0 0 28px;
   border-radius: var(--radius-md);
   overflow: hidden;
+  background: #eef2f7;
 }
 
 .neo-blog-cover img {
@@ -2206,6 +2243,7 @@ textarea:focus-visible,
   display: block;
   aspect-ratio: 16 / 9;
   object-fit: cover;
+  object-position: center;
 }
 
 .neo-blog-lead {

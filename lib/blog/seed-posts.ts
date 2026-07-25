@@ -305,7 +305,7 @@ export const SEED_BLOG_POSTS: BlogPost[] = [
     title: "NeoHub Locations in Lucknow: Cyber Heights, Bhavya Corporate Tower & Experion",
     excerpt:
       "NeoHub runs three Gomti Nagar centres with 900+ combined seats — Cyber Heights (130+), Bhavya (500), and Experion (300+) — so teams can scale without leaving Vibhuti Khand.",
-    cover_image_url: "/assets/image2-1_c88aa198.png",
+    cover_image_url: "/assets/blog3.jpg",
     cover_image_alt: "NeoHub coworking locations across Gomti Nagar Lucknow",
     author: "NeoHub Team",
     tags: ["neohub locations", "cyber heights coworking", "bhavya corporate tower", "experion lucknow"],

@@ -18,7 +18,9 @@ export default function SiteChrome({ children }) {
         Skip to main content
       </a>
       <Header />
-      <main id="main-content">{children}</main>
+      <main id="main-content" className="neo-main">
+        {children}
+      </main>
       <Footer />
       <a
         href="https://wa.me/917000481286?text=Hello%20NeoHub%2C%20I%20would%20like%20to%20know%20more%20about%20the%20coworking%20spaces!"

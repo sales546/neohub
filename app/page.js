@@ -1,8 +1,8 @@
 import Link from "next/link";
 import AboutTabs from "@/components/AboutTabs";
-import HomeSliderForm from "@/components/HomeSliderForm";
 import HomeGallery from "@/components/HomeGallery";
 import ClientPartners from "@/components/ClientPartners";
+import HomeHeroCarousel from "@/components/home/HomeHeroCarousel";
 import {
   trustStats,
   pricingPlans,
@@ -28,12 +28,6 @@ export const metadata = constructMetadata({
     "levana cyber heights office",
   ],
 });
-
-const sliderImages = [
-  "/assets/slider1_0fe6417c.jpg",
-  "/assets/slider2_72c0b9ec.jpg",
-  "/assets/slider3_2d262f91.jpg",
-];
 
 const services = [
   { icon: "/assets/Fast-Internet_6e6687e1.png", title: "Fast Internet", desc: "Dual-fiber gigabit internet with automated failover and enterprise-grade security protocols." },
@@ -167,48 +161,7 @@ export default async function HomePage() {
 
   return (
     <>
-      {/* Hero Slider */}
-      <section id="slider" className="position-relative">
-        <div className="slider-main-outer-box main-wrapper-carousel">
-          <div className="owl-carousel">
-            {sliderImages.map((img, i) => (
-              <div key={i} className="slider-inner-bg-image-outer-box">
-                <div className="container slider-content-main-box" style={{ justifyContent: "center" }}>
-                  <div className="row slider-content-box position-relative align-items-center">
-                    <div className="col-xl-7 col-lg-7 col-md-7 col-12 slider-content-column text-md-start text-center pe-lg-5 pe-md-3 pt-sm-0 pt-4">
-                      <div className="slider-box text-sm-start text-center">
-                        <h6 className="slide-small-heading">Welcome To NeoHub Coworking</h6>
-                        <h1 className="slide-heading-one">NeoHub — Premium Coworking in Gomti Nagar, Lucknow</h1>
-                        <p className="slider-para animated fadeInUp delay-1s">
-                          Private cabins, dedicated workstations, and conference rooms across Cyber Heights, Bhavya, and Experion — built for startups and growing teams.
-                        </p>
-                        <div className="slider-button-box pt-xl-4 pt-lg-4 pt-md-4 pt-sm-3 pb-3 pt-0 d-sm-flex d-block">
-                          <Link className="slider-btn btn" href="/spaces"><span>Explore More</span></Link>
-                        </div>
-                      </div>
-                      <div className="slide-info">
-                        <span className="active-slide">0{i + 1}</span> /0<span className="total-slides">{sliderImages.length}</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div className="slider-inner-bg-image">
-                  <img src={img} alt={`NeoHub coworking space slide ${i + 1}`} />
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div className="container hero-form-right">
-          <div className="hero-form-right-inner">
-            <div className="slider-touch-form-box neo-form-card">
-              <h3 className="pb-lg-3 pb-2">Start Working at NeoHub Coworking Space</h3>
-              <HomeSliderForm />
-            </div>
-          </div>
-        </div>
-      </section>
+      <HomeHeroCarousel />
 
       <ClientPartners />
 

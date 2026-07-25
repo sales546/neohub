@@ -29,15 +29,6 @@ export default function Header() {
   }, [pathname]);
 
   useEffect(() => {
-    window.openNav = openMenu;
-    window.closeNav = closeMenu;
-    return () => {
-      delete window.openNav;
-      delete window.closeNav;
-    };
-  }, [openMenu, closeMenu]);
-
-  useEffect(() => {
     document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
     return () => {
       document.body.style.overflow = "";
@@ -53,133 +44,115 @@ export default function Header() {
   }, [mobileMenuOpen, closeMenu]);
 
   useEffect(() => {
-    const handleScroll = () => setIsSticky(window.scrollY > 60);
+    const handleScroll = () => setIsSticky(window.scrollY > 24);
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
-    <header id="masthead" className="site-header">
-      <div className="eco-box">
-        <span className="loader"></span>
+    <header className={`neo-header${isSticky ? " is-sticky" : ""}`}>
+      <div className="neo-header-inner">
+        <Link href="/" className="neo-header-logo" aria-label="NeoHub Home">
+          <img src="/assets/logo_67f6779b.png" alt="NeoHub" width={168} height={40} />
+        </Link>
+
+        <nav className="neo-header-nav" aria-label="Primary">
+          <ul className="neo-header-links">
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <li key={link.key}>
+                  <Link
+                    href={link.href}
+                    className={isActive ? "is-active" : undefined}
+                    {...(isActive ? { "aria-current": "page" } : {})}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+          <a
+            href={WHATSAPP_TOUR_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="neo-header-cta"
+          >
+            Book a Tour
+          </a>
+        </nav>
+
+        <button
+          type="button"
+          className="neo-header-menu-btn"
+          aria-label="Open navigation menu"
+          aria-expanded={mobileMenuOpen}
+          aria-controls="neo-mobile-drawer"
+          onClick={openMenu}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
       </div>
 
       <div
-        id="header_navigation"
-        data-sticky="true"
-        className={isSticky ? "stickynavbar" : ""}
+        className={`neo-header-backdrop${mobileMenuOpen ? " is-open" : ""}`}
+        onClick={closeMenu}
+        aria-hidden="true"
+      />
+
+      <aside
+        id="neo-mobile-drawer"
+        className={`neo-header-drawer${mobileMenuOpen ? " is-open" : ""}`}
+        aria-hidden={!mobileMenuOpen}
       >
-        <div className="container">
-          <div className="header-main-outer-box">
-            <div className="row header-outer-box">
-              <div className="col-xl-2 col-lg-3 col-md-4 col-8 col-sm-5 logo-main-box align-self-center ps-sm-4 ps-2">
-                <div className="logo">
-                  <Link href="/" rel="home" aria-label="NeoHub Home">
-                    <img src="/assets/logo_67f6779b.png" alt="NeoHub" />
-                  </Link>
-                  <div className="logo-text"></div>
-                </div>
-              </div>
-
-              <div className="col-xl-10 col-lg-9 col-md-8 col-4 col-sm-7 header-main-box align-self-center">
-                <div className="headerbar">
-                  <div className="menubar right_menu">
-                    <div className="toggle-nav mobile-menu">
-                      <span
-                        role="button"
-                        tabIndex={0}
-                        aria-label="Open navigation menu"
-                        aria-expanded={mobileMenuOpen}
-                        onClick={openMenu}
-                        onKeyDown={(e) => {
-                          if (e.key === "Enter" || e.key === " ") {
-                            e.preventDefault();
-                            openMenu();
-                          }
-                        }}
-                      >
-                        <i className="fas fa-bars" aria-hidden="true"></i>
-                      </span>
-                    </div>
-
-                    <div
-                      className={`mobile-nav-backdrop${mobileMenuOpen ? " is-open" : ""}`}
-                      onClick={closeMenu}
-                      aria-hidden="true"
-                    />
-
-                    <div
-                      id="mySidenav"
-                      className="nav sidenav"
-                      style={mobileMenuOpen ? { width: "300px" } : {}}
-                    >
-                      <nav
-                        id="site-navigation"
-                        className="main-navigation"
-                        aria-label="Primary navigation"
-                      >
-                        <a
-                          href="#"
-                          className="closebtn mobile-menu"
-                          aria-label="Close navigation menu"
-                          onClick={(e) => {
-                            e.preventDefault();
-                            closeMenu();
-                          }}
-                        >
-                          <i className="fas fa-times" aria-hidden="true"></i>
-                        </a>
-                        <div className="menu clearfix">
-                          <ul id="menu-primary-menu" className="clearfix mobile_nav">
-                            {navLinks.map((link) => {
-                              const isActive = pathname === link.href;
-                              return (
-                                <li
-                                  key={link.key}
-                                  className={`${link.key} menu-item${isActive ? " current-menu-item current_page_item" : ""}`}
-                                >
-                                  <Link
-                                    href={link.href}
-                                    {...(isActive ? { "aria-current": "page" } : {})}
-                                  >
-                                    {link.label}
-                                  </Link>
-                                </li>
-                              );
-                            })}
-                            <li className="menu-item header-cta-mobile mt-3 px-3">
-                              <a
-                                href={WHATSAPP_TOUR_URL}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="header-cta-btn w-100 text-center"
-                              >
-                                Book a Tour
-                              </a>
-                            </li>
-                          </ul>
-                        </div>
-                      </nav>
-                    </div>
-
-                    <div className="header-cta-desktop align-items-center justify-content-end">
-                      <a
-                        href={WHATSAPP_TOUR_URL}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="header-cta-btn"
-                      >
-                        Book a Tour
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        <div className="neo-header-drawer-top">
+          <Link href="/" className="neo-header-logo" onClick={closeMenu}>
+            <img src="/assets/logo_67f6779b.png" alt="NeoHub" width={140} height={34} />
+          </Link>
+          <button
+            type="button"
+            className="neo-header-close"
+            aria-label="Close navigation menu"
+            onClick={closeMenu}
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
+            </svg>
+          </button>
         </div>
-      </div>
+        <nav aria-label="Mobile">
+          <ul className="neo-header-drawer-links">
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <li key={link.key}>
+                  <Link
+                    href={link.href}
+                    className={isActive ? "is-active" : undefined}
+                    onClick={closeMenu}
+                    {...(isActive ? { "aria-current": "page" } : {})}
+                  >
+                    {link.label}
+                  </Link>
+                </li>
+              );
+            })}
+          </ul>
+        </nav>
+        <a
+          href={WHATSAPP_TOUR_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="neo-header-cta neo-header-cta--block"
+          onClick={closeMenu}
+        >
+          Book a Tour
+        </a>
+      </aside>
     </header>
   );
 }

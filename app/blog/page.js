@@ -1,92 +1,71 @@
 import Link from "next/link";
 import PageBanner from "@/components/PageBanner";
+import BlogCard from "@/components/blog/BlogCard";
+import JsonLd from "@/components/seo/JsonLd";
+import { getBlogPosts } from "@/lib/blog/queries";
+import { constructMetadata } from "@/lib/seo/metadata";
+import { getBlogListSchema, getBreadcrumbSchema } from "@/lib/seo/schema";
 
-export const metadata = {
-  title: "Coworking & Startup Insights Blog | NeoHub Lucknow",
-  description: "Stay updated with startup trends, flexible office guides, and networking ideas in Uttar Pradesh from the NeoHub Coworking Space team.",
-};
+export const revalidate = 300;
 
-const blogPosts = [
-  {
-    image: "/assets/image7_6ac1b0f1.png",
-    date: "11",
-    month: "Apr",
-    title: "How Modern Coworking Spaces are Accelerating Lucknow's Startup Growth.",
-  },
-  {
-    image: "/assets/image6_5720d7a6.png",
-    date: "11",
-    month: "Apr",
-    title: "5 Critical Productivity Hacks for Teams Working in Shared Office Environments.",
-  },
-  {
-    image: "/assets/image5-1_6a8d661c.png",
-    date: "11",
-    month: "Apr",
-    title: "Choosing Between Dedicated Workstations and Private Cabins: A Detailed Guide.",
-  },
-  {
-    image: "/assets/image4-1_a85b66a9.png",
-    date: "11",
-    month: "Apr",
-    title: "The Future of Work: Why Corporates and MNCs are Moving to Gomti Nagar Lucknow.",
-  },
-  {
-    image: "/assets/image3-1_4fa9ed6f.png",
-    date: "11",
-    month: "Apr",
-    title: "Building a Collaborative Community: How Coworking Spaces Fuel Innovation.",
-  },
-  {
-    image: "/assets/image2-1_c88aa198.png",
-    date: "11",
-    month: "Apr",
-    title: "Redefining Employee Work-Life Balance with Premium Shared Offices.",
-  },
-];
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://neohubspaces.in";
 
-export default function BlogPage() {
+export const metadata = constructMetadata({
+  title: "Coworking Blog & Office Insights",
+  description:
+    "Practical guides on coworking spaces, private cabins, workstation pricing, and meeting rooms in Gomti Nagar, Lucknow — written for startups and growing teams.",
+  canonical: "/blog",
+  keywords: [
+    "coworking blog lucknow",
+    "office space tips gomti nagar",
+    "dedicated desk guide",
+    "private cabin lucknow",
+  ],
+});
+
+export default async function BlogPage() {
+  const posts = await getBlogPosts({ limit: 24 });
+
+  const listSchema = getBlogListSchema(
+    posts.map((post) => ({
+      title: post.title,
+      url: `${BASE_URL}/blog/${post.slug}`,
+      datePublished: post.published_at,
+    }))
+  );
+
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: "Home", item: "/" },
+    { name: "Blog", item: "/blog" },
+  ]);
+
   return (
     <>
-      <PageBanner title="Blog" />
+      <JsonLd data={listSchema} />
+      <JsonLd data={breadcrumbSchema} />
+      <PageBanner title="Blog" breadcrumbLabel="Blog" />
 
-      <div id="full-width-blog">
+      <div id="full-width-blog" className="neo-blog-list-page">
         <div className="container">
-          <div className="content_page row pt-5 pb-5">
-            {blogPosts.map((post) => (
-              <div key={post.title} className="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-3 mb-3">
-                <div className="blog-image-box" style={{ position: "relative" }}>
-                  <div className="blog-img-box position-relative">
-                    <div className="post-img">
-                      <img src={post.image} alt={post.title} loading="lazy" />
-                    </div>
-                    <div className="blog-date-admin-box">
-                      <span className="date-item align-self-center">
-                        <span className="date">{post.date}</span>
-                        <span className="month">{post.month}</span>
-                      </span>
-                    </div>
-                  </div>
+          <div className="neo-blog-list-intro text-center">
+            <h1 className="about-main-heading">Coworking insights for Lucknow teams</h1>
+            <p>
+              Straight answers on workspace types, pricing, meeting rooms, and multi-location seating
+              across Gomti Nagar — written for founders, facility managers, and growing companies.
+            </p>
+          </div>
 
-                  <div className="blog-contents-box text-lg-start text-start">
-                    <div className="d-flex justify-content-lg-start justify-content-sm-start justify-content-start">
-                      <div className="blog-admin-box">
-                        <span className="news-author">By NeoHub Team</span>
-                      </div>
-                    </div>
-
-                    <h5 className="pt-2">
-                      <Link href="/contact">{post.title}</Link>
-                    </h5>
-                  </div>
-                </div>
+          <div className="content_page row pt-4 pb-5">
+            {posts.map((post) => (
+              <div key={post.id || post.slug} className="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-3 mb-3">
+                <BlogCard post={post} />
               </div>
             ))}
           </div>
 
-          <div className="text-center pb-4">
+          <div className="text-center pb-5">
             <Link className="hero-secondary-btn" href="/contact" style={{ color: "#0f172a", borderColor: "#e2e8f0" }}>
-              Ask our team about workspace insights
+              Ask NeoHub about workspace options
             </Link>
           </div>
         </div>

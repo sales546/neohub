@@ -2087,3 +2087,288 @@ textarea:focus-visible,
   width: 100%;
   min-height: 320px;
 }
+
+/* ── Dynamic blog ── */
+.neo-blog-list-page {
+  padding-bottom: 24px;
+}
+
+.neo-blog-list-intro {
+  max-width: 720px;
+  margin: 36px auto 8px;
+}
+
+.neo-blog-list-intro p {
+  color: #64748b;
+  font-size: 16px;
+  line-height: 1.7;
+  margin-top: 12px;
+}
+
+.neo-blog-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.neo-blog-card-title {
+  font-size: 1.15rem !important;
+  line-height: 1.45 !important;
+  margin: 0;
+}
+
+.neo-blog-card-title a {
+  color: #0f172a !important;
+  text-decoration: none;
+}
+
+.neo-blog-card-title a:hover {
+  color: var(--brand-orange) !important;
+}
+
+.neo-blog-card-excerpt {
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.65;
+  margin: 10px 0 14px;
+}
+
+.neo-blog-card-link {
+  color: var(--brand-orange) !important;
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  margin-top: auto;
+}
+
+.neo-blog-card-meta {
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.neo-blog-detail {
+  padding: 48px 0 72px;
+}
+
+.neo-blog-detail-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 32px;
+}
+
+@media (min-width: 992px) {
+  .neo-blog-detail-grid {
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 48px;
+    align-items: start;
+  }
+}
+
+.neo-blog-kicker {
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.neo-blog-kicker a {
+  color: var(--brand-orange);
+  text-decoration: none;
+}
+
+.neo-blog-detail-main h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  line-height: 1.2;
+  color: #0f172a;
+  margin: 0 0 16px;
+}
+
+.neo-blog-detail-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  color: #64748b;
+  font-size: 14px;
+  margin-bottom: 28px;
+}
+
+.neo-blog-cover {
+  margin: 0 0 28px;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.neo-blog-cover img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.neo-blog-lead {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: #334155;
+  margin-bottom: 28px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.neo-blog-prose {
+  color: #334155;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.neo-blog-prose h2 {
+  font-family: var(--font-heading);
+  font-size: 1.45rem;
+  color: #0f172a;
+  margin: 2rem 0 0.85rem;
+  line-height: 1.3;
+}
+
+.neo-blog-prose h3 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  color: #0f172a;
+  margin: 1.5rem 0 0.6rem;
+}
+
+.neo-blog-prose p {
+  margin: 0 0 1rem;
+}
+
+.neo-blog-prose ul,
+.neo-blog-prose ol {
+  margin: 0 0 1.25rem;
+  padding-left: 1.25rem;
+}
+
+.neo-blog-prose li {
+  margin-bottom: 0.45rem;
+}
+
+.neo-blog-prose a {
+  color: var(--brand-orange);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.neo-blog-prose a:hover {
+  text-decoration: underline;
+}
+
+.neo-blog-prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0 1.75rem;
+  font-size: 0.95rem;
+}
+
+.neo-blog-prose th,
+.neo-blog-prose td {
+  border: 1px solid #e2e8f0;
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.neo-blog-prose th {
+  background: #f8fafc;
+  color: #0f172a;
+  font-weight: 700;
+}
+
+.neo-blog-cta {
+  margin-top: 40px;
+  padding: 28px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #fff7f4 0%, #ffffff 60%);
+  border: 1px solid #ffe0d6;
+}
+
+.neo-blog-cta h2 {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  margin: 0 0 8px;
+  color: #0f172a;
+}
+
+.neo-blog-cta p {
+  color: #64748b;
+  margin: 0 0 18px;
+}
+
+.neo-blog-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.neo-blog-sidebar-card {
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: var(--radius-md);
+  padding: 22px;
+  box-shadow: var(--shadow-subtle);
+  margin-bottom: 18px;
+}
+
+.neo-blog-sidebar-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  margin: 0 0 10px;
+  color: #0f172a;
+}
+
+.neo-blog-sidebar-card p {
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0 0 12px;
+}
+
+.neo-blog-related-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.neo-blog-related-list li {
+  padding: 10px 0;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.neo-blog-related-list li:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.neo-blog-related-list a {
+  color: #0f172a;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.neo-blog-related-list a:hover {
+  color: var(--brand-orange);
+}
+
+.neo-blog-more {
+  margin-top: 56px;
+  padding-top: 36px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.neo-blog-more h2 {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+  color: #0f172a;
+}

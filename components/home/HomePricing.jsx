@@ -8,7 +8,7 @@ export default function HomePricing() {
         <div className="section-heading text-center">
           <h6>Our Pricing</h6>
           <h3 className="about-main-heading">Flexible plans for every team size</h3>
-          <p className="section-lead">Transparent monthly pricing at Levana Cyber Heights, Gomti Nagar.</p>
+          <p className="section-lead">Transparent pricing across Cyber Heights, Bhavya &amp; Experion. Rates + GST.</p>
         </div>
         <div className="home-pricing-grid">
           {pricingPlans.map((plan) => (
@@ -23,7 +23,7 @@ export default function HomePricing() {
               <h4>{plan.name}</h4>
               <div className="home-pricing-amount">
                 <span>₹{plan.price}</span>
-                <small>/month</small>
+                <small>{plan.unit || "/month"}</small>
               </div>
               <p>{plan.desc}</p>
               <div className="home-pricing-actions">

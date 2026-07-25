@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next';
+import { getBlogPosts } from '@/lib/blog/queries';
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://neohubspaces.in';
 
@@ -6,7 +7,7 @@ const staticRoutes = [
   { url: '', priority: 1.0, changeFrequency: 'daily' as const },
   { url: '/about-us', priority: 0.8, changeFrequency: 'weekly' as const },
   { url: '/spaces', priority: 0.9, changeFrequency: 'daily' as const },
-  { url: '/blog', priority: 0.7, changeFrequency: 'daily' as const },
+  { url: '/blog', priority: 0.8, changeFrequency: 'daily' as const },
   { url: '/gallery', priority: 0.5, changeFrequency: 'monthly' as const },
   { url: '/faqs', priority: 0.6, changeFrequency: 'weekly' as const },
   { url: '/contact', priority: 0.8, changeFrequency: 'monthly' as const },
@@ -31,7 +32,7 @@ const services = [
   'conference-hall'
 ];
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const currentDate = new Date();
 
   const staticSitemap = staticRoutes.map(route => ({
@@ -55,5 +56,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85
   }));
 
-  return [...staticSitemap, ...localitySitemap, ...serviceSitemap];
+  let blogSitemap: MetadataRoute.Sitemap = [];
+  try {
+    const posts = await getBlogPosts({ limit: 100 });
+    blogSitemap = posts.map((post) => ({
+      url: `${BASE_URL}/blog/${post.slug}`,
+      lastModified: post.published_at ? new Date(post.published_at) : currentDate,
+      changeFrequency: 'weekly' as const,
+      priority: 0.7
+    }));
+  } catch {
+    blogSitemap = [];
+  }
+
+  return [...staticSitemap, ...localitySitemap, ...serviceSitemap, ...blogSitemap];
 }

@@ -9,7 +9,7 @@ export default function HomeLocalities() {
           <h6>Areas We Serve</h6>
           <h3 className="about-main-heading">Coworking access across Lucknow</h3>
           <p className="section-lead">
-            One premium hub at Cyber Heights — convenient for teams across these neighbourhoods.
+            Three premium hubs at Cyber Heights, Bhavya Corporate Tower &amp; Experion — convenient across these neighbourhoods.
           </p>
         </div>
         <div className="home-locality-grid">

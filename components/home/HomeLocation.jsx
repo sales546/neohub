@@ -7,9 +7,9 @@ export default function HomeLocation() {
         <div className="home-location-grid">
           <div className="home-location-copy">
             <h6>Visit Us</h6>
-            <h3 className="about-main-heading">Find NeoHub at Levana Cyber Heights</h3>
+            <h3 className="about-main-heading">Find NeoHub across Gomti Nagar</h3>
             <p className="section-lead">
-              Schedule a walkthrough of our private cabins, open desks, and meeting rooms in Gomti Nagar.
+              Tour private cabins, workstations, and conference rooms at Cyber Heights, Bhavya Corporate Tower, or Experion.
             </p>
             <ul className="home-location-list">
               <li>

@@ -6,7 +6,7 @@ export default function HomeTestimonials() {
       <div className="container">
         <div className="section-heading text-center">
           <h6>Testimonials</h6>
-          <h3 className="testimonial-main-heading">Trusted by teams across Lucknow</h3>
+          <h3 className="testimonial-main-heading">Trusted by leading teams in Lucknow</h3>
           <p className="section-lead">
             Rated 4.8/5 by members for connectivity, hospitality, and professional meeting spaces.
           </p>

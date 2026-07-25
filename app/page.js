@@ -6,10 +6,11 @@ import {
   trustStats,
   pricingPlans,
   testimonials,
-  blogPreviews,
   aboutHighlights,
+  partnerLogos,
   buildPlanWhatsAppUrl,
 } from "@/lib/siteData";
+import { formatBlogDate, getBlogPosts } from "@/lib/blog/queries";
 
 export const metadata = {
   title: "NeoHub Coworking Space Lucknow | Premium Shared Office Gomti Nagar",
@@ -29,15 +30,6 @@ const sliderImages = [
   "/assets/slider1_0fe6417c.jpg",
   "/assets/slider2_72c0b9ec.jpg",
   "/assets/slider3_2d262f91.jpg",
-];
-
-const partnerLogos = [
-  { src: "/assets/image1_2ff040a7.png", alt: "NeoHub partner" },
-  { src: "/assets/image2_af4b6da2.png", alt: "NeoHub partner" },
-  { src: "/assets/image3_3fe5ea43.png", alt: "NeoHub partner" },
-  { src: "/assets/image4_86546124.png", alt: "NeoHub partner" },
-  { src: "/assets/image5_26f56b87.png", alt: "NeoHub partner" },
-  { src: "/assets/image6_86f48442.png", alt: "NeoHub partner" },
 ];
 
 const services = [
@@ -64,7 +56,7 @@ const spacesCarousel = [
     desc: "Secure, lockable cabins tailored for startups and businesses requiring high privacy and dedicated bandwidth.",
     image: "/assets/Private-Spaces_dfb4e03e.png",
     alt: "Private office spaces at NeoHub Lucknow",
-    info: [["Capacity", "4–15 seats"], ["Status", "Available"], ["Access", "24/7"], ["Type", "Private Cabin"], ["WiFi", "Gigabit"], ["From", "₹9,000/mo"]],
+    info: [["Capacity", "4–15 seats"], ["Status", "Available"], ["Access", "24/7"], ["Type", "Private Cabin"], ["WiFi", "Gigabit"], ["From", "₹20,000/mo"]],
   },
   {
     title: "Flexible Hot Desking",
@@ -72,7 +64,7 @@ const spacesCarousel = [
     desc: "On-demand workspace access by the day or month, giving you the freedom to work from any open seat in the hub.",
     image: "/assets/Hot-Desking_ade72a77.png",
     alt: "Hot desking coworking tables at NeoHub Gomti Nagar",
-    info: [["Pass", "Daily / Monthly"], ["Status", "Available"], ["Access", "24/7"], ["Type", "Hot Desk"], ["WiFi", "Gigabit"], ["From", "₹3,500/mo"]],
+    info: [["Pass", "Daily / Monthly"], ["Status", "Available"], ["Access", "24/7"], ["Type", "Hot Desk"], ["WiFi", "Gigabit"], ["From", "Enquire"]],
   },
   {
     title: "Event & Workshop Spaces",
@@ -96,7 +88,7 @@ const spacesCarousel = [
     desc: "Your own reserved desk in a shared environment, complete with lockable drawers and premium ergonomic chairs.",
     image: "/assets/Customized-Desks_f656af2d.png",
     alt: "Dedicated desks and ergonomic workstations",
-    info: [["Desk", "Reserved"], ["Status", "Available"], ["Access", "24/7"], ["Type", "Dedicated Desk"], ["WiFi", "Gigabit"], ["From", "₹6,000/mo"]],
+    info: [["Desk", "Reserved"], ["Status", "Available"], ["Access", "24/7"], ["Type", "Workstation"], ["WiFi", "Gigabit"], ["From", "₹5,500/mo"]],
   },
   {
     title: "State-of-the-Art Conference Rooms",
@@ -104,7 +96,7 @@ const spacesCarousel = [
     desc: "High-tech meeting rooms equipped with smart TVs, video conferencing gear, writeable boards, and tea/coffee services.",
     image: "/assets/Conference-Rooms_feaacc5e.png",
     alt: "High-tech corporate meeting rooms",
-    info: [["Seats", "8–20"], ["Status", "Available"], ["AV", "HD Projector"], ["Type", "Conference"], ["WiFi", "Gigabit"], ["Booking", "Enquire"]],
+    info: [["Seats", "8–20"], ["Status", "Available"], ["AV", "HD Projector"], ["Type", "Conference"], ["WiFi", "Gigabit"], ["From", "₹500/hr"]],
   },
   {
     title: "Shared Coworking Desks",
@@ -112,7 +104,7 @@ const spacesCarousel = [
     desc: "Flexible, plug-and-play seating options in our open-plan area, perfect for freelancers and digital nomads.",
     image: "/assets/Co-Working-Areas_81ff66f9.png",
     alt: "Shared coworking areas and hot desks",
-    info: [["Seating", "Open plan"], ["Status", "Available"], ["Access", "24/7"], ["Type", "Coworking"], ["WiFi", "Gigabit"], ["From", "₹3,500/mo"]],
+    info: [["Seating", "Open plan"], ["Status", "Available"], ["Access", "24/7"], ["Type", "Coworking"], ["WiFi", "Gigabit"], ["From", "Enquire"]],
   },
   {
     title: "Enterprise Office Suites",
@@ -162,7 +154,11 @@ const SpaceSvg = () => (
   </svg>
 );
 
-export default function HomePage() {
+export const revalidate = 300;
+
+export default async function HomePage() {
+  const latestPosts = await getBlogPosts({ limit: 3 });
+
   return (
     <>
       {/* Hero Slider */}
@@ -427,7 +423,7 @@ export default function HomePage() {
                     <div className="price-plan">
                       <p className="dollar">₹</p>
                       <h2 className="price">{plan.price}</h2>
-                      <p className="monthly align-self-end">/Monthly</p>
+                      <p className="monthly align-self-end">{plan.unit || "/Monthly"}</p>
                     </div>
                     <div className="pricing-package text-center"><p>{plan.desc}</p></div>
                     <div className="plan-button-box pt-xl-3 pt-lg-4 pt-md-3 pt-3">
@@ -514,30 +510,42 @@ export default function HomePage() {
           <div className="our-blog-box">
             <div className="row blog-content-box">
               <div className="owl-carousel">
-                {blogPreviews.map((post, i) => (
-                  <div key={i} className="blog-image-box" style={{ position: "relative" }}>
-                    <div className="blog-img-box position-relative">
-                      <div className="post-img"><img src={post.image} alt={post.title} /></div>
-                      <div className="blog-date-admin-box">
-                        <span className="date-item align-self-center">
-                          <span className="date">{post.date}</span>
-                          <span className="month">{post.month}</span>
-                        </span>
-                      </div>
-                    </div>
-                    <div className="blog-contents-box text-lg-start text-start">
-                      <div className="d-flex justify-content-lg-start justify-content-sm-start justify-content-start">
-                        <div className="blog-admin-box">
-                          <span className="news-author">By NeoHub Team</span>
+                {latestPosts.map((post) => {
+                  const date = formatBlogDate(post.published_at);
+                  return (
+                    <div key={post.slug} className="blog-image-box" style={{ position: "relative" }}>
+                      <div className="blog-img-box position-relative">
+                        <div className="post-img">
+                          <img
+                            src={post.cover_image_url || "/assets/image7_6ac1b0f1.png"}
+                            alt={post.cover_image_alt || post.title}
+                          />
                         </div>
-                        <div className="post-comments align-self-center ps-3">
-                          <i className="fas fa-comments"></i><span className="ms-2">0 Comment</span>
+                        <div className="blog-date-admin-box">
+                          <span className="date-item align-self-center">
+                            <span className="date">{date.day}</span>
+                            <span className="month">{date.month}</span>
+                          </span>
                         </div>
                       </div>
-                      <h5 className="pt-2"><Link href={post.href}>{post.title}</Link></h5>
+                      <div className="blog-contents-box text-lg-start text-start">
+                        <div className="d-flex justify-content-lg-start justify-content-sm-start justify-content-start">
+                          <div className="blog-admin-box">
+                            <span className="news-author">By {post.author || "NeoHub Team"}</span>
+                          </div>
+                          {post.reading_time_min ? (
+                            <div className="post-comments align-self-center ps-3">
+                              <span className="ms-2">{post.reading_time_min} min read</span>
+                            </div>
+                          ) : null}
+                        </div>
+                        <h5 className="pt-2">
+                          <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                        </h5>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           </div>

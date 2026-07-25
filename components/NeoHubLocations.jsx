@@ -27,6 +27,9 @@ export default function NeoHubLocations({ showMaps = false, title = "NeoHub Loca
                 </div>
                 <div className="contact-address-body">
                   <strong>{location.name}</strong>
+                  {location.seats ? (
+                    <span className="contact-address-rating">{location.seats} seats</span>
+                  ) : null}
                   {location.rating ? (
                     <span className="contact-address-rating">{location.rating}</span>
                   ) : null}
@@ -43,7 +46,10 @@ export default function NeoHubLocations({ showMaps = false, title = "NeoHub Loca
           <div className="contact-maps-grid">
             {neoHubAddresses.map((location) => (
               <div key={location.id} className="contact-map-card">
-                <h5 className="contact-map-card-title">{location.name}</h5>
+                <h5 className="contact-map-card-title">
+                  {location.name}
+                  {location.seats ? ` · ${location.seats} seats` : ""}
+                </h5>
                 <div className="contact-map-wrap">
                   <iframe
                     width="100%"

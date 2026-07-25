@@ -39,7 +39,7 @@ export function getLocalBusinessSchema() {
     'description': 'Lucknow\'s premium destination for high-performance teams, freelancers, and businesses. Offering flexible workspaces, dedicated hot desks, fully secure private cabins, and high-tech conference rooms with dual gigabit internet backup.',
     'url': BASE_URL,
     'telephone': '+91-70004-81286',
-    'priceRange': '₹3500 - ₹9000',
+    'priceRange': '₹5500 - ₹25000',
     'image': [
       `${BASE_URL}/assets/lobby.png`,
       `${BASE_URL}/assets/workstations.png`,
@@ -125,6 +125,69 @@ export function getFAQPageSchema(items: FAQItem[]) {
         '@type': 'Answer',
         'text': item.answer
       }
+    }))
+  };
+}
+
+export function getBlogPostingSchema(post: {
+  title: string;
+  description: string;
+  url: string;
+  image?: string | null;
+  datePublished?: string | null;
+  dateModified?: string | null;
+  author?: string | null;
+  keywords?: string[];
+  articleSection?: string[];
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    'headline': post.title,
+    'description': post.description,
+    'image': post.image ? [post.image.startsWith('http') ? post.image : `${BASE_URL}${post.image}`] : undefined,
+    'datePublished': post.datePublished || undefined,
+    'dateModified': post.dateModified || post.datePublished || undefined,
+    'author': {
+      '@type': 'Organization',
+      'name': post.author || 'NeoHub Team',
+      'url': BASE_URL
+    },
+    'publisher': {
+      '@type': 'Organization',
+      'name': 'NeoHub Coworking Space',
+      'logo': {
+        '@type': 'ImageObject',
+        'url': `${BASE_URL}/assets/logo_67f6779b.png`
+      }
+    },
+    'mainEntityOfPage': {
+      '@type': 'WebPage',
+      '@id': post.url
+    },
+    'url': post.url,
+    'keywords': post.keywords?.join(', '),
+    'articleSection': post.articleSection?.join(', '),
+    'inLanguage': 'en-IN'
+  };
+}
+
+export function getBlogListSchema(posts: Array<{ title: string; url: string; datePublished?: string | null }>) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Blog',
+    'name': 'NeoHub Coworking Insights',
+    'description': 'Guides on coworking spaces, private cabins, pricing, and flexible offices in Gomti Nagar, Lucknow.',
+    'url': `${BASE_URL}/blog`,
+    'publisher': {
+      '@type': 'Organization',
+      'name': 'NeoHub Coworking Space'
+    },
+    'blogPost': posts.map((post) => ({
+      '@type': 'BlogPosting',
+      'headline': post.title,
+      'url': post.url,
+      'datePublished': post.datePublished || undefined
     }))
   };
 }

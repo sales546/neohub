@@ -128,8 +128,8 @@ const serviceData: Record<ServiceSlug, {
     pricingDescription: 'Secure, sound-insulated private cabins designed for startups and corporate branches requiring high data privacy and dedicated assets.',
     features: ['Biometric Access Control', 'Dedicated High-Speed Bandwidth', 'Free Printing Credits', 'Access to Reception Support', 'Unlimited Tea & Coffee'],
     pricing: [
-      { name: 'Private Cabin (4-6 Seats)', price: '9000', currency: 'INR', unit: 'Seat/Month' },
-      { name: 'Private Suite (10-15 Seats)', price: '8500', currency: 'INR', unit: 'Seat/Month' }
+      { name: 'Private Cabin — Cyber Heights / Bhavya', price: '20000', currency: 'INR', unit: 'Month + GST' },
+      { name: 'Private Cabin — Experion', price: '25000', currency: 'INR', unit: 'Month + GST' }
     ],
     faqs: [
       {
@@ -145,7 +145,8 @@ const serviceData: Record<ServiceSlug, {
     pricingDescription: 'Your own fixed desk in a vibrant shared space. Ideal for freelancers, remote developers, and growing startup teams.',
     features: ['Personal Assigned Desk', 'Ergonomic Office Chair', 'Secure Storage Lockers', 'High-Speed Dual Fiber Internet', 'Daily Housekeeping Services'],
     pricing: [
-      { name: 'Monthly Dedicated Seat', price: '6000', currency: 'INR', unit: 'Month' }
+      { name: 'Workstation — Cyber Heights / Bhavya', price: '5500', currency: 'INR', unit: 'Month + GST' },
+      { name: 'Workstation — Experion', price: '6500', currency: 'INR', unit: 'Month + GST' }
     ],
     faqs: [
       {
@@ -195,8 +196,8 @@ const serviceData: Record<ServiceSlug, {
     pricingDescription: 'Professional meeting rooms to host clients, conduct interviews, or collaborate with team members, equipped with presentation displays.',
     features: ['High-Definition Smart Screens', 'Video Conferencing Gear', 'Whiteboards and Markers', 'Complimentary Water & Beverages', 'High-Speed Wi-Fi'],
     pricing: [
-      { name: 'Hourly Meeting Room booking', price: '500', currency: 'INR', unit: 'Hour' },
-      { name: 'Full-Day Booking Rate', price: '4000', currency: 'INR', unit: 'Day' }
+      { name: 'Conference Booking — Cyber Heights / Bhavya', price: '500', currency: 'INR', unit: 'Hour' },
+      { name: 'Conference Booking — Experion', price: '600', currency: 'INR', unit: 'Hour' }
     ],
     faqs: [
       {

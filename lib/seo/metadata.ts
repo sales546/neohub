@@ -148,7 +148,7 @@ export function constructMetadata({
 export function rootMetadata(): Metadata {
   const title = "NeoHub Coworking Space Lucknow | Premium Shared Office Gomti Nagar";
   const description =
-    "Boost productivity at NeoHub — Lucknow's premium coworking space in Levana Cyber Heights, Gomti Nagar. Hot desks, dedicated workstations, private cabins, and conference rooms.";
+    "Boost productivity at NeoHub — Lucknow's premium coworking across Bhavya Corporate Tower, Cyber Heights, and Experion in Gomti Nagar. Hot desks, private cabins, and conference rooms.";
 
   return {
     ...constructMetadata({
@@ -156,18 +156,27 @@ export function rootMetadata(): Metadata {
       description,
       canonical: "/",
       absoluteTitle: true,
-      ogSubtitle: "Levana Cyber Heights · Gomti Nagar · Lucknow",
+      ogSubtitle: "Bhavya · Cyber Heights · Experion · Gomti Nagar",
       keywords: [
         "shared office space lucknow",
         "office space in gomti nagar",
         "private cabins lucknow",
         "conference rooms lucknow",
-        "levana cyber heights office",
+        "bhavya corporate tower coworking",
       ],
     }),
     title: {
       default: title,
       template: `%s | ${SITE_NAME_SHORT}`,
     },
+    icons: {
+      icon: [
+        { url: "/favicon.ico", sizes: "any" },
+        { url: "/icon.png", type: "image/png", sizes: "48x48" },
+      ],
+      apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+      shortcut: ["/favicon.ico"],
+    },
+    manifest: "/site.webmanifest",
   };
 }

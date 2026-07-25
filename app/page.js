@@ -2,11 +2,11 @@ import Link from "next/link";
 import AboutTabs from "@/components/AboutTabs";
 import HomeSliderForm from "@/components/HomeSliderForm";
 import HomeGallery from "@/components/HomeGallery";
+import ClientPartners from "@/components/ClientPartners";
 import {
   trustStats,
   pricingPlans,
   aboutHighlights,
-  partnerLogos,
   buildPlanWhatsAppUrl,
 } from "@/lib/siteData";
 import { formatBlogDate, getBlogPosts } from "@/lib/blog/queries";
@@ -210,29 +210,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Partners */}
-      <section id="partners" className="position-relative">
-        <div className="container">
-          <div className="partners-head-content-box align-self-center text-center">
-            <div className="patnerimage-box">
-              <div className="owl-carousel">
-                {partnerLogos.map((logo) => (
-                  <div key={logo.src} className="patner-image">
-                    <img
-                      src={logo.src}
-                      alt={logo.alt}
-                      width={160}
-                      height={80}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ClientPartners />
 
       {/* Services */}
       <section id="services-sec" className="position-relative">

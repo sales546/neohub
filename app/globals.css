@@ -2461,32 +2461,262 @@ textarea:focus-visible,
   }
 }
 
-/* ── Original client logos strip ── */
-#partners {
-  padding: 28px 0 12px !important;
-  background: #fff;
+/* ── Client partners: modern dual-row carousel ── */
+.partners-section {
+  position: relative;
+  padding: 56px 0 52px !important;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 0%, rgba(255, 91, 46, 0.08), transparent 70%),
+    linear-gradient(180deg, #ffffff 0%, #f6f7f9 55%, #ffffff 100%);
 }
 
-#partners .patner-image {
-  display: flex !important;
+.partners-glow {
+  pointer-events: none;
+  position: absolute;
+  inset: auto 10% 8% 10%;
+  height: 140px;
+  background: radial-gradient(ellipse at center, rgba(255, 91, 46, 0.12), transparent 70%);
+  filter: blur(12px);
+  opacity: 0.7;
+}
+
+.partners-intro {
+  position: relative;
+  z-index: 1;
+  margin-bottom: 32px;
+}
+
+.partners-intro h6 {
+  color: var(--brand-orange) !important;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 12px !important;
+  margin-bottom: 8px !important;
+}
+
+.partners-intro .about-main-heading {
+  font-size: clamp(1.4rem, 2.6vw, 2rem) !important;
+  margin: 0 0 8px !important;
+}
+
+.partners-intro-copy {
+  margin: 0 auto;
+  max-width: 440px;
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.partners-carousel {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  mask-image: linear-gradient(
+    90deg,
+    transparent 0,
+    #000 7%,
+    #000 93%,
+    transparent 100%
+  );
+}
+
+.partners-marquee {
+  overflow: hidden;
+  width: 100%;
+}
+
+.partners-marquee-track {
+  display: flex;
+  gap: 14px;
+  width: max-content;
+  will-change: transform;
+  animation: partners-scroll-left var(--partners-duration, 40s) linear infinite;
+}
+
+.partners-marquee--right .partners-marquee-track {
+  animation-name: partners-scroll-right;
+}
+
+.partners-carousel:hover .partners-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes partners-scroll-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes partners-scroll-right {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+.partner-card {
+  flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  width: 210px;
+  min-height: 132px;
+  padding: 16px 16px 14px;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(226, 232, 240, 0.95);
+  border-radius: 18px;
+  box-shadow:
+    0 10px 28px rgba(15, 23, 42, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.partner-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  border-color: rgba(255, 91, 46, 0.35);
+  box-shadow:
+    0 16px 34px rgba(15, 23, 42, 0.1),
+    0 0 0 1px rgba(255, 91, 46, 0.08);
+}
+
+.partner-card-logo {
+  display: flex;
   align-items: center;
   justify-content: center;
-  height: 88px;
-  padding: 12px 16px;
-  background: #fff;
-  border: 1px solid #eef2f7;
+  width: 100%;
+  height: 70px;
+  padding: 10px 12px;
   border-radius: 14px;
-  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.04);
+  background:
+    linear-gradient(160deg, #f8fafc 0%, #eef2f7 100%);
+  border: 1px solid #e8edf4;
 }
 
-#partners .patner-image img {
+.partner-card-logo img {
   width: auto !important;
   max-width: 100% !important;
-  max-height: 56px !important;
+  max-height: 48px !important;
   height: auto !important;
   object-fit: contain !important;
-  filter: none !important;
-  opacity: 1 !important;
+}
+
+.partner-card-fallback {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 52px;
+  height: 36px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: #fff;
+  color: #0f172a;
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border: 1px solid #dbe3ee;
+}
+
+.partner-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 20px;
+}
+
+.partner-card-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--brand-orange);
+  box-shadow: 0 0 0 3px rgba(255, 91, 46, 0.14);
+  flex: 0 0 auto;
+}
+
+.partner-card-name {
+  margin: 0;
+  color: #0f172a;
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 650;
+  line-height: 1.25;
+  text-align: center;
+  letter-spacing: -0.01em;
+}
+
+.partners-a11y-list {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Fallback grid for reduced-motion / very small screens if needed */
+.partners-static {
+  display: none;
+}
+
+.partners-grid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.partners-grid .partner-card {
+  width: 100%;
+}
+
+@media screen and (max-width: 575px) {
+  .partners-section {
+    padding: 40px 0 36px !important;
+  }
+
+  .partner-card {
+    width: 176px;
+    min-height: 120px;
+    padding: 12px;
+  }
+
+  .partner-card-logo {
+    height: 58px;
+  }
+
+  .partner-card-logo img {
+    max-height: 40px !important;
+  }
+
+  .partner-card-name {
+    font-size: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .partners-carousel {
+    display: none !important;
+  }
+
+  .partners-static {
+    display: block;
+  }
+
+  .partners-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .partner-card {
+    width: 100%;
+  }
 }
 
 /* ── Mobile responsiveness hardening ── */
@@ -2508,11 +2738,6 @@ video {
 #slider .owl-stage-outer,
 #spaces-sec .owl-carousel,
 #spaces-sec .owl-stage-outer,
-#partners .owl-carousel,
-#partners .owl-stage-outer {
-  overflow: hidden !important;
-  max-width: 100%;
-}
 
 #spaces-sec .bg-img-space svg,
 #spaces-sec svg {
@@ -2658,15 +2883,6 @@ video {
   .hero-cta-btn {
     width: 100%;
     max-width: 260px;
-  }
-
-  #partners .patner-image {
-    height: 76px;
-    padding: 10px 12px;
-  }
-
-  #partners .patner-image img {
-    max-height: 44px !important;
   }
 
   .container {

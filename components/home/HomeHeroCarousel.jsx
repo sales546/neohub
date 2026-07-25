@@ -5,9 +5,9 @@ import Link from "next/link";
 import HomeSliderForm from "@/components/HomeSliderForm";
 
 const SLIDES = [
-  "/assets/slider1_0fe6417c.jpg",
-  "/assets/slider2_72c0b9ec.jpg",
-  "/assets/slider3_2d262f91.jpg",
+  "/assets/slider1_0fe6417c.webp",
+  "/assets/slider2_72c0b9ec.webp",
+  "/assets/slider3_2d262f91.webp",
 ];
 
 export default function HomeHeroCarousel() {

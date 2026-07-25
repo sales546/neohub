@@ -70,7 +70,7 @@ function centreToPlace(centre: (typeof neoHubAddresses)[number]) {
     name: centre.name,
     url: `${BASE_URL}/contact`,
     telephone: centre.phoneTel || siteContact.phoneTel,
-    image: `${BASE_URL}/assets/slider1_0fe6417c.jpg`,
+    image: `${BASE_URL}/assets/slider1_0fe6417c.webp`,
     address: {
       "@type": "PostalAddress",
       streetAddress: centre.address.split(",").slice(0, 3).join(",").trim() || centre.address,
@@ -108,9 +108,9 @@ export function getLocalBusinessSchema() {
     email: siteContact.email,
     priceRange: "₹5500 - ₹25000",
     image: [
-      `${BASE_URL}/assets/slider1_0fe6417c.jpg`,
-      `${BASE_URL}/assets/blog-covers/neohub-gomti-nagar-hub.jpg`,
-      `${BASE_URL}/assets/blog-covers/neohub-private-cabin.jpg`,
+      `${BASE_URL}/assets/slider1_0fe6417c.webp`,
+      `${BASE_URL}/assets/blog-covers/neohub-gomti-nagar-hub.webp`,
+      `${BASE_URL}/assets/blog-covers/neohub-private-cabin.webp`,
     ],
     address: primaryPlace.address,
     geo: primaryPlace.geo,

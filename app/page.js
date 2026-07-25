@@ -3,6 +3,7 @@ import AboutTabs from "@/components/AboutTabs";
 import HomeGallery from "@/components/HomeGallery";
 import ClientPartners from "@/components/ClientPartners";
 import HomeHeroCarousel from "@/components/home/HomeHeroCarousel";
+import HomeTestimonials from "@/components/home/HomeTestimonials";
 import {
   trustStats,
   pricingPlans,
@@ -10,7 +11,6 @@ import {
   buildPlanWhatsAppUrl,
 } from "@/lib/siteData";
 import { formatBlogDate, getBlogPosts } from "@/lib/blog/queries";
-import { getPublishedTestimonials } from "@/lib/testimonials";
 import { constructMetadata } from "@/lib/seo/metadata";
 
 export const metadata = constructMetadata({
@@ -139,12 +139,6 @@ const aboutHighlightIcons = [
   "/assets/count-img2_1b7c2edd.png",
 ];
 
-const QuoteSvg = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="74.2" height="53" viewBox="0 0 74.2 53">
-    <path d="M0,115.875A19.87,19.87,0,0,1,19.875,96H21.2a5.3,5.3,0,1,1,0,10.6H19.875a9.281,9.281,0,0,0-9.275,9.275V117.2H21.2a10.61,10.61,0,0,1,10.6,10.6v10.6A10.61,10.61,0,0,1,21.2,149H10.6A10.61,10.61,0,0,1,0,138.4V115.875Zm42.4,0A19.87,19.87,0,0,1,62.275,96H63.6a5.3,5.3,0,1,1,0,10.6H62.275A9.281,9.281,0,0,0,53,115.875V117.2H63.6a10.61,10.61,0,0,1,10.6,10.6v10.6A10.61,10.61,0,0,1,63.6,149H53a10.61,10.61,0,0,1-10.6-10.6V115.875Z" transform="translate(0 -96)" opacity="0.06" />
-  </svg>
-);
-
 const SpaceSvg = () => (
   <svg width="1200" height="600" viewBox="0 0 1200 600" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path fillRule="evenodd" clipRule="evenodd" d="M950.998 570.988C1197.08 500.592 1200 0 1200 0V590C1200 595.523 1195.52 600 1190 600H0V561.539C0 561.539 704.916 641.384 950.998 570.988Z" fill="#FF5B2E" />
@@ -154,10 +148,7 @@ const SpaceSvg = () => (
 export const revalidate = 300;
 
 export default async function HomePage() {
-  const [latestPosts, testimonials] = await Promise.all([
-    getBlogPosts({ limit: 3 }),
-    getPublishedTestimonials(),
-  ]);
+  const latestPosts = await getBlogPosts({ limit: 3 });
 
   return (
     <>
@@ -381,59 +372,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section id="testimonial" className="position-relative">
-        <div className="container pt-xl-5 pb-xl-5">
-          <div className="row pb-lg-5 pb-4" style={{ justifyContent: "space-between" }}>
-            <div className="col-xl-6 col-lg-6 col-md-6 heading-box text-md-start text-center pe-lg-5">
-              <h6>Our Testimonials</h6>
-              <h3 className="testimonial-main-heading">What&apos;s Say Clients</h3>
-            </div>
-            <div className="col-xl-5 col-lg-6 col-md-6 text-md-start text-center align-self-center ps-lg-4">
-              <p className="testimonial-main-paragraph align-self-center">
-                At NeoHub, we go beyond desks and chairs. We offer a high-performance workspace ecosystem designed to support your operational needs and elevate your client experience.
-              </p>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-xl-12 col-lg-12 col-md-12 col-12">
-              <div className="our-testimonial-box position-relative pb-lg-4">
-                <div className="owl-carousel owl-carousel-box">
-                  {testimonials.map((t, i) => (
-                    <div key={t.id || i} className="testimonial-content-main-box">
-                      <div className="testimonial-content-box position-relative">
-                        <div className="content-box text-start align-self-center">
-                          <div className="testimonial-quote-box d-flex position-relative">
-                            <div className="testimonial-client-image">
-                              <img width="60" height="60" src={t.image || "/assets/testimg1_4d709d5b.png"} alt={t.name} />
-                            </div>
-                            <div className="testimonial-client-content ps-md-2 ps-sm-3 ps-2 align-self-center">
-                              <h5 className="testimonial-title-box">{t.name}</h5>
-                              <p className="testimonial-contents">{t.role}</p>
-                            </div>
-                            <div className="testi-rating text-center align-self-center">
-                              {Array.from({ length: t.rating || 5 }).map((_, j) => (
-                                <span key={j}><i className="fas fa-star"></i></span>
-                              ))}
-                            </div>
-                            <div className="quote-img"><QuoteSvg /></div>
-                          </div>
-                        </div>
-                        <div className="testimonial-para-content-box pt-sm-3 pt-1 pe-lg-5 pe-3" style={{ position: "relative" }}>
-                          {t.text}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="testimonial-bg-outer-box">
-          <div className="testimonial-bg-clor"></div>
-        </div>
-      </section>
+      <HomeTestimonials />
 
       <HomeGallery />
 

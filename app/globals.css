@@ -14,16 +14,7 @@
   --radius-lg: 24px;
 }
 
-/* Prevent FOUC: hide page until legacy stylesheets finish loading */
-html:not(.styles-ready) body {
-  visibility: hidden;
-}
-
-html.styles-ready body {
-  visibility: visible;
-}
-
-/* Hide loader overlay until styles are ready */
+/* Hide legacy loader overlay until styles/scripts are ready */
 html:not(.styles-ready) .eco-box {
   display: none !important;
 }
@@ -422,6 +413,21 @@ textarea:focus-visible,
   letter-spacing: 0.12em !important;
   text-transform: uppercase !important;
   font-size: 13px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Screen-reader helper for carousel nav labels */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
 }
 
 /* Footer modernization */
@@ -1570,33 +1576,358 @@ textarea:focus-visible,
   text-decoration: none;
 }
 
-.home-testimonial-grid {
+/* ── Neo voice: dense SaaS social-proof (no photos, fills the band) ── */
+.neo-voice {
+  --neo-voice-ink: rgba(15, 23, 42, 0.055);
+  --neo-voice-accent: rgba(255, 91, 46, 0.1);
+  position: relative;
+  isolation: isolate;
+  padding: 44px 0 48px !important;
+  overflow: hidden;
+  background:
+    /* Squarish coworking tile pattern */
+    linear-gradient(90deg, var(--neo-voice-ink) 1px, transparent 1px),
+    linear-gradient(var(--neo-voice-ink) 1px, transparent 1px),
+    linear-gradient(90deg, var(--neo-voice-accent) 1px, transparent 1px),
+    linear-gradient(var(--neo-voice-accent) 1px, transparent 1px),
+    radial-gradient(ellipse 70% 50% at 10% 0%, rgba(255, 91, 46, 0.08), transparent 55%),
+    radial-gradient(ellipse 60% 45% at 95% 100%, rgba(15, 23, 42, 0.04), transparent 55%),
+    #f3f4f6;
+  background-size:
+    28px 28px,
+    28px 28px,
+    112px 112px,
+    112px 112px,
+    auto,
+    auto,
+    auto;
+  background-position:
+    0 0,
+    0 0,
+    0 0,
+    0 0,
+    0 0,
+    0 0,
+    0 0;
+}
+
+.neo-voice::before {
+  content: "";
+  position: absolute;
+  inset: -8%;
+  z-index: 0;
+  pointer-events: none;
+  /* Soft floor tiles / desk-block motif */
+  background-image:
+    repeating-linear-gradient(
+      -12deg,
+      transparent 0,
+      transparent 18px,
+      rgba(255, 91, 46, 0.035) 18px,
+      rgba(255, 91, 46, 0.035) 19px
+    );
+  mask-image: radial-gradient(ellipse 80% 70% at 50% 40%, #000 25%, transparent 75%);
+  animation: neo-voice-pattern-drift 28s linear infinite;
+}
+
+.neo-voice > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.neo-voice-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 20px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: neo-voice-fade-up 0.45s ease forwards;
+}
+
+.neo-voice-bar-copy {
+  min-width: 0;
+}
+
+.neo-voice-eyebrow {
+  margin: 0 0 2px;
+  color: var(--brand-orange);
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.neo-voice-heading {
+  margin: 0 !important;
+  color: #0f172a !important;
+  font-family: var(--font-heading) !important;
+  font-size: clamp(1.25rem, 2.1vw, 1.55rem) !important;
+  font-weight: 750 !important;
+  letter-spacing: -0.03em !important;
+  line-height: 1.2 !important;
+}
+
+.neo-voice-stat {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 7px;
+  margin: 0;
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  color: #64748b;
+  font-family: var(--font-body);
+  font-size: 12px;
+  line-height: 1;
+  transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.neo-voice-stat:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 91, 46, 0.35);
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.06);
+}
+
+.neo-voice-stat strong {
+  color: #0f172a;
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+}
+
+.neo-voice-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
   display: grid;
   grid-template-columns: 1fr;
-  gap: 20px;
+  gap: 10px;
+}
+
+.neo-voice-motion .neo-voice-item {
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.neo-voice-motion.is-visible .neo-voice-item {
+  animation: neo-voice-card-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: calc(var(--neo-voice-i, 0) * 70ms);
+}
+
+.neo-voice-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 168px;
+  padding: 16px 16px 14px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 1px 0 rgba(15, 23, 42, 0.03);
+  transition: border-color 0.22s ease, box-shadow 0.22s ease, transform 0.22s ease;
+  will-change: transform, opacity;
+}
+
+.neo-voice-motion.is-visible .neo-voice-item .neo-voice-q {
+  display: inline-block;
+  animation: neo-voice-quote-pop 0.4s ease both;
+  animation-delay: calc(var(--neo-voice-i, 0) * 70ms + 180ms);
+}
+
+.neo-voice-logo {
+  display: flex;
+  align-items: center;
+  height: 34px;
+}
+
+.neo-voice-logo img {
+  display: block;
+  width: auto;
+  max-width: 132px;
+  height: 32px;
+  object-fit: contain;
+  object-position: left center;
+  filter: grayscale(0.35) contrast(1.08);
+  opacity: 0.95;
+  transition: filter 0.2s ease, opacity 0.2s ease;
+}
+
+.neo-voice-item:hover .neo-voice-logo img {
+  filter: none;
+  opacity: 1;
+}
+
+.neo-voice-item:hover {
+  border-color: rgba(255, 91, 46, 0.35);
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.07);
+  transform: translateY(-3px);
+}
+
+.neo-voice-item blockquote {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  flex: 1 1 auto;
+}
+
+/* Kill Bootstrap / theme decorative quote glyphs */
+.neo-voice-item blockquote::before,
+.neo-voice-item blockquote::after {
+  content: none !important;
+  display: none !important;
+}
+
+.neo-voice-item blockquote p {
+  margin: 0;
+  color: #1e293b;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 450;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+}
+
+/* Medium quote marks — not giant decorative glyphs */
+.neo-voice-q {
+  color: var(--brand-orange);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.15em;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.neo-voice-q:first-child {
+  margin-right: 0.12em;
+}
+
+.neo-voice-q:last-child {
+  margin-left: 0.12em;
+}
+
+.neo-voice-item footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 8px;
+  padding-top: 10px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.neo-voice-item footer strong {
+  color: #0f172a;
+  font-family: var(--font-heading);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.neo-voice-item footer span {
+  color: #64748b;
+  font-family: var(--font-body);
+  font-size: 12px;
+}
+
+.neo-voice-item footer span::before {
+  content: "·";
+  margin-right: 8px;
+  color: #cbd5e1;
 }
 
 @media (min-width: 768px) {
-  .home-testimonial-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .neo-voice-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .neo-voice-item {
+    min-height: 176px;
+    padding: 18px 18px 15px;
   }
 }
 
-.home-testimonial-card {
-  height: 100%;
+@media (min-width: 1100px) {
+  .neo-voice-list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
-.home-testimonial-head {
-  display: grid;
-  grid-template-columns: 56px 1fr auto;
-  gap: 12px;
-  align-items: start;
-  margin-bottom: 12px;
+@media screen and (max-width: 575px) {
+  .neo-voice {
+    padding: 36px 0 40px !important;
+  }
+
+  .neo-voice-item {
+    min-height: 0;
+    padding: 14px;
+  }
 }
 
-.home-testimonial-head img {
-  border-radius: 50%;
-  object-fit: cover;
+@keyframes neo-voice-fade-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes neo-voice-card-in {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes neo-voice-quote-pop {
+  from {
+    opacity: 0;
+    transform: translateY(4px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes neo-voice-pattern-drift {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-28px, -18px, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .neo-voice::before,
+  .neo-voice-bar,
+  .neo-voice-motion .neo-voice-item,
+  .neo-voice-motion.is-visible .neo-voice-item,
+  .neo-voice-motion.is-visible .neo-voice-item .neo-voice-q {
+    animation: none !important;
+  }
+
+  .neo-voice-bar,
+  .neo-voice-motion .neo-voice-item {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .neo-voice-item:hover,
+  .neo-voice-stat:hover {
+    transform: none;
+  }
+}
+
+/* Hide leftover legacy testimonial chrome */
+#testimonial .testimonial-bg-outer-box,
+#testimonial .testimonial-bg-clor {
+  display: none !important;
 }
 
 .home-location-grid {
@@ -2492,7 +2823,8 @@ textarea:focus-visible,
   letter-spacing: 0.1em;
   text-transform: uppercase;
   font-size: 12px !important;
-  margin-bottom: 8px !important;
+  margin: 0 auto 8px !important; /* h6 is width:fit-content in theme CSS */
+  text-align: center;
 }
 
 .partners-intro .about-main-heading {
@@ -3304,6 +3636,7 @@ textarea:focus-visible,
   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.22) !important;
 }
 
+.neo-hero-form .neo-form-card h2,
 .neo-hero-form .neo-form-card h3 {
   font-size: 1.15rem !important;
   margin-bottom: 4px !important;

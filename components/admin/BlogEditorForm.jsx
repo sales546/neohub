@@ -22,7 +22,7 @@ export default function BlogEditorForm({ action, post }) {
       </div>
       <div className="nh-field">
         <label htmlFor="cover_image_url">Cover image URL</label>
-        <input id="cover_image_url" name="cover_image_url" defaultValue={post?.cover_image_url || "/assets/blog-covers/neohub-gomti-nagar-hub.jpg"} />
+        <input id="cover_image_url" name="cover_image_url" defaultValue={post?.cover_image_url || "/assets/blog-covers/neohub-gomti-nagar-hub.webp"} />
       </div>
       <div className="nh-field">
         <label htmlFor="author">Author</label>

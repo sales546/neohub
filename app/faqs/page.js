@@ -60,7 +60,7 @@ export default function FaqsPage() {
         <div className="container">
           <div className="row">
             <div className="col-lg-6 col-md-6 col-sm-12 faq-image pb-4">
-              <img src="/assets/faq_3e32fb3d.png" alt="Frequently Asked Questions" />
+              <img src="/assets/faq_3e32fb3d.webp" alt="Frequently Asked Questions" />
             </div>
             <div className="col-lg-6 col-md-6 col-sm-12">
               <FaqAccordion items={faqData} />

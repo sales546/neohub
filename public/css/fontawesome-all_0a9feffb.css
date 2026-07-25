@@ -4419,7 +4419,7 @@ readers do not read off random characters that represent icons */
   font-family: 'Font Awesome 5 Brands';
   font-style: normal;
   font-weight: normal;
-  font-display: auto;
+  font-display: swap;
   src: url('../assets/fa-brands-400_0bcf5b32.eot');
   src: url('../assets/fa-brands-400_0e58e361.eot') format("embedded-opentype"), url('../assets/fa-brands-400_69f6c9c3.woff2') format("woff2"), url('../assets/fa-brands-400_96f70c5f.woff') format("woff"), url('../assets/fa-brands-400_f818ac53.ttf') format("truetype"), url('../assets/fa-brands-400_80793e40.svg') format("svg"); }
 
@@ -4429,7 +4429,7 @@ readers do not read off random characters that represent icons */
   font-family: 'Font Awesome 5 Free';
   font-style: normal;
   font-weight: 400;
-  font-display: auto;
+  font-display: swap;
   src: url('../assets/fa-regular-400_185d38fb.eot');
   src: url('../assets/fa-regular-400_e07efc48.eot') format("embedded-opentype"), url('../assets/fa-regular-400_b37de45d.woff2') format("woff2"), url('../assets/fa-regular-400_bd7b5c1d.woff') format("woff"), url('../assets/fa-regular-400_04652440.ttf') format("truetype"), url('../assets/fa-regular-400_2d629431.svg') format("svg"); }
 
@@ -4440,7 +4440,7 @@ readers do not read off random characters that represent icons */
   font-family: 'Font Awesome 5 Free';
   font-style: normal;
   font-weight: 900;
-  font-display: auto;
+  font-display: swap;
   src: url('../assets/fa-solid-900_08eacacd.eot');
   src: url('../assets/fa-solid-900_a14a99ba.eot') format("embedded-opentype"), url('../assets/fa-solid-900_9ce1c266.woff2') format("woff2"), url('../assets/fa-solid-900_d770caa5.woff') format("woff"), url('../assets/fa-solid-900_31eecad6.ttf') format("truetype"), url('../assets/fa-solid-900_7b900ee7.svg') format("svg"); }
 

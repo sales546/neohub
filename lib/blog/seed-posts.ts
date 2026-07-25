@@ -32,7 +32,7 @@ export const SEED_BLOG_POSTS: BlogPost[] = [
     title: "Best Coworking Space in Gomti Nagar, Lucknow: What to Check Before You Book",
     excerpt:
       "Looking for a coworking space in Gomti Nagar? Compare location access, seat inventory, internet reliability, cabin privacy, and real monthly costs before signing.",
-    cover_image_url: "/assets/blog-covers/neohub-gomti-nagar-hub.jpg",
+    cover_image_url: "/assets/blog-covers/neohub-gomti-nagar-hub.webp",
     cover_image_alt: "NeoHub coworking hub in Gomti Nagar, Lucknow",
     author: "NeoHub Team",
     tags: ["coworking space gomti nagar", "coworking lucknow", "shared office lucknow"],
@@ -85,7 +85,7 @@ export const SEED_BLOG_POSTS: BlogPost[] = [
     title: "Dedicated Desk vs Private Cabin in Lucknow: Which Workspace Fits Your Team?",
     excerpt:
       "Workstations keep costs lower for individuals and small pods. Private cabins make sense when privacy, branding, and daily client calls become the norm.",
-    cover_image_url: "/assets/blog-covers/neohub-private-cabin.jpg",
+    cover_image_url: "/assets/blog-covers/neohub-private-cabin.webp",
     cover_image_alt: "NeoHub private cabin workspace in Lucknow",
     author: "NeoHub Team",
     tags: ["dedicated desk lucknow", "private cabin office", "workspace types"],
@@ -149,7 +149,7 @@ export const SEED_BLOG_POSTS: BlogPost[] = [
     title: "Coworking Space Pricing in Lucknow (2026): Workstations, Cabins & Conference Rooms",
     excerpt:
       "Current NeoHub rates in Gomti Nagar: workstations from ₹5,500, cabins from ₹20,000, and conference rooms from ₹500/hour — all plus GST where noted.",
-    cover_image_url: "/assets/blog-covers/neohub-workstations.jpg",
+    cover_image_url: "/assets/blog-covers/neohub-workstations.webp",
     cover_image_alt: "NeoHub workstations and dedicated desks in Gomti Nagar",
     author: "NeoHub Team",
     tags: ["coworking pricing lucknow", "office rent gomti nagar", "conference room rates"],
@@ -210,7 +210,7 @@ export const SEED_BLOG_POSTS: BlogPost[] = [
     title: "Why Lucknow Startups Are Choosing Coworking Over Traditional Offices",
     excerpt:
       "Startups in Lucknow are moving to coworking for faster setup, lower CapEx, and the ability to add seats without renegotiating a lease every hiring cycle.",
-    cover_image_url: "/assets/blog-covers/neohub-startup-floor.jpg",
+    cover_image_url: "/assets/blog-covers/neohub-startup-floor.webp",
     cover_image_alt: "Startup teams working at NeoHub Lucknow",
     author: "NeoHub Team",
     tags: ["startup office lucknow", "coworking for startups", "flexible office"],
@@ -254,7 +254,7 @@ export const SEED_BLOG_POSTS: BlogPost[] = [
     title: "Meeting Rooms & Conference Booking in Gomti Nagar: Hourly Rates That Make Sense",
     excerpt:
       "Need a client-ready room in Gomti Nagar without renting a full office? NeoHub conference booking starts at ₹500/hour with AV-ready setups.",
-    cover_image_url: "/assets/blog-covers/neohub-conference-room.jpg",
+    cover_image_url: "/assets/blog-covers/neohub-conference-room.webp",
     cover_image_alt: "NeoHub conference room booking in Gomti Nagar",
     author: "NeoHub Team",
     tags: ["meeting rooms lucknow", "conference room gomti nagar", "hourly meeting room"],
@@ -305,7 +305,7 @@ export const SEED_BLOG_POSTS: BlogPost[] = [
     title: "NeoHub Locations in Lucknow: Cyber Heights, Bhavya Corporate Tower & Experion",
     excerpt:
       "NeoHub runs three Gomti Nagar centres with 900+ combined seats — Cyber Heights (130+), Bhavya (500), and Experion (300+) — so teams can scale without leaving Vibhuti Khand.",
-    cover_image_url: "/assets/blog-covers/neohub-locations.jpg",
+    cover_image_url: "/assets/blog-covers/neohub-locations.webp",
     cover_image_alt: "NeoHub locations across Cyber Heights, Bhavya and Experion",
     author: "NeoHub Team",
     tags: ["neohub locations", "cyber heights coworking", "bhavya corporate tower", "experion lucknow"],

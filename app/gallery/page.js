@@ -8,7 +8,7 @@ export const metadata = constructMetadata({
     "Browse NeoHub's office gallery — workspaces, conference rooms, hot desks, and private cabins at Levana Cyber Heights, Gomti Nagar, Lucknow.",
   canonical: "/gallery",
   ogSubtitle: "See the NeoHub coworking experience",
-  ogImage: "/assets/slider1_0fe6417c.jpg",
+  ogImage: "/assets/slider1_0fe6417c.webp",
   keywords: ["neohub gallery", "coworking office photos lucknow", "cyber heights office tour"],
 });
 

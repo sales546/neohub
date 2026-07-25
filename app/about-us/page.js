@@ -73,7 +73,7 @@ export default function AboutPage() {
                 <div className="col-lg-6 col-md-6 aos-init mb-md-0 mb-5" data-aos="fade-left" style={{ position: "relative" }}>
                   <div className="About-image">
                     <div className="about-main-img-one" style={{ visibility: "visible", animationDuration: "2s", animationName: "zoomInUp" }}>
-                      <img src="/assets/image_33ea1c1c.png" alt="About NeoHub" />
+                      <img src="/assets/image_33ea1c1c.webp" alt="About NeoHub" />
                     </div>
 
                     <div className="about-counter-box d-flex">

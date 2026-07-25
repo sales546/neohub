@@ -1,37 +1,36 @@
 import { getPublishedTestimonials } from "@/lib/testimonials";
+import TestimonialsGrid from "@/components/home/TestimonialsGrid";
 
 export default async function HomeTestimonials() {
   const testimonials = await getPublishedTestimonials();
+  if (!testimonials?.length) return null;
 
   return (
-    <section id="testimonial" className="home-section home-section--muted">
+    <section id="testimonial" className="neo-voice" aria-labelledby="neo-voice-heading">
       <div className="container">
-        <div className="section-heading text-center">
-          <h6>Testimonials</h6>
-          <h3 className="testimonial-main-heading">Trusted by leading teams in Lucknow</h3>
-          <p className="section-lead">
-            Rated 4.8/5 by members for connectivity, hospitality, and professional meeting spaces.
+        <header className="neo-voice-bar">
+          <div className="neo-voice-bar-copy">
+            <p className="neo-voice-eyebrow">Member feedback</p>
+            <h2 id="neo-voice-heading" className="neo-voice-heading">
+              What working at NeoHub feels like
+            </h2>
+          </div>
+          <p className="neo-voice-stat">
+            <strong>4.8/5</strong>
+            <span>avg. member rating</span>
           </p>
-        </div>
-        <div className="home-testimonial-grid">
-          {testimonials.map((t) => (
-            <article key={t.id || t.name} className="testimonial-content-main-box home-testimonial-card">
-              <div className="home-testimonial-head">
-                <img width="56" height="56" src={t.image || "/assets/testimg1_4d709d5b.png"} alt={t.name} />
-                <div>
-                  <h5 className="testimonial-title-box">{t.name}</h5>
-                  <p className="testimonial-contents">{t.role}</p>
-                </div>
-                <div className="testi-rating" aria-label={`${t.rating} out of 5 stars`}>
-                  {Array.from({ length: t.rating || 5 }).map((_, i) => (
-                    <span key={i}><i className="fas fa-star" aria-hidden="true"></i></span>
-                  ))}
-                </div>
-              </div>
-              <p className="testimonial-para-content-box">{t.text}</p>
-            </article>
-          ))}
-        </div>
+        </header>
+
+        <TestimonialsGrid
+          items={testimonials.map((t) => ({
+            id: t.id,
+            name: t.name,
+            role: t.role,
+            text: t.text,
+            companyLogo: t.companyLogo,
+            companyLogoAlt: t.companyLogoAlt,
+          }))}
+        />
       </div>
     </section>
   );

@@ -6,7 +6,7 @@ export default function PageBanner({ title, breadcrumbLabel }) {
   return (
     <div
       className="title-box"
-      style={{ backgroundImage: "url('/assets/banner_f797f160.png')" }}
+      style={{ backgroundImage: "url('/assets/banner_f797f160.webp')" }}
     >
       <div className="container">
         <div className="banner-heading">

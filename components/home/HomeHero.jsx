@@ -8,7 +8,7 @@ export default function HomeHero() {
   return (
     <section id="slider" className="home-hero-static">
       <div className="home-hero-bg">
-        <img src="/assets/slider1_0fe6417c.jpg" alt="NeoHub coworking space in Gomti Nagar, Lucknow" />
+        <img src="/assets/slider1_0fe6417c.webp" alt="NeoHub coworking space in Gomti Nagar, Lucknow" />
       </div>
       <div className="container home-hero-layout">
         <div className="hero-banner-copy text-md-start text-center">

@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
     <html lang="en" data-scroll-behavior="smooth">
       <head>
         <LegacyStyles />
-        <link rel="preload" href="/assets/slider1_0fe6417c.jpg" as="image" fetchPriority="high" />
+        <link rel="preload" href="/assets/slider1_0fe6417c.webp" as="image" fetchPriority="high" />
       </head>
       <body>
         <noscript>

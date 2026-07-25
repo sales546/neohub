@@ -16,7 +16,7 @@ developed by Theclassictemplates(Theclassictemplates.net), 2023.
 Coworking Space Pro WordPress Theme is released under the terms of GNU GPL
 
 /* Basic Style */
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+/* Inter Google import removed — site uses Outfit + Plus Jakarta Sans */
 :root {
   --white: #ffffff;
   --black: #000000;

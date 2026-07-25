@@ -5,15 +5,9 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: '*',
-      allow: '/',
-      disallow: [
-        '/_next/',
-        '/api/',
-        '/admin/',
-        '/search',
-        '/*?*' // Prevents crawling pages with query parameters to save budget and avoid duplicates
-      ]
+      allow: ['/', '/sitemap.xml'],
+      disallow: ['/_next/', '/api/', '/admin/', '/search'],
     },
-    sitemap: `${baseUrl}/sitemap.xml`
+    sitemap: `${baseUrl}/sitemap.xml`,
   };
 }

@@ -8,7 +8,7 @@ import { getBlogListSchema, getBreadcrumbSchema } from "@/lib/seo/schema";
 
 export const revalidate = 300;
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://neohubspaces.in";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.neohubspaces.in";
 
 export const metadata = constructMetadata({
   title: "Coworking Blog & Office Insights",

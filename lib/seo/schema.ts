@@ -1,7 +1,7 @@
 import { BreadcrumbItem, FAQItem, ServicePricingInfo } from "@/types/seo";
 import { neoHubAddresses, siteContact } from "@/lib/siteData";
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://neohubspaces.in";
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.neohubspaces.in";
 
 /** Primary centre = Cyber Heights / Levana (isPrimary or first). */
 function getPrimaryCentre() {

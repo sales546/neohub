@@ -3,7 +3,7 @@ import type { SeoMetadataProps } from "@/types/seo";
 
 export const SITE_NAME = "NeoHub Coworking Space";
 export const SITE_NAME_SHORT = "NeoHub Lucknow";
-export const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://neohubspaces.in";
+export const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.neohubspaces.in";
 
 const defaultKeywords = [
   "coworking space in lucknow",

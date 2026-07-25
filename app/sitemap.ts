@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 import { getBlogPosts } from '@/lib/blog/queries';
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://neohubspaces.in';
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.neohubspaces.in';
 
 const staticRoutes = [
   { url: '', priority: 1.0, changeFrequency: 'daily' as const },

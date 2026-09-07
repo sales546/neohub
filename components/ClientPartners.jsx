@@ -1,29 +1,19 @@
 "use client";
 
-import { useState } from "react";
 import { partnerLogos } from "@/lib/siteData";
+import SiteImage from "@/components/SiteImage";
 
 function PartnerCard({ partner }) {
-  const [failed, setFailed] = useState(false);
-
   return (
     <article className="partner-card" title={partner.alt}>
       <div className="partner-card-logo">
-        {!failed ? (
-          <img
-            src={partner.src}
-            alt=""
-            width={140}
-            height={56}
-            loading="lazy"
-            decoding="async"
-            onError={() => setFailed(true)}
-          />
-        ) : (
-          <span className="partner-card-fallback" aria-hidden="true">
-            {partner.initials}
-          </span>
-        )}
+        <SiteImage
+          src={partner.src}
+          alt=""
+          width={140}
+          height={56}
+          sizes="140px"
+        />
       </div>
       <div className="partner-card-meta">
         <span className="partner-card-dot" aria-hidden="true" />

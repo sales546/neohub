@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { homeGalleryImages, buildPlanWhatsAppUrl } from "@/lib/siteData";
+import SiteImage from "@/components/SiteImage";
 
 export default function HomeGallery() {
   return (
@@ -39,7 +40,7 @@ export default function HomeGallery() {
                 className={`home-gallery-link home-gallery-item home-gallery-item--${index + 1}`}
                 title={image.alt}
               >
-                <img src={image.src} alt={image.alt} loading="lazy" />
+                <SiteImage src={image.src} alt={image.alt} width={800} height={600} sizes="(max-width: 768px) 100vw, 40vw" />
                 <span className="home-gallery-zoom" aria-hidden="true">
                   <i className="fas fa-search-plus"></i>
                 </span>

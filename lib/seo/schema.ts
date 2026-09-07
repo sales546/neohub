@@ -68,7 +68,7 @@ function centreToPlace(centre: (typeof neoHubAddresses)[number]) {
     "@type": "CoworkingSpace",
     "@id": `${BASE_URL}/#location-${centre.id}`,
     name: centre.name,
-    url: `${BASE_URL}/contact`,
+    url: `${BASE_URL}${centre.pagePath || "/contact"}`,
     telephone: centre.phoneTel || siteContact.phoneTel,
     image: `${BASE_URL}/assets/slider1_0fe6417c.webp`,
     address: {
@@ -85,6 +85,19 @@ function centreToPlace(centre: (typeof neoHubAddresses)[number]) {
       longitude,
     },
     openingHoursSpecification: centreHours(centre),
+  };
+}
+
+export function getBuildingSchema(centre: (typeof neoHubAddresses)[number]) {
+  const place = centreToPlace(centre);
+  return {
+    "@context": "https://schema.org",
+    ...place,
+    description: `${centre.shortName} coworking in Vibhuti Khand, Gomti Nagar, Lucknow — ${centre.seats} seats. ${centre.hours}.`,
+    email: siteContact.email,
+    priceRange: "₹5500 - ₹25000",
+    hasMap: centre.googleMapsUrl,
+    parentOrganization: { "@id": `${BASE_URL}/#organization` },
   };
 }
 

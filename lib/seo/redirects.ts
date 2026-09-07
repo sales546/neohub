@@ -13,4 +13,11 @@ export const redirectMap: Record<string, string> = {
   '/home-1/': '/',
   '/home': '/',
   '/home/': '/',
+  '/cyber-heights': '/levana-cyber-heights',
+  '/levana': '/levana-cyber-heights',
+  '/bhavya': '/bhavya-corporate-tower',
+  '/bhavya-tower': '/bhavya-corporate-tower',
+  '/virtual-office-gst': '/gst-registration-lucknow',
+  '/virtual-office-gst-registration': '/gst-registration-lucknow',
+  '/virtual-office-company-registration': '/company-registration-lucknow',
 };

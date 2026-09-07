@@ -6,6 +6,17 @@ import { updateSession } from "@/lib/supabase/middleware";
 export async function proxy(request: NextRequest) {
   const url = request.nextUrl.clone();
   const pathname = url.pathname;
+  const host = (request.headers.get("host") || "").split(":")[0].toLowerCase();
+
+  // Collapse apex → www in one hop whenever this request actually reaches the app
+  // (HTTP→HTTPS on the same host is still enforced by Vercel before this runs).
+  if (host === "neohubspaces.in") {
+    const dest = new URL(request.url);
+    dest.protocol = "https:";
+    dest.hostname = "www.neohubspaces.in";
+    dest.port = "";
+    return NextResponse.redirect(dest, 308);
+  }
 
   // Checked before the static-asset guard below: the legacy WordPress URLs in
   // redirectMap contain a ".html" extension and would otherwise be skipped.

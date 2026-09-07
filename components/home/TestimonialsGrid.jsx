@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import SiteImage from "@/components/SiteImage";
 
 export default function TestimonialsGrid({ items = [] }) {
   const rootRef = useRef(null);
@@ -44,13 +45,12 @@ export default function TestimonialsGrid({ items = [] }) {
           >
             {t.companyLogo ? (
               <div className="neo-voice-logo">
-                <img
+                <SiteImage
                   src={t.companyLogo}
-                  alt={t.companyLogoAlt || t.role || "Company logo"}
+                  alt={t.companyLogoAlt || t.role || ""}
                   width={120}
                   height={36}
-                  loading="lazy"
-                  decoding="async"
+                  sizes="120px"
                 />
               </div>
             ) : null}

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import PageBanner from "@/components/PageBanner";
+import SiteImage from "@/components/SiteImage";
 import { constructMetadata } from "@/lib/seo/metadata";
 
 export const metadata = constructMetadata({
@@ -55,6 +56,48 @@ const spacesData = [
     description: "A premium Gomti Nagar business address for GST and company registration, with mail handling, call forwarding, and meeting room credits.",
   },
   {
+    title: "GST registration address",
+    href: "/gst-registration-lucknow",
+    image: "/assets/spaces-hot-desking.webp",
+    description: "₹18,000/year kit: NOC, utility bill, rent agreement and ownership papers for Lucknow GST filing. Google listing is not included.",
+  },
+  {
+    title: "Company registration address",
+    href: "/company-registration-lucknow",
+    image: "/assets/spaces-hot-desking.webp",
+    description: "₹12,000/year Gomti Nagar registered-office address for MCA incorporation and mail handling, without the GST document pack.",
+  },
+  {
+    title: "Office space for rent in Lucknow",
+    href: "/office-space-for-rent-lucknow",
+    image: "/assets/spaces-enterprise.webp",
+    description: "Lockable cabins and managed floors in Vibhuti Khand instead of a 3-year bare-shell lease on MagicBricks.",
+  },
+  {
+    title: "Managed office in Gomti Nagar",
+    href: "/managed-office-gomti-nagar",
+    image: "/assets/spaces-private-cabins.webp",
+    description: "A private office with furniture, fibre and reception already run — Cyber Heights, Bhavya or Experion.",
+  },
+  {
+    title: "Levana Cyber Heights",
+    href: "/levana-cyber-heights",
+    image: "/assets/spaces-coworking.webp",
+    description: "130+ seats on the 2nd floor of Cyber Heights, opposite Indira Gandhi Pratishthan. Desks from ₹5,500/mo + GST.",
+  },
+  {
+    title: "Bhavya Corporate Tower",
+    href: "/bhavya-corporate-tower",
+    image: "/assets/spaces-workstations.webp",
+    description: "500 seats, open 24 hours, 4th Floor Vijaipur Colony. The largest NeoHub floor in Lucknow.",
+  },
+  {
+    title: "Experion",
+    href: "/experion",
+    image: "/assets/spaces-meeting-cabins.webp",
+    description: "300+ seats on the 6th floor of Experion. Desks from ₹6,500/mo + GST. Open 9 AM–10 PM.",
+  },
+  {
     title: "Premium Private Cabins",
     href: "/private-cabins",
     image: "/assets/spaces-private-cabins.webp",
@@ -76,7 +119,14 @@ export default function SpacesPage() {
                   <div className="spaces-img-outer-box">
                     <div className="spaces-image-box">
                       <Link href={space.href}>
-                        <img src={space.image} className="space-image" alt={space.title} loading="lazy" />
+                        <SiteImage
+                          src={space.image}
+                          className="space-image"
+                          alt={space.title}
+                          width={640}
+                          height={420}
+                          sizes="(max-width: 768px) 100vw, 33vw"
+                        />
                       </Link>
                     </div>
                   </div>

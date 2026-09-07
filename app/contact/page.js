@@ -1,5 +1,6 @@
 import PageBanner from "@/components/PageBanner";
 import ContactForm from "@/components/ContactForm";
+import Link from "next/link";
 import { siteContact, neoHubAddresses } from "@/lib/siteData";
 import { constructMetadata } from "@/lib/seo/metadata";
 
@@ -36,9 +37,25 @@ export default function ContactPage() {
                 </p>
                 <p className="neo-form-subtitle" style={{ marginTop: 8 }}>
                   <strong>Brand name:</strong> NeoHub Coworking Space<br />
-                  <strong>Phone:</strong> {siteContact.phone}<br />
+                  <strong>Phone:</strong> {siteContact.phone} (do not use +91 8853903826)<br />
                   <strong>Email:</strong> {siteContact.email}
                 </p>
+                <p className="neo-form-subtitle" style={{ marginTop: 8 }}>
+                  Directory and GBP website URLs (one listing per building, never merged):
+                </p>
+                <ul className="neo-form-subtitle" style={{ marginTop: 4, paddingLeft: 18 }}>
+                  {neoHubAddresses.map((location) => (
+                    <li key={location.id}>
+                      {location.pagePath ? (
+                        <Link href={location.pagePath}>{location.shortName}</Link>
+                      ) : (
+                        location.shortName
+                      )}
+                      {" — "}
+                      {location.address}. Hours: {location.hours}.
+                    </li>
+                  ))}
+                </ul>
 
                 <div className="contact-cta-links">
                   <a className="contact-cta-link" href={`tel:${siteContact.phoneTel}`}>
@@ -64,18 +81,21 @@ export default function ContactPage() {
                   <ul className="contact-address-list">
                     {neoHubAddresses.map((location) => (
                       <li key={location.id}>
-                        <a
+                        <div
                           id={`location-${location.id}`}
-                          href={location.googleMapsUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className={`contact-address-item contact-address-link${location.isPrimary ? " is-primary" : ""}`}
+                          className={`contact-address-item${location.isPrimary ? " is-primary" : ""}`}
                         >
                           <div className="contact-address-icon">
                             <LocationIcon />
                           </div>
                           <div className="contact-address-body">
-                            <strong>{location.name}</strong>
+                            <strong>
+                              {location.pagePath ? (
+                                <Link href={location.pagePath}>{location.name}</Link>
+                              ) : (
+                                location.name
+                              )}
+                            </strong>
                             {location.seats ? (
                               <span className="contact-address-rating">{location.seats} seats</span>
                             ) : null}
@@ -83,8 +103,13 @@ export default function ContactPage() {
                               <span className="contact-address-rating">{location.rating}</span>
                             ) : null}
                             <p>{location.address}</p>
+                            <p>
+                              <a href={location.googleMapsUrl} target="_blank" rel="noopener noreferrer">
+                                Google Maps
+                              </a>
+                            </p>
                           </div>
-                        </a>
+                        </div>
                       </li>
                     ))}
                   </ul>

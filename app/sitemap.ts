@@ -30,7 +30,13 @@ const CONTENT_UPDATED: Record<string, string> = {
   '/hot-desk': '2026-09-07',
   '/virtual-office': '2026-09-07',
   '/meeting-rooms': '2026-09-07',
-  '/conference-hall': '2026-09-07'
+  '/office-space-for-rent-lucknow': '2026-09-07',
+  '/managed-office-gomti-nagar': '2026-09-07',
+  '/gst-registration-lucknow': '2026-09-07',
+  '/company-registration-lucknow': '2026-09-07',
+  '/levana-cyber-heights': '2026-09-07',
+  '/bhavya-corporate-tower': '2026-09-07',
+  '/experion': '2026-09-07'
 };
 
 const FALLBACK_UPDATED = '2026-07-25';
@@ -67,6 +73,16 @@ const services = [
   'conference-hall'
 ];
 
+const extraLandings = [
+  'levana-cyber-heights',
+  'bhavya-corporate-tower',
+  'experion',
+  'office-space-for-rent-lucknow',
+  'managed-office-gomti-nagar',
+  'gst-registration-lucknow',
+  'company-registration-lucknow'
+];
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticSitemap = staticRoutes.map(route => ({
     url: `${BASE_URL}${route.url}`,
@@ -87,6 +103,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     lastModified: updatedAt(`/${svc}`),
     changeFrequency: 'monthly' as const,
     priority: 0.85
+  }));
+
+  const extraSitemap = extraLandings.map(slug => ({
+    url: `${BASE_URL}/${slug}`,
+    lastModified: updatedAt(`/${slug}`),
+    changeFrequency: 'monthly' as const,
+    priority: 0.86
   }));
 
   let blogSitemap: MetadataRoute.Sitemap = [];
@@ -119,5 +142,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8
   };
 
-  return [...staticSitemap, blogIndex, ...localitySitemap, ...serviceSitemap, ...blogSitemap];
+  return [...staticSitemap, blogIndex, ...localitySitemap, ...serviceSitemap, ...extraSitemap, ...blogSitemap];
 }

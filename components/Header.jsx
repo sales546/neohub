@@ -2,12 +2,14 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
+import SiteImage from "@/components/SiteImage";
 import { usePathname } from "next/navigation";
 
 const navLinks = [
   { href: "/", label: "Home", key: "home" },
   { href: "/about-us", label: "About", key: "about" },
   { href: "/spaces", label: "Spaces", key: "spaces" },
+  { href: "/virtual-office", label: "Virtual Office", key: "virtual-office" },
   { href: "/blog", label: "Blog", key: "blog" },
   { href: "/gallery", label: "Gallery", key: "gallery" },
   { href: "/contact", label: "Contact", key: "contact" },
@@ -55,13 +57,15 @@ export default function Header() {
       <div className="neo-header-shell">
         <div className="neo-header-inner">
           <Link href="/" className="neo-header-logo" aria-label="NeoHub Home">
-            <img src="/assets/logo_67f6779b.png" alt="NeoHub" width={168} height={40} />
+            <SiteImage src="/assets/logo_67f6779b.png" alt="NeoHub" width={168} height={40} priority />
           </Link>
 
           <nav className="neo-header-nav" aria-label="Primary">
             <ul className="neo-header-links">
               {navLinks.map((link) => {
-                const isActive = pathname === link.href;
+                const isActive =
+                  pathname === link.href ||
+                  (link.href !== "/" && pathname?.startsWith(`${link.href}/`));
                 return (
                   <li key={link.key}>
                     <Link
@@ -154,7 +158,9 @@ export default function Header() {
         <nav aria-label="Mobile">
           <ul className="neo-header-drawer-links">
             {navLinks.map((link, index) => {
-              const isActive = pathname === link.href;
+              const isActive =
+                  pathname === link.href ||
+                  (link.href !== "/" && pathname?.startsWith(`${link.href}/`));
               return (
                 <li key={link.key} style={{ "--i": index }}>
                   <Link

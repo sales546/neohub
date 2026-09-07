@@ -9,8 +9,11 @@ import BreadcrumbSchema from '@/components/seo/BreadcrumbSchema';
 import FaqAccordion from '@/components/FaqAccordion';
 import PageBanner from '@/components/PageBanner';
 import NeoHubLocations from '@/components/NeoHubLocations';
-import { getServiceSchema } from '@/lib/seo/schema';
+import { getBuildingSchema, getServiceSchema } from '@/lib/seo/schema';
 import { FAQItem, ServicePricingInfo } from '@/types/seo';
+import { neoHubAddresses } from '@/lib/siteData';
+import { isSeoLandingSlug, seoLandings, SEO_LANDING_SLUGS } from '@/lib/content/seoLandings';
+import SeoLandingView from '@/components/seo/SeoLandingView';
 
 const CYBER_HEIGHTS_DEST =
   'Levana Cyber Heights, TC-212, Vibhuti Khand, Gomti Nagar, Lucknow';
@@ -515,7 +518,8 @@ const serviceData: Record<ServiceSlug, {
 export async function generateStaticParams() {
   const allSlugs = [
     ...localities.map(slug => ({ slug })),
-    ...services.map(slug => ({ slug }))
+    ...services.map(slug => ({ slug })),
+    ...SEO_LANDING_SLUGS.map(slug => ({ slug })),
   ];
   return allSlugs;
 }
@@ -552,6 +556,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     });
   }
 
+  if (isSeoLandingSlug(slug)) {
+    const data = seoLandings[slug];
+    return constructMetadata({
+      title: data.metaTitle,
+      description: data.metaDescription,
+      canonical: `/${slug}`,
+      absoluteTitle: true,
+      ogSubtitle: data.slogan,
+      keywords: data.keywords,
+    });
+  }
+
   return constructMetadata({
     title: "Page not found",
     description: "The page you requested is not available on NeoHub.",
@@ -566,9 +582,23 @@ export default async function ProgrammaticPage({ params }: PageProps) {
 
   const isLocality = localities.includes(slug as LocalitySlug);
   const isService = services.includes(slug as ServiceSlug);
+  const isLanding = isSeoLandingSlug(slug);
 
-  if (!isLocality && !isService) {
+  if (!isLocality && !isService && !isLanding) {
     notFound();
+  }
+
+  if (isLanding) {
+    const landing = seoLandings[slug];
+    const centre = landing.centreId
+      ? neoHubAddresses.find((c) => c.id === landing.centreId)
+      : undefined;
+    return (
+      <SeoLandingView
+        landing={landing}
+        extraSchema={centre ? getBuildingSchema(centre) : undefined}
+      />
+    );
   }
 
   // 1. Render Locality Landing Page
@@ -746,12 +776,18 @@ export default async function ProgrammaticPage({ params }: PageProps) {
                         Use this when you need a Gomti Nagar address to file GST. The kit covers the landlord NOC,
                         utility bill, rent agreement and ownership papers your CA typically asks for.
                       </p>
+                      <p>
+                        <Link href="/gst-registration-lucknow">GST registration virtual office →</Link>
+                      </p>
                     </div>
                     <div className="seo-intent-card">
                       <h3>Business address only — ₹12,000/year</h3>
                       <p>
                         Use this for company incorporation, mail handling and a professional letterhead address
                         without the GST document pack. Meeting-room credits are available on both plans.
+                      </p>
+                      <p>
+                        <Link href="/company-registration-lucknow">Company registration address →</Link>
                       </p>
                     </div>
                   </div>

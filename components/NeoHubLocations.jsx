@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { neoHubAddresses } from "@/lib/siteData";
 
 const LocationIcon = () => (
@@ -16,17 +17,18 @@ export default function NeoHubLocations({ showMaps = false, title = "NeoHub Loca
         <ul className="contact-address-list">
           {neoHubAddresses.map((location) => (
             <li key={location.id}>
-              <a
-                href={location.googleMapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`contact-address-item contact-address-link${location.isPrimary ? " is-primary" : ""}`}
-              >
+              <div className={`contact-address-item${location.isPrimary ? " is-primary" : ""}`}>
                 <div className="contact-address-icon">
                   <LocationIcon />
                 </div>
                 <div className="contact-address-body">
-                  <strong>{location.name}</strong>
+                  <strong>
+                    {location.pagePath ? (
+                      <Link href={location.pagePath}>{location.name}</Link>
+                    ) : (
+                      location.name
+                    )}
+                  </strong>
                   {location.seats ? (
                     <span className="contact-address-rating">{location.seats} seats</span>
                   ) : null}
@@ -34,8 +36,23 @@ export default function NeoHubLocations({ showMaps = false, title = "NeoHub Loca
                     <span className="contact-address-rating">{location.rating}</span>
                   ) : null}
                   <p>{location.address}</p>
+                  <p>
+                    <a
+                      href={location.googleMapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      Google Maps
+                    </a>
+                    {location.pagePath ? (
+                      <>
+                        {" · "}
+                        <Link href={location.pagePath}>Centre page</Link>
+                      </>
+                    ) : null}
+                  </p>
                 </div>
-              </a>
+              </div>
             </li>
           ))}
         </ul>

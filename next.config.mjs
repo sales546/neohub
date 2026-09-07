@@ -67,6 +67,18 @@ const nextConfig = {
         destination: "/",
         permanent: true,
       },
+      {
+        source: "/",
+        has: [{ type: "host", value: "neohubspaces.in" }],
+        destination: "https://www.neohubspaces.in/",
+        permanent: true,
+      },
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "neohubspaces.in" }],
+        destination: "https://www.neohubspaces.in/:path*",
+        permanent: true,
+      },
     ];
   },
 };

@@ -2,6 +2,7 @@
 
 import { CountingNumber } from "@/components/animate-ui/primitives/texts/counting-number";
 import { RevealSlide } from "@/components/home/Reveal";
+import SiteImage from "@/components/SiteImage";
 
 function parseStatValue(value) {
   const n = Number.parseFloat(String(value).replace(/,/g, ""));
@@ -24,10 +25,12 @@ export default function AnimatedCounterStats({ stats = [], icons = [] }) {
                   style={{ width: "fit-content" }}
                 >
                   <div className="counter-icon-img">
-                    <img
+                    <SiteImage
                       src={icons[i] || icons[0]}
                       alt=""
-                      aria-hidden="true"
+                      width={40}
+                      height={40}
+                      sizes="40px"
                     />
                   </div>
                 </div>

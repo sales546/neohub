@@ -1,8 +1,11 @@
 import Link from "next/link";
+import SiteImage from "@/components/SiteImage";
 
 const quickLinks = [
   { href: "/about-us", label: "About Us" },
   { href: "/spaces", label: "Pricing & Spaces" },
+  { href: "/office-space-for-rent-lucknow", label: "Office for rent" },
+  { href: "/managed-office-gomti-nagar", label: "Managed office" },
   { href: "/blog", label: "Blogs" },
   { href: "/faqs", label: "FAQs" },
   { href: "/gallery", label: "Gallery" },
@@ -14,6 +17,8 @@ const workspaces = [
   { href: "/dedicated-desk", label: "Dedicated Desks" },
   { href: "/hot-desk", label: "Hot Desks" },
   { href: "/virtual-office", label: "Virtual Office" },
+  { href: "/gst-registration-lucknow", label: "GST registration" },
+  { href: "/company-registration-lucknow", label: "Company registration" },
   { href: "/meeting-rooms", label: "Meeting Rooms" },
   { href: "/conference-hall", label: "Conference Halls" },
 ];
@@ -21,6 +26,9 @@ const workspaces = [
 const locations = [
   { href: "/gomti-nagar", label: "Gomti Nagar" },
   { href: "/vibhuti-khand", label: "Vibhuti Khand" },
+  { href: "/levana-cyber-heights", label: "Cyber Heights" },
+  { href: "/bhavya-corporate-tower", label: "Bhavya Tower" },
+  { href: "/experion", label: "Experion" },
   { href: "/hazratganj", label: "Hazratganj" },
   { href: "/aliganj", label: "Aliganj" },
   { href: "/indira-nagar", label: "Indira Nagar" },
@@ -65,12 +73,12 @@ export default function Footer() {
         <div className="neo-footer-grid">
           <div className="neo-footer-brand">
             <Link href="/" className="neo-footer-logo" aria-label="NeoHub Home">
-              <img
+              <SiteImage
                 src="/assets/footer-logo_707a880a.png"
                 alt="NeoHub"
                 width={200}
                 height={28}
-                loading="lazy"
+                sizes="200px"
               />
             </Link>
             <p>

@@ -1,4 +1,5 @@
 import PageBanner from "@/components/PageBanner";
+import SiteImage from "@/components/SiteImage";
 import { galleryImages } from "@/lib/siteData";
 import { constructMetadata } from "@/lib/seo/metadata";
 
@@ -23,7 +24,7 @@ export default function GalleryPage() {
             {galleryImages.map((image) => (
               <div className="gallery_page_front" key={image.src}>
                 <a href={image.src} className="gallery-page-link" title={image.alt}>
-                  <img src={image.src} alt={image.alt} loading="lazy" />
+                  <SiteImage src={image.src} alt={image.alt} width={900} height={700} sizes="(max-width: 768px) 100vw, 50vw" />
                   <span className="home-gallery-zoom" aria-hidden="true">
                     <i className="fas fa-search-plus"></i>
                   </span>

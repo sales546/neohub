@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { formatBlogDate } from "@/lib/blog/queries";
+import SiteImage from "@/components/SiteImage";
 
 export default function BlogCard({ post }) {
   const date = formatBlogDate(post.published_at);
@@ -8,12 +9,12 @@ export default function BlogCard({ post }) {
     <article className="blog-image-box neo-blog-card" style={{ position: "relative" }}>
       <div className="blog-img-box position-relative">
         <Link href={`/blog/${post.slug}`} className="post-img">
-          <img
+          <SiteImage
             src={post.cover_image_url || "/assets/blog-covers/neohub-gomti-nagar-hub.webp"}
             alt={post.cover_image_alt || post.title}
-            loading="lazy"
             width={800}
             height={500}
+            sizes="(max-width: 768px) 100vw, 400px"
           />
         </Link>
         {date.day ? (

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { pricingPlans, buildPlanWhatsAppUrl } from "@/lib/siteData";
+import SiteImage from "@/components/SiteImage";
 
 export default function HomePricing() {
   return (
@@ -18,7 +19,7 @@ export default function HomePricing() {
             >
               {plan.tag ? <span className="home-pricing-badge">{plan.tag}</span> : null}
               <div className="pricing-plan-icon">
-                <img src={plan.icon} alt="" aria-hidden="true" />
+                <SiteImage src={plan.icon} alt="" width={48} height={48} sizes="48px" />
               </div>
               <h4>{plan.name}</h4>
               <div className="home-pricing-amount">

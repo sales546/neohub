@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import HomeSliderForm from "@/components/HomeSliderForm";
+import SiteImage from "@/components/SiteImage";
 
 const SLIDES = [
   {
@@ -33,15 +34,16 @@ export default function HomeHeroCarousel() {
     <section className="neo-hero" aria-label="NeoHub hero">
       <div className="neo-hero-media">
         {SLIDES.map((slide, index) => (
-          <img
-            key={slide.src}
-            src={slide.src}
-            alt={slide.alt}
-            // Only the visible slide is exposed; the rest are stacked behind it.
-            aria-hidden={index === active ? undefined : "true"}
-            className={index === active ? "is-active" : undefined}
-            fetchPriority={index === 0 ? "high" : "auto"}
-          />
+          <div key={slide.src} className={`neo-hero-slide${index === active ? " is-active" : ""}`}>
+            <SiteImage
+              src={slide.src}
+              alt={slide.alt}
+              fill
+              priority={index === 0}
+              sizes="100vw"
+              className={index === active ? "is-active" : undefined}
+            />
+          </div>
         ))}
         <div className="neo-hero-overlay" aria-hidden="true" />
       </div>

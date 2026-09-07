@@ -1,5 +1,6 @@
 import { spacePreviews, buildPlanWhatsAppUrl } from "@/lib/siteData";
 import Link from "next/link";
+import SiteImage from "@/components/SiteImage";
 
 export default function HomeSpacesPreview() {
   return (
@@ -13,7 +14,13 @@ export default function HomeSpacesPreview() {
           {spacePreviews.map((space) => (
             <article key={space.href} className="home-space-card">
               <Link href={space.href} className="home-space-image">
-                <img src={space.image} alt={space.title} loading="lazy" />
+                <SiteImage
+                  src={space.image}
+                  alt={space.title}
+                  width={640}
+                  height={400}
+                  sizes="(max-width: 768px) 100vw, 25vw"
+                />
               </Link>
               <div className="home-space-body">
                 <p className="home-space-meta">{space.meta}</p>

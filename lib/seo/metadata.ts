@@ -5,7 +5,9 @@ export const SITE_NAME = "NeoHub Coworking Space";
 export const SITE_NAME_SHORT = "NeoHub Lucknow";
 export const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.neohubspaces.in";
 
-const GOOGLE_VERIFICATION = process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION;
+const GOOGLE_VERIFICATION =
+  process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION ||
+  "Hkp9pTIL4WF-gDlNCXWAVB0Yg7i0jmOBs6N3MkKPu_M";
 const BING_VERIFICATION = process.env.NEXT_PUBLIC_BING_VERIFICATION;
 
 const defaultKeywords = [

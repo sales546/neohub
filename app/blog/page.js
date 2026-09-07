@@ -1,6 +1,6 @@
 import Link from "next/link";
 import PageBanner from "@/components/PageBanner";
-import BlogCard from "@/components/blog/BlogCard";
+import BlogInfiniteGrid from "@/components/blog/BlogInfiniteGrid";
 import JsonLd from "@/components/seo/JsonLd";
 import { getBlogPosts } from "@/lib/blog/queries";
 import { constructMetadata } from "@/lib/seo/metadata";
@@ -56,11 +56,7 @@ export default async function BlogPage() {
             </p>
           </div>
 
-          <div className="neo-blog-grid">
-            {posts.map((post) => (
-              <BlogCard key={post.id || post.slug} post={post} />
-            ))}
-          </div>
+          <BlogInfiniteGrid posts={posts} />
 
           <div className="text-center pb-5">
             <Link className="neo-blog-list-cta" href="/contact">

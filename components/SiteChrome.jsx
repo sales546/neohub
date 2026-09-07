@@ -19,7 +19,12 @@ export default function SiteChrome({ children }) {
       </a>
       <Header />
       <main id="main-content" className="neo-main">
-        {children}
+        <div
+          key={pathname}
+          className={pathname === "/" ? undefined : "neo-page-enter"}
+        >
+          {children}
+        </div>
       </main>
       <Footer />
       <a

@@ -11,19 +11,27 @@ export default function SiteImage({
   height,
   fill = false,
   priority = false,
+  preload = false,
+  loading,
+  decoding,
   sizes,
   className,
   style,
   quality,
 }) {
   const decorative = alt === "";
+  // Next.js 16 deprecates `priority` in favor of `preload`. Keep both so
+  // existing callers still work, and never pass loading with preload.
+  const shouldPreload = Boolean(preload || priority);
   const common = {
     src,
     alt,
     className,
     style,
     quality,
-    priority,
+    preload: shouldPreload || undefined,
+    loading: shouldPreload ? undefined : loading,
+    decoding,
     sizes,
     "aria-hidden": decorative ? true : undefined,
   };

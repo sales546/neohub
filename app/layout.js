@@ -28,7 +28,6 @@ export default function RootLayout({ children }) {
   return (
     <html
       lang="en"
-      data-scroll-behavior="smooth"
       className={`${outfit.variable} ${plusJakarta.variable}`}
     >
       <body>

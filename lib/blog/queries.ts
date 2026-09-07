@@ -104,19 +104,7 @@ export async function getAllBlogSlugs(): Promise<string[]> {
   return posts.map((p) => p.slug);
 }
 
-export function formatBlogDate(iso: string | null | undefined) {
-  if (!iso) return { day: "", month: "", full: "" };
-  const date = new Date(iso);
-  return {
-    day: date.toLocaleDateString("en-IN", { day: "2-digit" }),
-    month: date.toLocaleDateString("en-IN", { month: "short" }),
-    full: date.toLocaleDateString("en-IN", {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    }),
-  };
-}
+export { formatBlogDate } from "./format-date";
 
 export function htmlToPlainText(html: string, maxLength = 160) {
   const text = html

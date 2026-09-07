@@ -1,8 +1,13 @@
 import Link from "next/link";
-import { formatBlogDate } from "@/lib/blog/queries";
+import { formatBlogDate } from "@/lib/blog/format-date";
 import SiteImage from "@/components/SiteImage";
 
-export default function BlogCard({ post, compact = false, titleAs: TitleTag = "h2" }) {
+export default function BlogCard({
+  post,
+  compact = false,
+  titleAs: TitleTag = "h2",
+  preload = false,
+}) {
   const date = formatBlogDate(post.published_at);
 
   return (
@@ -15,6 +20,9 @@ export default function BlogCard({ post, compact = false, titleAs: TitleTag = "h
             width={800}
             height={500}
             sizes="(max-width: 768px) 100vw, 400px"
+            preload={preload}
+            loading={preload ? undefined : "lazy"}
+            decoding="async"
           />
         </Link>
         {date.day ? (

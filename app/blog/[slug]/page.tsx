@@ -2,6 +2,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import PageBanner from "@/components/PageBanner";
+import SiteImage from "@/components/SiteImage";
 import BlogPostBody from "@/components/blog/BlogPostBody";
 import BlogCard from "@/components/blog/BlogCard";
 import JsonLd from "@/components/seo/JsonLd";
@@ -137,9 +138,13 @@ export default async function BlogDetailPage({ params }: PageProps) {
 
               {post.cover_image_url ? (
                 <figure className="neo-blog-cover">
-                  <img
+                  <SiteImage
                     src={post.cover_image_url}
                     alt={post.cover_image_alt || post.title}
+                    width={1200}
+                    height={675}
+                    sizes="(max-width: 992px) 100vw, 720px"
+                    preload
                   />
                 </figure>
               ) : null}

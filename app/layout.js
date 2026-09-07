@@ -31,11 +31,9 @@ export default function RootLayout({ children }) {
       data-scroll-behavior="smooth"
       className={`${outfit.variable} ${plusJakarta.variable}`}
     >
-      <head>
+      <body>
         <LegacyStyles />
         <link rel="preload" href="/assets/slider1_0fe6417c.webp" as="image" fetchPriority="high" />
-      </head>
-      <body>
         <noscript>
           <style>{`html body { visibility: visible !important; }`}</style>
         </noscript>

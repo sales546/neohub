@@ -30,32 +30,10 @@ export default function ContactPage() {
           <div className="row contact-page-row">
             <div className="col-lg-6 col-md-6 contact-info-column order-lg-1 order-2">
               <div className="contact-page-card neo-form-card">
-                <h3 className="neo-form-card-title">Canonical contact details</h3>
+                <h3 className="neo-form-card-title">Visit or call us</h3>
                 <p className="neo-form-subtitle">
-                  Use this name, phone and email on directories and Google Business Profiles.
-                  Each centre has its own address — do not merge the three buildings into one listing.
+                  Three centres in Vibhuti Khand, Gomti Nagar. Same phone and email for every floor.
                 </p>
-                <p className="neo-form-subtitle" style={{ marginTop: 8 }}>
-                  <strong>Brand name:</strong> NeoHub Coworking Space<br />
-                  <strong>Phone:</strong> {siteContact.phone} (do not use +91 8853903826)<br />
-                  <strong>Email:</strong> {siteContact.email}
-                </p>
-                <p className="neo-form-subtitle" style={{ marginTop: 8 }}>
-                  Directory and GBP website URLs (one listing per building, never merged):
-                </p>
-                <ul className="neo-form-subtitle" style={{ marginTop: 4, paddingLeft: 18 }}>
-                  {neoHubAddresses.map((location) => (
-                    <li key={location.id}>
-                      {location.pagePath ? (
-                        <Link href={location.pagePath}>{location.shortName}</Link>
-                      ) : (
-                        location.shortName
-                      )}
-                      {" — "}
-                      {location.address}. Hours: {location.hours}.
-                    </li>
-                  ))}
-                </ul>
 
                 <div className="contact-cta-links">
                   <a className="contact-cta-link" href={`tel:${siteContact.phoneTel}`}>
@@ -101,6 +79,9 @@ export default function ContactPage() {
                             ) : null}
                             {location.rating ? (
                               <span className="contact-address-rating">{location.rating}</span>
+                            ) : null}
+                            {location.hours ? (
+                              <span className="contact-address-hours">{location.hours}</span>
                             ) : null}
                             <p>{location.address}</p>
                             <p>

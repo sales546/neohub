@@ -54,7 +54,7 @@ export const seoLandings: Record<string, SeoLanding> = {
       "NeoHub at Levana Cyber Heights, 2nd Floor TC-212, Vibhuti Khand. 130+ seats, dedicated desks from ₹5,500/mo + GST, cabins from ₹20,000/cabin. Opposite Indira Gandhi Pratishthan.",
     slogan: "The original NeoHub floor in Cyber Heights",
     description:
-      "Levana Cyber Heights is NeoHub’s first Gomti Nagar floor — 2nd Floor, TC-212, opposite Indira Gandhi Pratishthan. 130+ seats, reception 9:00 AM–5:00 PM, and the standard tour building for teams comparing Cyber Heights with Bhavya and Experion. Call +91 70004 81286. A Google Business Profile for this pin should point here, not at a merged NeoHub listing.",
+      "Levana Cyber Heights is NeoHub’s first Gomti Nagar floor — 2nd Floor, TC-212, opposite Indira Gandhi Pratishthan. 130+ seats, reception 9:00 AM–5:00 PM, and the standard tour building for teams comparing Cyber Heights with Bhavya and Experion. Call +91 70004 81286.",
     keywords: [
       "levana cyber heights coworking",
       "cyber heights gomti nagar office",
@@ -124,7 +124,7 @@ export const seoLandings: Record<string, SeoLanding> = {
       "NeoHub at Bhavya Corporate Tower, 4th Floor, Vijaipur Colony, Vibhuti Khand. 500 seats, open 24 hours. Dedicated desks from ₹5,500/mo + GST. Call +91 70004 81286.",
     slogan: "500 seats, open 24 hours, in Vijaipur Colony",
     description:
-      "Bhavya Corporate Tower is NeoHub’s largest Lucknow floor and the only centre in the network that is staffed for 24-hour access. 4th Floor, Vijaipur Colony, Vibhuti Khand, Gomti Nagar. Use this page — not a merged “NeoHub Lucknow” pin — as the Google Business Profile landing URL for this building.",
+      "Bhavya Corporate Tower is NeoHub’s largest Lucknow floor and the only centre in the network that is staffed for 24-hour access. 4th Floor, Vijaipur Colony, Vibhuti Khand, Gomti Nagar. Call +91 70004 81286.",
     keywords: [
       "bhavya corporate tower coworking",
       "24 hour coworking lucknow",
@@ -161,7 +161,7 @@ export const seoLandings: Record<string, SeoLanding> = {
       {
         question: "What is the exact address?",
         answer:
-          "4th Floor, Bhavya Corporate Tower, Vijaipur Colony, Vibhuti Khand, Gomti Nagar, Lucknow 226010. Phone +91 70004 81286 only — do not use +91 8853903826.",
+          "4th Floor, Bhavya Corporate Tower, Vijaipur Colony, Vibhuti Khand, Gomti Nagar, Lucknow 226010. Phone +91 70004 81286. Email contact@neohubspaces.in.",
       },
       {
         question: "How many seats are at Bhavya?",
@@ -173,9 +173,9 @@ export const seoLandings: Record<string, SeoLanding> = {
           "Per cabin. ₹20,000/month + GST is the cabin package (typically 4–8 people), not ₹20,000 per person.",
       },
       {
-        question: "Should my Google listing point here?",
+        question: "Is this the same Google listing as Cyber Heights?",
         answer:
-          "If you operate from this floor, the GBP website URL should be this building page (or /vibhuti-khand), never a marketplace listing and never a second NeoHub pin merged into Cyber Heights.",
+          "No. Search for NEOHUB at Bhavya Corporate Tower. Each NeoHub centre has its own Maps pin, address and hours.",
       },
       {
         question: "Can visitors reach the 4th floor after hours?",
@@ -194,7 +194,7 @@ export const seoLandings: Record<string, SeoLanding> = {
       "NeoHub at Experion, 6th Floor 611, Vibhuti Khand, Gomti Nagar. 300+ seats, desks from ₹6,500/mo + GST, cabins from ₹25,000/cabin. Open 9 AM–10 PM. Call +91 70004 81286.",
     slogan: "300+ seats on the 6th floor of Experion",
     description:
-      "Experion is NeoHub’s third Vibhuti Khand floor — 6th Floor, 611, Gomti Nagar, Lucknow 226010. Published rates sit a step above Cyber Heights and Bhavya (₹6,500 desks, ₹25,000 cabins). Hours 9:00 AM–10:00 PM. Keep this building’s Google pin separate from Levana and Bhavya.",
+      "Experion is NeoHub’s third Vibhuti Khand floor — 6th Floor, 611, Gomti Nagar, Lucknow 226010. Published rates sit a step above Cyber Heights and Bhavya (₹6,500 desks, ₹25,000 cabins). Hours 9:00 AM–10:00 PM. Call +91 70004 81286.",
     keywords: [
       "experion gomti nagar coworking",
       "neohub experion lucknow",
@@ -249,7 +249,7 @@ export const seoLandings: Record<string, SeoLanding> = {
       {
         question: "Does Experion have its own Google listing?",
         answer:
-          "Yes, “Neohub Coworking — Experion”. Do not merge it with the Cyber Heights or Bhavya pins. The website URL on that profile should be this page.",
+          "Yes. Search for Neohub Coworking Experion — it is a separate centre from Cyber Heights and Bhavya Tower.",
       },
     ],
   },

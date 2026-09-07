@@ -256,14 +256,16 @@ export function getServiceSchema(
       name: p.name,
       price: p.price,
       priceCurrency: p.currency,
+      availability: "https://schema.org/InStock",
       priceSpecification: {
         "@type": "UnitPriceSpecification",
         price: p.price,
         priceCurrency: p.currency,
+        valueAddedTaxIncluded: p.taxIncluded ?? false,
         referenceQuantity: {
           "@type": "QuantitativeValue",
-          value: "1",
-          unitCode: p.unit,
+          value: String(p.unitQuantity ?? 1),
+          unitCode: p.unitCode,
         },
       },
     })),

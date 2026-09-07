@@ -9,10 +9,10 @@ export default function HomeGallery() {
           <div id="gallery" className="home-gallery-grid">
             <div className="gallery-head-outer-box">
               <div className="gallery-head-box heading-box text-md-start text-center">
-                <h6>Gallery</h6>
-                <h3 className="blog-main-heading align-self-center">
+                <p className="section-kicker">Gallery</p>
+                <h2 className="blog-main-heading align-self-center">
                   Join Co-Working Space Today and Elevate Your Work Experience!
-                </h3>
+                </h2>
                 <p className="home-gallery-lead">
                   Explore our private cabins, open desks, and meeting rooms at Levana Cyber Heights, Gomti Nagar.
                 </p>

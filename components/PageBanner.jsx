@@ -1,6 +1,11 @@
 import Link from "next/link";
 
-export default function PageBanner({ title, breadcrumbLabel }) {
+/**
+ * `as` lets pages that already render their own <h1> (blog index, articles)
+ * drop the banner to a non-heading element instead of emitting a second H1.
+ * Styling follows the `title-box-heading` class, not the tag.
+ */
+export default function PageBanner({ title, breadcrumbLabel, as: Heading = "h1" }) {
   const label = breadcrumbLabel || title;
 
   return (
@@ -10,7 +15,7 @@ export default function PageBanner({ title, breadcrumbLabel }) {
     >
       <div className="container">
         <div className="banner-heading">
-          <h1 className="align-self-center">{title}</h1>
+          <Heading className="title-box-heading align-self-center">{title}</Heading>
           <div className="breadcrums text-center">
             <Link href="/">
               <i className="fa fa-home"></i> Home /

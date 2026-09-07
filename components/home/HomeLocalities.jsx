@@ -6,8 +6,8 @@ export default function HomeLocalities() {
     <section className="home-section home-localities">
       <div className="container">
         <div className="section-heading text-center">
-          <h6>Areas We Serve</h6>
-          <h3 className="about-main-heading">Coworking access across Lucknow</h3>
+          <p className="section-kicker">Areas We Serve</p>
+          <h2 className="about-main-heading">Coworking access across Lucknow</h2>
           <p className="section-lead">
             Three premium hubs at Cyber Heights, Bhavya Corporate Tower &amp; Experion — convenient across these neighbourhoods.
           </p>

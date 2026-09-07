@@ -9,6 +9,15 @@ const quickLinks = [
   { href: "/contact", label: "Contact Us" },
 ];
 
+const workspaces = [
+  { href: "/private-cabins", label: "Private Cabins" },
+  { href: "/dedicated-desk", label: "Dedicated Desks" },
+  { href: "/hot-desk", label: "Hot Desks" },
+  { href: "/virtual-office", label: "Virtual Office" },
+  { href: "/meeting-rooms", label: "Meeting Rooms" },
+  { href: "/conference-hall", label: "Conference Halls" },
+];
+
 const locations = [
   { href: "/gomti-nagar", label: "Gomti Nagar" },
   { href: "/vibhuti-khand", label: "Vibhuti Khand" },
@@ -109,6 +118,17 @@ export default function Footer() {
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link href={link.href}>{link.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="neo-footer-col">
+            <h4>Workspaces</h4>
+            <ul>
+              {workspaces.map((workspace) => (
+                <li key={workspace.href}>
+                  <Link href={workspace.href}>{workspace.label}</Link>
                 </li>
               ))}
             </ul>

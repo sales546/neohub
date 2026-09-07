@@ -7,6 +7,13 @@ export async function proxy(request: NextRequest) {
   const url = request.nextUrl.clone();
   const pathname = url.pathname;
 
+  // Checked before the static-asset guard below: the legacy WordPress URLs in
+  // redirectMap contain a ".html" extension and would otherwise be skipped.
+  if (redirectMap[pathname]) {
+    url.pathname = redirectMap[pathname];
+    return NextResponse.redirect(url, 301);
+  }
+
   if (
     pathname.startsWith("/_next") ||
     pathname.startsWith("/api") ||
@@ -14,11 +21,6 @@ export async function proxy(request: NextRequest) {
     pathname === "/favicon.ico"
   ) {
     return NextResponse.next();
-  }
-
-  if (redirectMap[pathname]) {
-    url.pathname = redirectMap[pathname];
-    return NextResponse.redirect(url, 301);
   }
 
   if (pathname !== pathname.toLowerCase() && !pathname.startsWith("/admin")) {

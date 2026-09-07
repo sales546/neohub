@@ -49,10 +49,10 @@ const spacesData = [
     description: "Versatile event layouts with AV systems and projector screens to host meetups, workshops, and company announcements.",
   },
   {
-    title: "Flexible Hot Desking",
-    href: "/hot-desk",
+    title: "Virtual Office & Business Address",
+    href: "/virtual-office",
     image: "/assets/spaces-hot-desking.webp",
-    description: "On-demand workspace access by the day or month, giving you the freedom to work from any open seat in the hub.",
+    description: "A premium Gomti Nagar business address for GST and company registration, with mail handling, call forwarding, and meeting room credits.",
   },
   {
     title: "Premium Private Cabins",

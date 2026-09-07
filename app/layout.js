@@ -4,6 +4,7 @@ import LegacyScripts from "@/components/LegacyScripts";
 import SiteChrome from "@/components/SiteChrome";
 import LocalBusinessSchema from "@/components/seo/LocalBusinessSchema";
 import Analytics from "@/components/seo/Analytics";
+import { Analytics as VercelAnalytics } from "@vercel/analytics/next";
 import { rootMetadata } from "@/lib/seo/metadata";
 
 export const metadata = rootMetadata();
@@ -23,6 +24,7 @@ export default function RootLayout({ children }) {
         <SiteChrome>{children}</SiteChrome>
         <LegacyScripts />
         <Analytics />
+        <VercelAnalytics />
         <style dangerouslySetInnerHTML={{ __html: `
           .whatsapp-widget {
             position: fixed;

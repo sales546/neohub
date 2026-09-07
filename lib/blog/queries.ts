@@ -3,7 +3,7 @@ import { getSeedPostsSorted, SEED_BLOG_CATEGORIES } from "./seed-posts";
 import type { BlogCategory, BlogPost, BlogPostCard } from "./types";
 
 const CARD_FIELDS =
-  "id, slug, title, excerpt, cover_image_url, cover_image_alt, author, tags, categories, published_at, reading_time_min";
+  "id, slug, title, excerpt, cover_image_url, cover_image_alt, author, tags, categories, published_at, updated_at, reading_time_min";
 
 function toCard(post: BlogPost): BlogPostCard {
   return {
@@ -17,6 +17,7 @@ function toCard(post: BlogPost): BlogPostCard {
     tags: post.tags || [],
     categories: post.categories || [],
     published_at: post.published_at,
+    updated_at: post.updated_at,
     reading_time_min: post.reading_time_min,
   };
 }

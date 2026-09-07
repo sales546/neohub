@@ -44,7 +44,7 @@ export default async function BlogPage() {
     <>
       <JsonLd data={listSchema} />
       <JsonLd data={breadcrumbSchema} />
-      <PageBanner title="Blog" breadcrumbLabel="Blog" />
+      <PageBanner title="Blog" breadcrumbLabel="Blog" as="p" />
 
       <div id="full-width-blog" className="neo-blog-list-page">
         <div className="container">

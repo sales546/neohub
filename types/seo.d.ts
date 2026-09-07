@@ -27,11 +27,27 @@ export interface FAQItem {
   answer: string;
 }
 
+/**
+ * UN/CEFACT Common Codes. schema.org `unitCode` only accepts these — a
+ * human-readable string like "Month + GST" makes the offer invalid and Google
+ * discards the pricing data.
+ */
+export type BillingUnitCode = "MON" | "HUR" | "DAY" | "ANN";
+
 export interface ServicePricingInfo {
   name: string;
   price: string;
   currency: string;
+  /** Human-readable billing period shown in the UI, e.g. "Month + GST". */
   unit: string;
+  /** Machine-readable billing period for structured data. */
+  unitCode: BillingUnitCode;
+  /** How many `unitCode` periods the price covers. Defaults to 1. */
+  unitQuantity?: number;
+  /** Whether the listed price already includes GST. Defaults to false. */
+  taxIncluded?: boolean;
+  /** Extra line shown under the billed unit, e.g. "per cabin, typically 4–8 seats". */
+  note?: string;
 }
 
 export interface LocalitySEOData {

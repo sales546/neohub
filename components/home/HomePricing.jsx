@@ -6,8 +6,8 @@ export default function HomePricing() {
     <section id="pricing_plans" className="home-section">
       <div className="container">
         <div className="section-heading text-center">
-          <h6>Our Pricing</h6>
-          <h3 className="about-main-heading">Flexible plans for every team size</h3>
+          <p className="section-kicker">Our Pricing</p>
+          <h2 className="about-main-heading">Flexible plans for every team size</h2>
           <p className="section-lead">Transparent pricing across Cyber Heights, Bhavya &amp; Experion. Rates + GST.</p>
         </div>
         <div className="home-pricing-grid">

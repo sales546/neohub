@@ -52,10 +52,10 @@ export default function AboutPage() {
               <div className="row">
                 <div className="col-md-6 align-self-center text-md-start text-center pe-lg-5 pe-md-2 aos-init" data-aos="fade-right">
                   <div className="col-md-12 col-sm-9 col-11 heading-box m-auto pb-2">
-                    <h6>About Us</h6>
-                    <h3 className="about-main-heading">
+                    <p className="section-kicker">About Us</p>
+                    <h2 className="about-main-heading">
                       Discover Our Mission to Create Innovative and Inspiring Workspaces
-                    </h3>
+                    </h2>
                     <p className="about-paragraph">
                       NeoHub provides custom enterprise suites, hot desks, dedicated workstations, and meeting rooms in Gomti Nagar. Focus entirely on your vision while we handle your operations.
                     </p>

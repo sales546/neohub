@@ -118,7 +118,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
       />
       {faqs.length ? <JsonLd data={getFAQPageSchema(faqs)} /> : null}
 
-      <PageBanner title="Blog" breadcrumbLabel="Article" />
+      <PageBanner title="Blog" breadcrumbLabel="Article" as="p" />
 
       <article className="neo-blog-detail">
         <div className="container">

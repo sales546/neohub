@@ -5,6 +5,9 @@ export const SITE_NAME = "NeoHub Coworking Space";
 export const SITE_NAME_SHORT = "NeoHub Lucknow";
 export const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.neohubspaces.in";
 
+const GOOGLE_VERIFICATION = process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION;
+const BING_VERIFICATION = process.env.NEXT_PUBLIC_BING_VERIFICATION;
+
 const defaultKeywords = [
   "coworking space in lucknow",
   "coworking space gomti nagar",
@@ -132,21 +135,20 @@ export function constructMetadata({
         "max-snippet": -1,
       },
     },
+    verification: {
+      ...(GOOGLE_VERIFICATION ? { google: GOOGLE_VERIFICATION } : {}),
+      ...(BING_VERIFICATION ? { other: { "msvalidate.01": BING_VERIFICATION } } : {}),
+    },
     other: {
       "ai-crawlers": noIndex ? "noindex" : "index, follow",
-      ...(process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION
-        ? { "google-site-verification": process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION }
-        : {}),
-      ...(process.env.NEXT_PUBLIC_BING_VERIFICATION
-        ? { "msvalidate.01": process.env.NEXT_PUBLIC_BING_VERIFICATION }
-        : {}),
     },
   };
 }
 
 /** Site-wide defaults for the root layout */
 export function rootMetadata(): Metadata {
-  const title = "NeoHub Coworking Space Lucknow | Premium Shared Office Gomti Nagar";
+  // Kept under ~58 chars so Google does not truncate it in results.
+  const title = "Coworking Space in Gomti Nagar, Lucknow | NeoHub";
   const description =
     "Boost productivity at NeoHub — Lucknow's premium coworking across Bhavya Corporate Tower, Cyber Heights, and Experion in Gomti Nagar. Hot desks, private cabins, and conference rooms.";
 

@@ -6,8 +6,8 @@ export default function HomeSpacesPreview() {
     <section id="spaces-sec" className="home-section">
       <div className="container">
         <div className="section-heading text-center">
-          <h6>Our Spaces</h6>
-          <h3 className="about-main-heading">Workspaces designed for focus and collaboration</h3>
+          <p className="section-kicker">Our Spaces</p>
+          <h2 className="about-main-heading">Workspaces designed for focus and collaboration</h2>
         </div>
         <div className="home-spaces-grid">
           {spacePreviews.map((space) => (

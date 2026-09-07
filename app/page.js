@@ -14,7 +14,8 @@ import { formatBlogDate, getBlogPosts } from "@/lib/blog/queries";
 import { constructMetadata } from "@/lib/seo/metadata";
 
 export const metadata = constructMetadata({
-  title: "NeoHub Coworking Space Lucknow | Premium Shared Office Gomti Nagar",
+  // Kept under ~58 chars so Google does not truncate it in results.
+  title: "Coworking Space in Gomti Nagar, Lucknow | NeoHub",
   description:
     "Boost your productivity at NeoHub, Lucknow's leading coworking space in Levana Cyber Heights, Gomti Nagar. Flexible hot desking, dedicated workstations, private office cabins, and high-tech meeting rooms.",
   canonical: "/",
@@ -160,8 +161,8 @@ export default async function HomePage() {
       <section id="services-sec" className="position-relative">
         <div className="container">
           <div className="col-md-6 col-sm-9 col-11 heading-box m-auto text-center mb-lg-5 mb-4">
-            <h6>Our Services</h6>
-            <h3 className="about-main-heading align-self-center">Empowering Your Productivity with Our Benefits</h3>
+            <p className="section-kicker">Our Services</p>
+            <h2 className="about-main-heading align-self-center">Empowering Your Productivity with Our Benefits</h2>
           </div>
           <div className="row">
             {services.map((svc, i) => (
@@ -188,8 +189,8 @@ export default async function HomePage() {
             <div className="row">
               <div className="col-md-6 align-self-center text-md-start text-center pe-lg-5 pe-md-2 aos-init" data-aos="fade-right">
                 <div className="col-md-12 col-sm-9 col-11 heading-box m-auto pb-2">
-                  <h6>About Us</h6>
-                  <h3 className="about-main-heading">Lucknow&apos;s Premium Destination for High-Performance Teams</h3>
+                  <p className="section-kicker">About Us</p>
+                  <h2 className="about-main-heading">Lucknow&apos;s Premium Destination for High-Performance Teams</h2>
                   <p className="about-paragraph">NeoHub provides custom enterprise suites, hot desks, dedicated workstations, and meeting rooms in Gomti Nagar. Focus entirely on your vision while we handle your operations.</p>
                 </div>
                 <AboutTabs tabs={aboutTabs} />
@@ -206,7 +207,7 @@ export default async function HomePage() {
                     {aboutHighlights.map((item, index) => (
                       <div key={item.label} className="about-box text-start">
                         <div className="about-icon-img">
-                          <img src={aboutHighlightIcons[index]} alt="" />
+                          <img src={aboutHighlightIcons[index]} alt="" aria-hidden="true" />
                         </div>
                         <h3 className="about-inner-title">
                           <span className="about-counter-value">{item.value}</span>
@@ -227,8 +228,8 @@ export default async function HomePage() {
       <section id="spaces-sec" className="position-relative">
         <div className="container">
           <div className="col-md-6 col-sm-9 col-11 heading-box m-auto text-center mb-lg-5 mb-4">
-            <h6>Our Spaces</h6>
-            <h3 className="about-main-heading align-self-center">Empowering Your Productivity with Our Services</h3>
+            <p className="section-kicker">Our Spaces</p>
+            <h2 className="about-main-heading align-self-center">Empowering Your Productivity with Our Services</h2>
           </div>
           <div className="owl-carousel">
             {spacesCarousel.map((space, i) => (
@@ -276,8 +277,8 @@ export default async function HomePage() {
           <div className="container">
             <div className="row pb-lg-5 pb-4" style={{ justifyContent: "space-between" }}>
               <div className="col-xl-6 col-lg-6 col-md-6 heading-box text-md-start text-center pe-lg-5 aos-init" data-aos="fade-right">
-                <h6>Why Choose Us</h6>
-                <h3 className="about-main-heading align-self-center">Lucknow&apos;s Premium Destination for High-Performance Teams</h3>
+                <p className="section-kicker">Why Choose Us</p>
+                <h2 className="about-main-heading align-self-center">Lucknow&apos;s Premium Destination for High-Performance Teams</h2>
               </div>
               <div className="col-xl-5 col-lg-6 col-md-6 text-md-start text-center align-self-center ps-lg-4 aos-init" data-aos="fade-left">
                 <p className="about-main-paragraph align-self-center">
@@ -295,7 +296,7 @@ export default async function HomePage() {
                     <div key={i} className="why-choose-us-outer-box">
                       <div className="row" style={{ justifyContent: "center" }}>
                         <div className="col-md-2 col-sm-2 col-2" style={{ width: "fit-content" }}>
-                          <div className="why-choose-us-icon-img"><img src={item.icon} alt="" /></div>
+                          <div className="why-choose-us-icon-img"><img src={item.icon} alt="" aria-hidden="true" /></div>
                         </div>
                         <div className="col-md-9 col-sm-9 col-9 ps-0 text-start">
                           <div className="why-choose-us-box">
@@ -344,8 +345,8 @@ export default async function HomePage() {
       <section id="pricing_plans">
         <div className="container">
           <div className="col-md-6 col-sm-9 col-11 heading-box m-auto text-center mb-lg-5 mb-4">
-            <h6>Our Pricing</h6>
-            <h3 className="about-main-heading align-self-center">Our Pricing plans</h3>
+            <p className="section-kicker">Our Pricing</p>
+            <h2 className="about-main-heading align-self-center">Our Pricing plans</h2>
           </div>
           <div className="owl-carousel">
             {pricingPlans.map((plan, i) => (
@@ -353,11 +354,11 @@ export default async function HomePage() {
                 <div className="pricing-plans-outer-box position-relative">
                   <div className="pricing-plans-box">
                     <p className="pricing-plan-tag align-self-center">{plan.tag}</p>
-                    <div className="pricing-plan-icon"><img src={plan.icon} alt="" /></div>
+                    <div className="pricing-plan-icon"><img src={plan.icon} alt="" aria-hidden="true" /></div>
                     <h5>{plan.name}</h5>
                     <div className="price-plan">
                       <p className="dollar">₹</p>
-                      <h2 className="price">{plan.price}</h2>
+                      <span className="price">{plan.price}</span>
                       <p className="monthly align-self-end">{plan.unit || "/Monthly"}</p>
                     </div>
                     <div className="pricing-package text-center"><p>{plan.desc}</p></div>
@@ -381,8 +382,8 @@ export default async function HomePage() {
         <div className="container">
           <div className="row pb-lg-5 pb-4" style={{ justifyContent: "space-between" }}>
             <div className="col-xl-6 col-lg-6 col-md-6 heading-box text-md-start text-center pe-lg-5">
-              <h6>News &amp; Blogs</h6>
-              <h3 className="blog-main-heading">Our Latest News &amp; Blogs</h3>
+              <p className="section-kicker">News &amp; Blogs</p>
+              <h2 className="blog-main-heading">Our Latest News &amp; Blogs</h2>
             </div>
             <div className="col-xl-5 col-lg-6 col-md-6 text-md-start text-center align-self-center ps-lg-4">
               <p className="blog-main-paragraph align-self-center">

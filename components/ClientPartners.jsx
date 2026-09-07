@@ -61,8 +61,8 @@ export default function ClientPartners() {
 
       <div className="container">
         <div className="partners-intro text-center">
-          <h6>Our Clients</h6>
-          <h3 className="about-main-heading">Trusted by growing teams</h3>
+          <p className="section-kicker">Our Clients</p>
+          <h2 className="about-main-heading">Trusted by growing teams</h2>
           <p className="partners-intro-copy">
             Enterprise and startup teams working from NeoHub spaces in Gomti Nagar.
           </p>

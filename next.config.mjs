@@ -40,6 +40,16 @@ const nextConfig = {
         ],
       },
       {
+        // Content-hashed filenames, so they can be cached indefinitely.
+        source: "/css/(.*)",
+        headers: [
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
         source: "/icon-512.png",
         headers: [
           {

@@ -5,8 +5,8 @@ export default function HomeStats() {
     <section id="counter-sec" className="home-section home-section--muted">
       <div className="container">
         <div className="section-heading text-center">
-          <h6>NeoHub at a Glance</h6>
-          <h3 className="about-main-heading">Built for high-performance teams in Lucknow</h3>
+          <p className="section-kicker">NeoHub at a Glance</p>
+          <h2 className="about-main-heading">Built for high-performance teams in Lucknow</h2>
         </div>
         <div className="counter-stats-grid">
           {trustStats.map((stat) => (

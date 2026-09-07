@@ -5,9 +5,18 @@ import Link from "next/link";
 import HomeSliderForm from "@/components/HomeSliderForm";
 
 const SLIDES = [
-  "/assets/slider1_0fe6417c.webp",
-  "/assets/slider2_72c0b9ec.webp",
-  "/assets/slider3_2d262f91.webp",
+  {
+    src: "/assets/slider1_0fe6417c.webp",
+    alt: "Breakout lounge at NeoHub coworking in Gomti Nagar, Lucknow, with sofas and armchairs against an exposed brick wall",
+  },
+  {
+    src: "/assets/slider2_72c0b9ec.webp",
+    alt: "Open-plan coworking floor at NeoHub Lucknow lined with dedicated workstations under full-height windows",
+  },
+  {
+    src: "/assets/slider3_2d262f91.webp",
+    alt: "Members working side by side at shared desks in a NeoHub coworking space in Gomti Nagar, Lucknow",
+  },
 ];
 
 export default function HomeHeroCarousel() {
@@ -22,17 +31,19 @@ export default function HomeHeroCarousel() {
 
   return (
     <section className="neo-hero" aria-label="NeoHub hero">
-      <div className="neo-hero-media" aria-hidden="true">
-        {SLIDES.map((src, index) => (
+      <div className="neo-hero-media">
+        {SLIDES.map((slide, index) => (
           <img
-            key={src}
-            src={src}
-            alt=""
+            key={slide.src}
+            src={slide.src}
+            alt={slide.alt}
+            // Only the visible slide is exposed; the rest are stacked behind it.
+            aria-hidden={index === active ? undefined : "true"}
             className={index === active ? "is-active" : undefined}
             fetchPriority={index === 0 ? "high" : "auto"}
           />
         ))}
-        <div className="neo-hero-overlay" />
+        <div className="neo-hero-overlay" aria-hidden="true" />
       </div>
 
       <div className="neo-hero-layout">

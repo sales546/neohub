@@ -74,7 +74,8 @@ h4{
   color: var(--black);
   margin: 0;    
 }
-h3,h3 a{
+h3,h3 a,
+.about-main-heading,.blog-main-heading{
   font: 700 30px / 45px var(--pri-font);
   color: #000000;
   margin: 0;
@@ -2666,7 +2667,8 @@ section#newsletter:before {
   .about-tab-content-main-box .nav-pills .nav-link {
     padding: 10px 19px;
   }
-  h3,.slider-touch-form-box h3 {
+  h3,.slider-touch-form-box h3,
+  .about-main-heading,.blog-main-heading {
     font: 700 25px / 35px var(--pri-font);
   }
   .testimonial-para-content-box {
@@ -2797,7 +2799,8 @@ section#newsletter:before {
   .modal-contents {
     width: 70%;
   }
-  .title-box h1 {
+  .title-box h1,
+  .title-box .title-box-heading {
     color: #fff;
     font-size: 30px;
     line-height: 40px;
@@ -2844,7 +2847,8 @@ section#newsletter:before {
   .about-counter-box{
     bottom: 30px;
   }
-  .about-main-heading, h3 ,.slider-touch-form-box h3{
+  .about-main-heading, h3 ,.slider-touch-form-box h3,
+  .blog-main-heading{
     font: 700 20px / 25px var(--pri-font);
   }
   .slider-box-shadow-box-shadow{
@@ -3265,7 +3269,8 @@ section#newsletter:before {
   .banner-heading {
     padding-top: 20%;
   }
-  .title-box h1 {
+  .title-box h1,
+  .title-box .title-box-heading {
     color: #fff;
     font-size: 20px;
     line-height: 26px;

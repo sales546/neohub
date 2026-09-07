@@ -29,9 +29,15 @@ export default function ContactPage() {
           <div className="row contact-page-row">
             <div className="col-lg-6 col-md-6 contact-info-column order-lg-1 order-2">
               <div className="contact-page-card neo-form-card">
-                <h3 className="neo-form-card-title">Contact Information</h3>
+                <h3 className="neo-form-card-title">Canonical contact details</h3>
                 <p className="neo-form-subtitle">
-                  Have questions about pricing, office availability, or custom layouts? Our space manager will contact you within 24 hours.
+                  Use this name, phone and email on directories and Google Business Profiles.
+                  Each centre has its own address — do not merge the three buildings into one listing.
+                </p>
+                <p className="neo-form-subtitle" style={{ marginTop: 8 }}>
+                  <strong>Brand name:</strong> NeoHub Coworking Space<br />
+                  <strong>Phone:</strong> {siteContact.phone}<br />
+                  <strong>Email:</strong> {siteContact.email}
                 </p>
 
                 <div className="contact-cta-links">

@@ -39,5 +39,6 @@ export type BlogPostCard = Pick<
   | "tags"
   | "categories"
   | "published_at"
+  | "updated_at"
   | "reading_time_min"
 >;

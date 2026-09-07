@@ -879,7 +879,8 @@ div#tab-description {
   padding-left: 5px;
 }
 /*------------- Title Banner -----------------*/
-.title-box h1 {
+.title-box h1,
+.title-box .title-box-heading {
   color:  #fff;
   font-size: 36px;
   text-align: center;

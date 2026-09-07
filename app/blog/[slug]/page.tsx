@@ -15,7 +15,7 @@ import {
 import { getBlogPostingSchema, getBreadcrumbSchema, getFAQPageSchema } from "@/lib/seo/schema";
 import { BASE_URL, buildOgImageUrl, constructMetadata } from "@/lib/seo/metadata";
 
-export const revalidate = 300;
+export const revalidate = 60;
 
 type PageProps = {
   params: Promise<{ slug: string }>;
@@ -156,11 +156,10 @@ export default async function BlogDetailPage({ params }: PageProps) {
                     <span>Book a tour</span>
                   </Link>
                   <a
-                    className="hero-secondary-btn"
+                    className="neo-btn-outline"
                     href="https://wa.me/917000481286?text=Hi%20NeoHub%2C%20I%20read%20your%20blog%20and%20want%20workspace%20options."
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ color: "#0f172a", borderColor: "#e2e8f0" }}
                   >
                     WhatsApp NeoHub
                   </a>

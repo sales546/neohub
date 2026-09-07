@@ -6,7 +6,7 @@ import { getBlogPosts } from "@/lib/blog/queries";
 import { constructMetadata } from "@/lib/seo/metadata";
 import { getBlogListSchema, getBreadcrumbSchema } from "@/lib/seo/schema";
 
-export const revalidate = 300;
+export const revalidate = 60;
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.neohubspaces.in";
 
@@ -56,16 +56,14 @@ export default async function BlogPage() {
             </p>
           </div>
 
-          <div className="content_page row pt-4 pb-5">
+          <div className="neo-blog-grid">
             {posts.map((post) => (
-              <div key={post.id || post.slug} className="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-3 mb-3">
-                <BlogCard post={post} />
-              </div>
+              <BlogCard key={post.id || post.slug} post={post} />
             ))}
           </div>
 
           <div className="text-center pb-5">
-            <Link className="hero-secondary-btn" href="/contact" style={{ color: "#0f172a", borderColor: "#e2e8f0" }}>
+            <Link className="neo-blog-list-cta" href="/contact">
               Ask NeoHub about workspace options
             </Link>
           </div>

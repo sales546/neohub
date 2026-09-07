@@ -33,7 +33,7 @@ export default function HomeSpacesPreview() {
           ))}
         </div>
         <div className="text-center mt-4">
-          <Link className="hero-secondary-btn" href="/spaces">View all spaces</Link>
+          <Link className="neo-btn-outline" href="/spaces">View all spaces</Link>
         </div>
       </div>
     </section>

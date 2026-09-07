@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "blog:seed-sql": "tsx scripts/generate-blog-seed-sql.ts",
+    "blog:upsert": "tsx scripts/upsert-seed-posts.ts",
     "blog:covers": "python3 scripts/generate-branded-blog-covers.py",
     "indexnow": "tsx scripts/submit-indexnow.ts",
     "admin:create": "node scripts/create-admin.mjs"

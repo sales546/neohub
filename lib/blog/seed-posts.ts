@@ -27,6 +27,192 @@ export const SEED_BLOG_CATEGORIES = [
 
 export const SEED_BLOG_POSTS: BlogPost[] = [
   post({
+    id: "seed-008",
+    slug: "coworking-near-hazratganj-lucknow-commute",
+    title: "Coworking Near Hazratganj, Lucknow: Commute Times to Gomti Nagar",
+    excerpt:
+      "No NeoHub floor sits in Hazratganj. Here are honest drive and metro times from Hazratganj, Aliganj and Indira Nagar to Cyber Heights, Bhavya and Experion.",
+    cover_image_url: "/assets/blog-covers/neohub-locations.webp",
+    cover_image_alt: "NeoHub coworking locations in Gomti Nagar, Lucknow",
+    author: "NeoHub Team",
+    tags: [
+      "coworking near hazratganj",
+      "hazratganj to gomti nagar commute",
+      "coworking lucknow metro",
+    ],
+    categories: ["lucknow", "coworking"],
+    published_at: "2026-09-07T18:00:00.000Z",
+    meta_title: "Coworking Near Hazratganj Lucknow | Commute to Gomti Nagar",
+    meta_description:
+      "Commute times from Hazratganj, Aliganj and Indira Nagar to NeoHub in Gomti Nagar — Cyber Heights, Bhavya Tower and Experion — with hours and parking notes.",
+    focus_keyword: "coworking near hazratganj lucknow",
+    reading_time_min: 8,
+    body_html: `
+<p>People searching “coworking near Hazratganj” usually want two things: a desk they can reach before a 10 am client, and a pin that is not a 45-minute gamble. NeoHub does not operate a centre in Hazratganj. All three floors sit in <a href="/vibhuti-khand">Vibhuti Khand, Gomti Nagar</a>. That is not a bait-and-switch — it is the Grade-A office belt. This page is the commute math so you can decide whether that belt is close enough.</p>
+
+<h2>Where the three NeoHub floors actually are</h2>
+<ul>
+  <li><a href="/levana-cyber-heights">Levana Cyber Heights</a> — 2nd Floor, TC-212, opposite Indira Gandhi Pratishthan. 130+ seats. 9am–5pm, Monday–Saturday.</li>
+  <li><a href="/bhavya-corporate-tower">Bhavya Corporate Tower</a> — 4th Floor, Vijaipur Colony. 500 seats. Open 24 hours.</li>
+  <li><a href="/experion">Experion</a> — 6th Floor, 611. 300+ seats. 9am–10pm.</li>
+</ul>
+<p>Phone for tours is <a href="tel:+917000481286">+91 70004 81286</a>. Email <a href="mailto:contact@neohubspaces.in">contact@neohubspaces.in</a>.</p>
+
+<h2>Typical weekday travel times</h2>
+<p>These are door-to-lobby ranges for a normal weekday, not festival evenings. Add 10–15 minutes if you need a visitor parking slot at peak.</p>
+<table>
+  <thead>
+    <tr><th>From</th><th>To Cyber Heights / Experion</th><th>To Bhavya Tower</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Hazratganj (GPO / Sahara Ganj)</td><td>18–28 min by car via Shaheed Path</td><td>16–26 min by car</td></tr>
+    <tr><td>Hazratganj Metro</td><td>Metro to Indira Nagar + 8–12 min auto</td><td>Same metro, then a short auto west</td></tr>
+    <tr><td>Aliganj / Kapoorthala</td><td>22–35 min via Ring Road / Shaheed Path</td><td>20–32 min</td></tr>
+    <tr><td>Indira Nagar / Munshipulia</td><td>8–15 min</td><td>10–18 min</td></tr>
+    <tr><td>Gomti Nagar Extension</td><td>12–20 min</td><td>10–18 min</td></tr>
+  </tbody>
+</table>
+
+<h2>When Hazratganj still wins</h2>
+<p>Stay in the heritage core if your clients are retail, courts, or government offices around the GPO and you need walk-in meetings twice a day. In that case a Hazratganj operator (or a day-pass plus NeoHub for deep work) is the honest split. If your week is Zoom-heavy and clients already come to Gomti Nagar, the extra 20 minutes in the morning buys newer buildings, parking, and 900+ seats under one operator.</p>
+
+<h2>Which NeoHub floor to tour first</h2>
+<ul>
+  <li><strong>Cyber Heights</strong> if you want the fastest first tour and published desk rates from ₹5,500/month + GST.</li>
+  <li><strong>Bhavya</strong> if you leave home after 8pm or need a 24-hour floor.</li>
+  <li><strong>Experion</strong> if you already work that block or want later evening access (until 10pm).</li>
+</ul>
+
+<h2>FAQs</h2>
+<h3>Is there a NeoHub in Hazratganj?</h3>
+<p>No. The nearest floors are in Vibhuti Khand. Use the commute table rather than a marketplace page that lists “Lucknow” as if it were one pin.</p>
+<h3>Can I book a meeting room without taking a desk?</h3>
+<p>Yes. Conference rooms start at ₹500/hour at Cyber Heights and Bhavya, and ₹600/hour at Experion. That is often the right product if you only need a Gomti Nagar address for client demos.</p>
+<h3>What about Aliganj or Indira Nagar offices?</h3>
+<p>We do not have centres there either. Those pages exist as commute guides — same idea as this one. See <a href="/aliganj">Aliganj</a> and <a href="/indira-nagar">Indira Nagar</a>.</p>
+<p>Next: <a href="/hazratganj">Hazratganj landing</a>, <a href="/gomti-nagar">Gomti Nagar coworking</a>, or <a href="/contact">book a tour</a>.</p>
+`.trim(),
+  }),
+
+  post({
+    id: "seed-009",
+    slug: "24-hour-coworking-lucknow-bhavya-tower",
+    title: "24-Hour Coworking in Lucknow: What Bhavya Tower Actually Offers",
+    excerpt:
+      "Only one NeoHub floor is 24 hours — Bhavya Corporate Tower, 500 seats. How night access differs from Cyber Heights (9–5) and Experion (9–10).",
+    cover_image_url: "/assets/blog-covers/neohub-startup-floor.webp",
+    cover_image_alt: "Evening coworking floor at NeoHub Bhavya Tower, Lucknow",
+    author: "NeoHub Team",
+    tags: [
+      "24 hour coworking lucknow",
+      "bhavya corporate tower coworking",
+      "night access coworking gomti nagar",
+    ],
+    categories: ["workspaces", "lucknow"],
+    published_at: "2026-09-07T19:00:00.000Z",
+    meta_title: "24-Hour Coworking Lucknow | Bhavya Tower NeoHub",
+    meta_description:
+      "NeoHub’s 24-hour floor is Bhavya Corporate Tower in Gomti Nagar (500 seats). Compare night access with Cyber Heights and Experion before you book.",
+    focus_keyword: "24 hour coworking lucknow",
+    reading_time_min: 7,
+    body_html: `
+<p>“24/7 coworking Lucknow” is a real search. It is also a phrase marketplaces stamp on listings that close at 6pm. In the NeoHub network only <a href="/bhavya-corporate-tower">Bhavya Corporate Tower</a> is open 24 hours. Cyber Heights is 9am–5pm Monday–Saturday. Experion is 9am–10pm. If your workday starts after dinner, the building name matters more than the brand name.</p>
+
+<h2>What 24-hour access means at Bhavya</h2>
+<p>The centre is on the 4th Floor of Bhavya Corporate Tower, Vijaipur Colony, Vibhuti Khand, Gomti Nagar — 500 seats. Members on that floor can enter with their access credentials at night and on Sundays. Reception and pantry staffing thin out after the business day; the lights, internet and desks stay on. That is the distinction: a staffed lobby until evening, a secure floor after that.</p>
+
+<h2>Who actually needs it</h2>
+<ul>
+  <li>US / UK shift teams that cannot leave at 5pm.</li>
+  <li>Founders who write or ship after client hours and do not want a home office.</li>
+  <li>Companies putting 20+ seats in one contiguous plan — Bhavya is the high-capacity floor.</li>
+</ul>
+<p>If you work a standard 9–6 and only want Saturday mornings, Cyber Heights is enough. If you leave at 8 or 9pm, Experion covers you without paying for unused night hours.</p>
+
+<h2>Published starting rates (plus GST)</h2>
+<table>
+  <thead>
+    <tr><th>Product</th><th>Bhavya / Cyber Heights</th><th>Experion</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Dedicated desk / month</td><td>₹5,500</td><td>₹6,500</td></tr>
+    <tr><td>Private cabin / month</td><td>₹20,000 per cabin</td><td>₹25,000 per cabin</td></tr>
+    <tr><td>Meeting room / hour</td><td>₹500</td><td>₹600</td></tr>
+  </tbody>
+</table>
+<p>Cabin prices are per room, not per seat. A 5-seat cabin at ₹20,000 is ₹4,000/seat before GST.</p>
+
+<h2>Directory listings often get this wrong</h2>
+<p>CoFynd and Qdesq still show NeoHub hours as 10am–6pm with Saturday closed. That is not Bhavya, and it is not even Cyber Heights (9am–5pm, Saturday open). When you tour, ask which floor the quote is for and whether night access is card-based or “call the manager”.</p>
+
+<h2>FAQs</h2>
+<h3>Are all three NeoHub centres 24 hours?</h3>
+<p>No. Only Bhavya. Treat any marketplace badge that says otherwise as stale.</p>
+<h3>Can I use Cyber Heights by day and Bhavya at night?</h3>
+<p>Yes, if your plan includes multi-location access. Ask for that in the proposal so it is written down.</p>
+<h3>Is parking available after midnight?</h3>
+<p>Tower parking rules follow the building, not just the coworking floor. Confirm a night slot on the tour if your team drives.</p>
+<p>Tour Bhavya first if night hours are the reason you are switching: <a href="/contact">book with +91 70004 81286</a>.</p>
+`.trim(),
+  }),
+
+  post({
+    id: "seed-010",
+    slug: "virtual-office-gst-registration-lucknow-guide",
+    title: "Virtual Office for GST Registration in Lucknow: What You Actually Get",
+    excerpt:
+      "A Lucknow virtual office can supply a GST and company-registration address. It does not include a Google Business Profile. NeoHub plans start at ₹12,000/year.",
+    cover_image_url: "/assets/blog-covers/neohub-conference-room.webp",
+    cover_image_alt: "Meeting room at NeoHub used with virtual office plans in Lucknow",
+    author: "NeoHub Team",
+    tags: [
+      "virtual office lucknow",
+      "gst registration lucknow virtual office",
+      "company registration address lucknow",
+    ],
+    categories: ["startups", "lucknow"],
+    published_at: "2026-09-07T20:00:00.000Z",
+    meta_title: "Virtual Office GST Registration Lucknow | NeoHub",
+    meta_description:
+      "Use a NeoHub virtual office in Gomti Nagar for GST or company registration from ₹12,000/year. What the address includes — and what Google will not give you.",
+    focus_keyword: "virtual office gst registration lucknow",
+    reading_time_min: 8,
+    body_html: `
+<p>A virtual office in Lucknow is an address product, not a desk. You use it to file GST, incorporate a company, open a current account, and print a Gomti Nagar letterhead. You do not get a reserved seat, and you do not get a Google Business Profile. Operators who bundle “GBP included” with a mailing address are selling a policy risk.</p>
+
+<h2>NeoHub virtual office, plainly</h2>
+<p>Plans start at <strong>₹12,000/year</strong> for the address, or <strong>₹18,000/year</strong> for the GST kit (address plus the paperwork pack most CAs ask for). The floors behind those addresses are real, staffed centres: Cyber Heights, Bhavya Tower and Experion in Vibhuti Khand. See <a href="/virtual-office">virtual office</a>, <a href="/gst-registration-lucknow">GST registration</a> and <a href="/company-registration-lucknow">company registration</a>.</p>
+
+<h2>What the address is for</h2>
+<ul>
+  <li>GST registration and amendment of principal place of business.</li>
+  <li>SPICe+ / company incorporation correspondence.</li>
+  <li>Bank KYC that asks for a registered office in Uttar Pradesh.</li>
+  <li>Mail handling so notices do not go to a rented flat you will leave.</li>
+</ul>
+
+<h2>What it is not</h2>
+<ul>
+  <li><strong>Not a Google Business Profile.</strong> Google wants your own staffed location and signage. A virtual office fails that test.</li>
+  <li><strong>Not a dedicated desk.</strong> Day passes and hourly rooms are separate products.</li>
+  <li><strong>Not three different legal entities.</strong> Pick one building as the registered address and keep NAP consistent: NeoHub Coworking Space, +91 70004 81286, contact@neohubspaces.in.</li>
+</ul>
+
+<h2>How to choose the building on the certificate</h2>
+<p>Use Cyber Heights if your CA already knows that pin. Use Bhavya if you expect to convert the virtual office into a 24-hour cabin later. Use Experion if that tower is already on vendor paperwork. Do not list all three on one GST application.</p>
+
+<h2>FAQs</h2>
+<h3>Can a Delhi founder take a Lucknow GST address?</h3>
+<p>Yes, if the business activity and the CA are comfortable with a Lucknow principal place of business. The address still has to be inspectable. Ours are.</p>
+<h3>Do I get meeting-room hours?</h3>
+<p>Book rooms at ₹500–₹600/hour when you need them. Do not assume unlimited conference time is inside the ₹12,000 plan unless it is written on the invoice.</p>
+<h3>How fast can I get the NOC / utility pack?</h3>
+<p>Same week for a complete file. Call <a href="tel:+917000481286">+91 70004 81286</a> with your CA’s checklist rather than a marketplace form that routes to a consultant number.</p>
+<p><a href="/contact">Start the virtual office file</a> or read the <a href="/gst-registration-lucknow">GST landing</a>.</p>
+`.trim(),
+  }),
+
+  post({
     id: "seed-007",
     slug: "best-coworking-spaces-in-lucknow-2026",
     title: "Best Coworking Spaces in Lucknow (2026): Buildings, Prices and Who Fits Where",

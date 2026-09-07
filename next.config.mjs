@@ -67,6 +67,18 @@ const nextConfig = {
         destination: "/",
         permanent: true,
       },
+      // Prefer www in one hop whenever the request reaches the app.
+      // Vercel still upgrades bare HTTP→HTTPS on the same host first;
+      // HSTS preload is what collapses that hop for browsers.
+      {
+        source: "/:path*",
+        has: [
+          { type: "host", value: "neohubspaces.in" },
+          { type: "header", key: "x-forwarded-proto", value: "http" },
+        ],
+        destination: "https://www.neohubspaces.in/:path*",
+        permanent: true,
+      },
       {
         source: "/",
         has: [{ type: "host", value: "neohubspaces.in" }],

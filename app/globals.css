@@ -1,8 +1,8 @@
 /* NeoHub Premium UI/UX Modernization Overrides */
 
 :root {
-  --font-heading: 'Plus Jakarta Sans', sans-serif;
-  --font-body: 'Outfit', sans-serif;
+  --font-heading: var(--font-plus-jakarta), "Plus Jakarta Sans", sans-serif;
+  --font-body: var(--font-outfit), Outfit, sans-serif;
   --brand-orange: #ff5b2e;
   --brand-orange-hover: #e04b20;
   --bg-translucent: rgba(255, 255, 255, 0.85);
@@ -1496,6 +1496,7 @@ textarea:focus-visible,
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  min-height: 44px;
   padding: 11px 22px;
   font-family: var(--font-heading);
   font-size: 14px;
@@ -1511,6 +1512,30 @@ textarea:focus-visible,
   background: rgba(255, 255, 255, 0.12);
   border-color: rgba(255, 255, 255, 0.7);
   color: #ffffff !important;
+}
+
+.neo-btn-outline,
+.neo-blog-list-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 10px 22px;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 600;
+  color: #0f172a !important;
+  background: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+.neo-btn-outline:hover,
+.neo-blog-list-cta:hover {
+  border-color: var(--brand-orange);
+  color: var(--brand-orange) !important;
+  background: #fff7f4;
 }
 
 .hero-trust-row {
@@ -2126,14 +2151,61 @@ textarea:focus-visible,
 
 .home-blog-grid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 24px;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 28px;
+  align-items: stretch;
 }
 
 @media (min-width: 768px) {
   .home-blog-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+}
+
+@media (min-width: 992px) {
+  .home-blog-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+  }
+}
+
+.neo-home-blog {
+  padding: 56px 0 72px;
+}
+
+.neo-home-blog-head {
+  display: grid;
+  gap: 12px 40px;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 768px) {
+  .neo-home-blog-head {
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+    align-items: start;
+  }
+
+  .neo-home-blog-lede {
+    padding-top: 28px;
+  }
+}
+
+.neo-home-blog .blog-main-heading {
+  font-family: var(--font-heading) !important;
+  font-size: clamp(1.6rem, 2.4vw, 2.1rem) !important;
+  line-height: 1.25 !important;
+  text-wrap: balance;
+  color: #0f172a !important;
+}
+
+.neo-home-blog-lede {
+  font-family: var(--font-body) !important;
+  font-size: 16px !important;
+  line-height: 1.65 !important;
+  color: #64748b !important;
+  margin: 0 !important;
+  text-wrap: pretty;
+  max-width: 36rem;
 }
 
 .home-blog-card {
@@ -2568,31 +2640,66 @@ textarea:focus-visible,
 
 /* ── Dynamic blog ── */
 .neo-blog-list-page {
-  padding-bottom: 24px;
+  padding: 8px 0 32px;
 }
 
 .neo-blog-list-intro {
-  max-width: 720px;
-  margin: 36px auto 8px;
+  max-width: 40rem;
+  margin: 40px auto 12px;
+  padding: 0 16px;
+}
+
+.neo-blog-list-intro .about-main-heading {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 2.4vw, 2rem);
+  line-height: 1.3;
+  text-wrap: balance;
+  margin: 0;
 }
 
 .neo-blog-list-intro p {
+  font-family: var(--font-body);
   color: #64748b;
   font-size: 16px;
-  line-height: 1.7;
-  margin-top: 12px;
+  line-height: 1.65;
+  text-wrap: pretty;
+  margin: 14px 0 0;
+}
+
+.neo-blog-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 28px;
+  padding: 28px 0 40px;
+  align-items: stretch;
+}
+
+@media (min-width: 768px) {
+  .neo-blog-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+  }
+}
+
+@media (min-width: 992px) {
+  .neo-blog-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+  }
 }
 
 .neo-blog-card {
   height: 100%;
   display: flex;
   flex-direction: column;
-  overflow: visible !important;
+  overflow: hidden !important;
+  min-width: 0;
 }
 
 .neo-blog-card .blog-img-box {
+  position: relative;
   margin: 0;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .neo-blog-card .blog-img-box .post-img {
@@ -2609,6 +2716,8 @@ textarea:focus-visible,
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
   background: #eef2f7;
+  outline: 1px solid oklch(0 0 0 / 0.1);
+  outline-offset: -1px;
 }
 
 .neo-blog-card .blog-img-box .post-img img {
@@ -2621,19 +2730,77 @@ textarea:focus-visible,
 }
 
 .neo-blog-card .blog-date-admin-box {
-  bottom: 8px;
-  right: 14px;
+  bottom: 12px;
+  right: 12px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  line-height: 1.15;
+}
+
+.neo-blog-card .date-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.neo-blog-card .blog-date-admin-box .date {
+  font-family: var(--font-heading) !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  line-height: 1.1 !important;
+  font-variant-numeric: tabular-nums;
+}
+
+.neo-blog-card .blog-date-admin-box .month {
+  font-family: var(--font-heading) !important;
+  font-size: 11px !important;
+  font-weight: 600 !important;
+  line-height: 1.2 !important;
+  text-transform: uppercase;
+}
+
+.neo-blog-card .blog-contents-box {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 20px 22px 22px;
+  margin: 0;
+  min-width: 0;
+}
+
+.neo-blog-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 14px;
+  margin: 0 0 14px;
+}
+
+.neo-blog-card .news-author,
+.neo-blog-card-readtime {
+  font: 500 13px / 1.45 var(--font-heading) !important;
+  text-transform: none !important;
+  color: #64748b;
 }
 
 .neo-blog-card-title {
-  font-size: 1.15rem !important;
+  font-family: var(--font-heading) !important;
+  font-size: 1.125rem !important;
+  font-weight: 700 !important;
   line-height: 1.45 !important;
+  text-wrap: balance;
   margin: 0;
 }
 
 .neo-blog-card-title a {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
   color: #0f172a !important;
   text-decoration: none;
+  overflow-wrap: break-word;
 }
 
 .neo-blog-card-title a:hover {
@@ -2641,23 +2808,36 @@ textarea:focus-visible,
 }
 
 .neo-blog-card-excerpt {
+  font-family: var(--font-body);
   color: #64748b;
-  font-size: 14px;
-  line-height: 1.65;
-  margin: 10px 0 14px;
+  font-size: 15px;
+  line-height: 1.6;
+  text-wrap: pretty;
+  overflow-wrap: break-word;
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  margin: 12px 0 0;
 }
 
 .neo-blog-card-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
   color: var(--brand-orange) !important;
   font-weight: 700;
   font-size: 14px;
+  line-height: 1.4;
   text-decoration: none;
   margin-top: auto;
+  padding-top: 16px;
 }
 
-.neo-blog-card-meta {
-  gap: 8px;
-  flex-wrap: wrap;
+.neo-blog-card-link:hover {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  text-decoration-thickness: from-font;
 }
 
 .neo-blog-detail {
@@ -2815,7 +2995,9 @@ textarea:focus-visible,
 }
 
 .neo-blog-cta p {
+  font-family: var(--font-body);
   color: #64748b;
+  line-height: 1.6;
   margin: 0 0 18px;
 }
 
@@ -3180,6 +3362,12 @@ textarea:focus-visible,
   padding-top: 84px; /* room for fixed header */
 }
 
+.title-box .title-box-heading {
+  font-family: var(--font-heading) !important;
+  font-weight: 700 !important;
+  line-height: 1.2;
+}
+
 /* Header — floating glass capsule (fixed / sticky to viewport) */
 .neo-header {
   position: fixed;
@@ -3188,11 +3376,12 @@ textarea:focus-visible,
   right: 0;
   z-index: 1000;
   width: 100%;
-  padding: 10px 12px 0;
+  padding: 10px 12px 18px;
   background: linear-gradient(
     180deg,
-    rgba(250, 251, 252, 0.96) 0%,
-    rgba(250, 251, 252, 0.85) 70%,
+    rgba(250, 251, 252, 0.98) 0%,
+    rgba(250, 251, 252, 0.94) 58%,
+    rgba(250, 251, 252, 0.55) 82%,
     rgba(250, 251, 252, 0) 100%
   );
   pointer-events: none;
@@ -3571,7 +3760,7 @@ textarea:focus-visible,
 
 @media (min-width: 1024px) {
   .neo-header {
-    padding: 14px 20px 0;
+    padding: 14px 20px 22px;
   }
 
   .neo-main {

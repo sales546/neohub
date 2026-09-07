@@ -29,7 +29,7 @@ export default function HomeLocation() {
               <a className="seo-cta-btn" href={buildPlanWhatsAppUrl("office tour")} target="_blank" rel="noopener noreferrer">
                 Book a Tour
               </a>
-              <a className="hero-secondary-btn" href={siteContact.googleMapsUrl} target="_blank" rel="noopener noreferrer">
+              <a className="neo-btn-outline" href={siteContact.googleMapsUrl} target="_blank" rel="noopener noreferrer">
                 Open in Google Maps
               </a>
             </div>

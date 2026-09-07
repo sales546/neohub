@@ -2,12 +2,12 @@ import Link from "next/link";
 import { formatBlogDate } from "@/lib/blog/queries";
 import SiteImage from "@/components/SiteImage";
 
-export default function BlogCard({ post }) {
+export default function BlogCard({ post, compact = false, titleAs: TitleTag = "h2" }) {
   const date = formatBlogDate(post.published_at);
 
   return (
-    <article className="blog-image-box neo-blog-card" style={{ position: "relative" }}>
-      <div className="blog-img-box position-relative">
+    <article className={`blog-image-box neo-blog-card${compact ? " neo-blog-card--compact" : ""}`}>
+      <div className="blog-img-box">
         <Link href={`/blog/${post.slug}`} className="post-img">
           <SiteImage
             src={post.cover_image_url || "/assets/blog-covers/neohub-gomti-nagar-hub.webp"}
@@ -19,7 +19,7 @@ export default function BlogCard({ post }) {
         </Link>
         {date.day ? (
           <div className="blog-date-admin-box">
-            <span className="date-item align-self-center">
+            <span className="date-item">
               <span className="date">{date.day}</span>
               <span className="month">{date.month}</span>
             </span>
@@ -27,23 +27,19 @@ export default function BlogCard({ post }) {
         ) : null}
       </div>
 
-      <div className="blog-contents-box text-lg-start text-start">
-        <div className="d-flex justify-content-lg-start justify-content-sm-start justify-content-start neo-blog-card-meta">
-          <div className="blog-admin-box">
-            <span className="news-author">By {post.author || "NeoHub Team"}</span>
-          </div>
+      <div className="blog-contents-box">
+        <div className="neo-blog-card-meta">
+          <span className="news-author">By {post.author || "NeoHub Team"}</span>
           {post.reading_time_min ? (
-            <div className="post-comments align-self-center ps-3">
-              <span>{post.reading_time_min} min read</span>
-            </div>
+            <span className="neo-blog-card-readtime">{post.reading_time_min} min read</span>
           ) : null}
         </div>
 
-        <h2 className="neo-blog-card-title pt-2">
+        <TitleTag className="neo-blog-card-title">
           <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-        </h2>
+        </TitleTag>
 
-        {post.excerpt ? <p className="neo-blog-card-excerpt">{post.excerpt}</p> : null}
+        {!compact && post.excerpt ? <p className="neo-blog-card-excerpt">{post.excerpt}</p> : null}
 
         <Link href={`/blog/${post.slug}`} className="neo-blog-card-link">
           Read article

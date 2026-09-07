@@ -10,7 +10,8 @@ import {
   aboutHighlights,
   buildPlanWhatsAppUrl,
 } from "@/lib/siteData";
-import { formatBlogDate, getBlogPosts } from "@/lib/blog/queries";
+import BlogCard from "@/components/blog/BlogCard";
+import { getBlogPosts } from "@/lib/blog/queries";
 import { constructMetadata } from "@/lib/seo/metadata";
 
 export const metadata = constructMetadata({
@@ -146,7 +147,7 @@ const SpaceSvg = () => (
   </svg>
 );
 
-export const revalidate = 300;
+export const revalidate = 60;
 
 export default async function HomePage() {
   const latestPosts = await getBlogPosts({ limit: 3 });
@@ -378,60 +379,21 @@ export default async function HomePage() {
       <HomeGallery />
 
       {/* Blog Preview */}
-      <section id="blog" className="position-relative">
+      <section id="blog" className="neo-home-blog">
         <div className="container">
-          <div className="row pb-lg-5 pb-4" style={{ justifyContent: "space-between" }}>
-            <div className="col-xl-6 col-lg-6 col-md-6 heading-box text-md-start text-center pe-lg-5">
+          <div className="neo-home-blog-head">
+            <div>
               <p className="section-kicker">News &amp; Blogs</p>
-              <h2 className="blog-main-heading">Our Latest News &amp; Blogs</h2>
+              <h2 className="blog-main-heading">Our latest news &amp; blogs</h2>
             </div>
-            <div className="col-xl-5 col-lg-6 col-md-6 text-md-start text-center align-self-center ps-lg-4">
-              <p className="blog-main-paragraph align-self-center">
-                At NeoHub, we go beyond desks and chairs. We offer a high-performance workspace ecosystem designed to support your operational needs and elevate your client experience.
-              </p>
-            </div>
+            <p className="neo-home-blog-lede">
+              Practical notes on desks, cabins, and meeting rooms in Gomti Nagar — written for teams comparing Lucknow workspace options.
+            </p>
           </div>
-          <div className="our-blog-box">
-            <div className="row blog-content-box">
-              <div className="owl-carousel">
-                {latestPosts.map((post) => {
-                  const date = formatBlogDate(post.published_at);
-                  return (
-                    <div key={post.slug} className="blog-image-box" style={{ position: "relative" }}>
-                      <div className="blog-img-box position-relative">
-                        <div className="post-img">
-                          <img
-                            src={post.cover_image_url || "/assets/image7_6ac1b0f1.png"}
-                            alt={post.cover_image_alt || post.title}
-                          />
-                        </div>
-                        <div className="blog-date-admin-box">
-                          <span className="date-item align-self-center">
-                            <span className="date">{date.day}</span>
-                            <span className="month">{date.month}</span>
-                          </span>
-                        </div>
-                      </div>
-                      <div className="blog-contents-box text-lg-start text-start">
-                        <div className="d-flex justify-content-lg-start justify-content-sm-start justify-content-start">
-                          <div className="blog-admin-box">
-                            <span className="news-author">By {post.author || "NeoHub Team"}</span>
-                          </div>
-                          {post.reading_time_min ? (
-                            <div className="post-comments align-self-center ps-3">
-                              <span className="ms-2">{post.reading_time_min} min read</span>
-                            </div>
-                          ) : null}
-                        </div>
-                        <h5 className="pt-2">
-                          <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-                        </h5>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
+          <div className="home-blog-grid">
+            {latestPosts.map((post) => (
+              <BlogCard key={post.slug} post={post} compact titleAs="h3" />
+            ))}
           </div>
         </div>
       </section>

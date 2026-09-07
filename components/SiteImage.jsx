@@ -12,12 +12,12 @@ export default function SiteImage({
   fill = false,
   priority = false,
   preload = false,
-  loading,
-  decoding,
-  sizes,
-  className,
-  style,
-  quality,
+  loading = undefined,
+  decoding = undefined,
+  sizes = undefined,
+  className = undefined,
+  style = undefined,
+  quality = undefined,
 }) {
   const decorative = alt === "";
   // Next.js 16 deprecates `priority` in favor of `preload`. Keep both so

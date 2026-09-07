@@ -6,7 +6,7 @@ export default function LegacyStyles() {
   return (
     <>
       {LEGACY_STYLESHEETS.map((href) => (
-        <link key={href} rel="stylesheet" href={href} />
+        <link key={href} rel="stylesheet" href={href} precedence="default" />
       ))}
     </>
   );

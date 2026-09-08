@@ -29,12 +29,21 @@ const relatedWorkspaces = [
   { href: "/virtual-office", label: "Virtual office" },
   { href: "/meeting-rooms", label: "Meeting rooms" },
   { href: "/conference-hall", label: "Conference halls" },
+  { href: "/blog/coworking-space-pricing-lucknow-2026", label: "Coworking pricing in Lucknow (2026)" },
+  {
+    href: "/blog/meeting-rooms-conference-booking-gomti-nagar",
+    label: "Meeting rooms in Gomti Nagar",
+  },
 ];
 
 const relatedBuildings = [
   { href: "/levana-cyber-heights", label: "Levana Cyber Heights" },
   { href: "/bhavya-corporate-tower", label: "Bhavya Corporate Tower" },
   { href: "/experion", label: "Experion" },
+  {
+    href: "/blog/neohub-locations-cyber-heights-bhavya-experion",
+    label: "How the three NeoHub floors compare",
+  },
 ];
 
 function centre(id: string) {
@@ -281,6 +290,10 @@ export const seoLandings: Record<string, SeoLanding> = {
       { href: "/private-cabins", label: "Private cabins" },
       { href: "/managed-office-gomti-nagar", label: "Managed office in Gomti Nagar" },
       { href: "/gomti-nagar", label: "Coworking in Gomti Nagar" },
+      {
+        href: "/blog/why-startups-choose-coworking-over-traditional-offices-lucknow",
+        label: "Why startups choose coworking over a traditional office",
+      },
     ],
     faqs: [
       {
@@ -342,6 +355,10 @@ export const seoLandings: Record<string, SeoLanding> = {
       { href: "/private-cabins", label: "Private cabins" },
       { href: "/office-space-for-rent-lucknow", label: "Office space for rent in Lucknow" },
       { href: "/dedicated-desk", label: "Dedicated desks" },
+      {
+        href: "/blog/why-startups-choose-coworking-over-traditional-offices-lucknow",
+        label: "Why startups choose coworking over a traditional office",
+      },
     ],
     faqs: [
       {

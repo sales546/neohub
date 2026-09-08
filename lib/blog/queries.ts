@@ -99,6 +99,35 @@ export async function getBlogCategories(): Promise<BlogCategory[]> {
   return SEED_BLOG_CATEGORIES;
 }
 
+export async function getRelatedBlogPosts(
+  slug: string,
+  options?: { categories?: string[] | null; tags?: string[] | null; limit?: number }
+): Promise<BlogPostCard[]> {
+  const limit = options?.limit ?? 3;
+  const posts = await getBlogPosts({ limit: 100 });
+  const others = posts.filter((post) => post.slug !== slug);
+  const categories = new Set(options?.categories || []);
+  const tags = new Set(options?.tags || []);
+
+  const ranked = others
+    .map((post) => {
+      let score = 0;
+      for (const category of post.categories || []) {
+        if (categories.has(category)) score += 3;
+      }
+      for (const tag of post.tags || []) {
+        if (tags.has(tag)) score += 1;
+      }
+      return { post, score };
+    })
+    .sort((a, b) => {
+      if (b.score !== a.score) return b.score - a.score;
+      return Date.parse(b.post.published_at || "0") - Date.parse(a.post.published_at || "0");
+    });
+
+  return ranked.slice(0, limit).map((item) => item.post);
+}
+
 export async function getAllBlogSlugs(): Promise<string[]> {
   const posts = await getBlogPosts({ limit: 100 });
   return posts.map((p) => p.slug);

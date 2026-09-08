@@ -10,7 +10,7 @@ import {
   formatBlogDate,
   getAllBlogSlugs,
   getBlogPostBySlug,
-  getBlogPosts,
+  getRelatedBlogPosts,
   htmlToPlainText,
 } from "@/lib/blog/queries";
 import { getBlogPostingSchema, getBreadcrumbSchema, getFAQPageSchema } from "@/lib/seo/schema";
@@ -87,7 +87,11 @@ export default async function BlogDetailPage({ params }: PageProps) {
   const post = await getBlogPostBySlug(slug);
   if (!post) notFound();
 
-  const related = (await getBlogPosts({ limit: 4 })).filter((p) => p.slug !== post.slug).slice(0, 3);
+  const related = await getRelatedBlogPosts(post.slug, {
+    categories: post.categories,
+    tags: post.tags,
+    limit: 3,
+  });
   const date = formatBlogDate(post.published_at);
   const description =
     post.meta_description || post.excerpt || htmlToPlainText(post.body_html, 155);
@@ -202,7 +206,7 @@ export default async function BlogDetailPage({ params }: PageProps) {
               <div className="row">
                 {related.map((item) => (
                   <div key={item.slug} className="col-xl-4 col-lg-4 col-md-6 col-sm-12 mt-3 mb-3">
-                    <BlogCard post={item} />
+                    <BlogCard post={item} titleAs="h3" />
                   </div>
                 ))}
               </div>

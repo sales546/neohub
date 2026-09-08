@@ -30,7 +30,7 @@ export default function ContactPage() {
           <div className="row contact-page-row">
             <div className="col-lg-6 col-md-6 contact-info-column order-lg-1 order-2">
               <div className="contact-page-card neo-form-card">
-                <h3 className="neo-form-card-title">Visit or call us</h3>
+                <h2 className="neo-form-card-title">Visit or call us</h2>
                 <p className="neo-form-subtitle">
                   Three centres in Vibhuti Khand, Gomti Nagar. Same phone and email for every floor.
                 </p>
@@ -55,7 +55,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="contact-addresses-block">
-                  <h4 className="contact-page-section-label">NeoHub Locations</h4>
+                  <h3 className="contact-page-section-label">NeoHub Locations</h3>
                   <ul className="contact-address-list">
                     {neoHubAddresses.map((location) => (
                       <li key={location.id}>
@@ -100,7 +100,7 @@ export default function ContactPage() {
 
             <div className="col-lg-6 col-md-6 col-12 contact-form-column order-lg-2 order-1">
               <div className="contact-page-card neo-form-card">
-                <h3 className="neo-form-card-title">Send us a message</h3>
+                <h2 className="neo-form-card-title">Send us a message</h2>
                 <p className="neo-form-subtitle">Share your requirements and our team will reach out within 24 hours.</p>
                 <ContactForm />
               </div>
@@ -112,13 +112,14 @@ export default function ContactPage() {
 
       <section className="contact-maps-section">
         <div className="container">
+          <h2 className="contact-maps-heading">Maps for every NeoHub centre</h2>
           <div className="contact-maps-grid">
             {neoHubAddresses.map((location) => (
               <div key={location.id} className="contact-map-card">
-                <h5 className="contact-map-card-title">
+                <h3 className="contact-map-card-title">
                   {location.name}
                   {location.seats ? ` · ${location.seats} seats` : ""}
-                </h5>
+                </h3>
                 <div className="contact-map-wrap">
                   <iframe
                     width="100%"

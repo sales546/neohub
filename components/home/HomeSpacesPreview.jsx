@@ -24,7 +24,7 @@ export default function HomeSpacesPreview() {
               </Link>
               <div className="home-space-body">
                 <p className="home-space-meta">{space.meta}</p>
-                <h4><Link href={space.href}>{space.title}</Link></h4>
+                <h3><Link href={space.href}>{space.title}</Link></h3>
                 <a className="home-pricing-link" href={buildPlanWhatsAppUrl(space.title)} target="_blank" rel="noopener noreferrer">
                   Enquire on WhatsApp
                 </a>

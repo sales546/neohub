@@ -1,3 +1,4 @@
+import Link from "next/link";
 import PageBanner from "@/components/PageBanner";
 import AboutTabs from "@/components/AboutTabs";
 import { trustStats, aboutHighlights } from "@/lib/siteData";
@@ -59,6 +60,13 @@ export default function AboutPage() {
                     <p className="about-paragraph">
                       NeoHub provides custom enterprise suites, hot desks, dedicated workstations, and meeting rooms in Gomti Nagar. Focus entirely on your vision while we handle your operations.
                     </p>
+                    <p className="about-paragraph">
+                      Teams comparing a cabin to a traditional lease can start with{" "}
+                      <Link href="/blog/why-startups-choose-coworking-over-traditional-offices-lucknow">
+                        why Lucknow startups choose coworking
+                      </Link>
+                      , then tour Cyber Heights, Bhavya, or Experion.
+                    </p>
                   </div>
 
                   <AboutTabs tabs={tabsData} />
@@ -79,11 +87,11 @@ export default function AboutPage() {
                     <div className="about-counter-box d-flex">
                       {aboutHighlights.map((item) => (
                         <div key={item.label} className="about-box text-start">
-                          <h3 className="about-inner-title">
+                          <p className="about-inner-title">
                             <span className="about-counter-value">{item.value}</span>
                             <span>{item.suffix}</span>
-                          </h3>
-                          <h5 className="about-inner-paragraph">{item.label}</h5>
+                          </p>
+                          <p className="about-inner-paragraph">{item.label}</p>
                         </div>
                       ))}
                     </div>

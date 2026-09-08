@@ -11,7 +11,7 @@ import PageBanner from '@/components/PageBanner';
 import NeoHubLocations from '@/components/NeoHubLocations';
 import { getBuildingSchema, getServiceSchema } from '@/lib/seo/schema';
 import { FAQItem, ServicePricingInfo } from '@/types/seo';
-import { neoHubAddresses } from '@/lib/siteData';
+import { neoHubAddresses, workspaceGuideLinks } from '@/lib/siteData';
 import { isSeoLandingSlug, seoLandings, SEO_LANDING_SLUGS } from '@/lib/content/seoLandings';
 import SeoLandingView from '@/components/seo/SeoLandingView';
 
@@ -694,6 +694,11 @@ export default async function ProgrammaticPage({ params }: PageProps) {
                       <Link href={link.href}>{link.label}</Link>
                     </li>
                   ))}
+                  {workspaceGuideLinks.map((link) => (
+                    <li key={link.href}>
+                      <Link href={link.href}>{link.label}</Link>
+                    </li>
+                  ))}
                 </ul>
               </div>
 
@@ -807,6 +812,18 @@ export default async function ProgrammaticPage({ params }: PageProps) {
                   <li>
                     <Link href="/gomti-nagar">Coworking in Gomti Nagar</Link>
                   </li>
+                  <li>
+                    <Link href="/blog/coworking-space-pricing-lucknow-2026">
+                      Coworking pricing in Lucknow (2026)
+                    </Link>
+                  </li>
+                  {(slug === "meeting-rooms" || slug === "conference-hall") ? (
+                    <li>
+                      <Link href="/blog/meeting-rooms-conference-booking-gomti-nagar">
+                        Meeting room booking in Gomti Nagar
+                      </Link>
+                    </li>
+                  ) : null}
                 </ul>
               </div>
 

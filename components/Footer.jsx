@@ -1,5 +1,6 @@
 import Link from "next/link";
 import SiteImage from "@/components/SiteImage";
+import { workspaceGuideLinks } from "@/lib/siteData";
 
 const quickLinks = [
   { href: "/about-us", label: "About Us" },
@@ -121,7 +122,7 @@ export default function Footer() {
           </div>
 
           <div className="neo-footer-col">
-            <h4>Explore</h4>
+            <h3>Explore</h3>
             <ul>
               {quickLinks.map((link) => (
                 <li key={link.href}>
@@ -132,7 +133,7 @@ export default function Footer() {
           </div>
 
           <div className="neo-footer-col">
-            <h4>Workspaces</h4>
+            <h3>Workspaces</h3>
             <ul>
               {workspaces.map((workspace) => (
                 <li key={workspace.href}>
@@ -143,11 +144,22 @@ export default function Footer() {
           </div>
 
           <div className="neo-footer-col">
-            <h4>Near you</h4>
+            <h3>Near you</h3>
             <ul className="neo-footer-chips">
               {locations.map((location) => (
                 <li key={location.href}>
                   <Link href={location.href}>{location.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="neo-footer-col">
+            <h3>Guides</h3>
+            <ul>
+              {workspaceGuideLinks.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href}>{link.label}</Link>
                 </li>
               ))}
             </ul>

@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import BlogCard from "@/components/blog/BlogCard";
 
-const PAGE_SIZE = 6;
+const PAGE_SIZE = 12;
 
 export default function BlogInfiniteGrid({ posts = [] }) {
   const [visibleCount, setVisibleCount] = useState(() =>

@@ -95,7 +95,7 @@ p {
 
 h1, h2, h3, h4, h5, h6, 
 .slide-heading-one, .about-main-heading, .service-title, 
-.why-choose-us-title, .pricing-plans h5, .testimonial-main-heading,
+.why-choose-us-title, .pricing-plans h3, .pricing-plans h5, .testimonial-main-heading,
 .blog-main-heading {
   font-family: var(--font-heading) !important;
   font-weight: 700 !important;
@@ -114,6 +114,7 @@ h1, h2, h3, h4, h5, h6,
   margin-block: 0 var(--space-4);
 }
 
+.pricing-plans h3,
 .pricing-plans h5,
 .plan-price,
 .counter-outer-box,
@@ -670,6 +671,13 @@ textarea:focus-visible,
   cursor: pointer !important;
   white-space: nowrap;
   min-height: 44px;
+}
+
+.about-tab-label {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: inherit;
+  color: inherit;
 }
 
 /* Interactive cards cursor */
@@ -1788,12 +1796,14 @@ textarea:focus-visible,
   margin-bottom: 6px;
 }
 
+.home-space-body h3,
 .home-space-body h4 {
   font-family: var(--font-heading);
   font-size: 1.05rem;
   margin-bottom: 10px;
 }
 
+.home-space-body h3 a,
 .home-space-body h4 a {
   color: #0f172a !important;
   text-decoration: none;
@@ -2294,6 +2304,56 @@ textarea:focus-visible,
   height: 100%;
 }
 
+.neo-guide-links {
+  margin-top: 28px;
+  padding-top: 22px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.neo-guide-links-title {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  margin: 0 0 10px;
+  color: #0f172a;
+}
+
+.neo-guide-links ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.neo-guide-links a {
+  color: var(--brand-orange);
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.neo-guide-links a:hover {
+  text-decoration: underline;
+}
+
+#pricing_plans .pricing-plans h3 {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0.4rem 0 0.75rem;
+}
+
+.service-active-inner-box h3 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+.home-pricing-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  margin: 0.25rem 0;
+}
+
 .slider-touch-form-box.neo-form-card {
   background: #ffffff !important;
   border-radius: 24px 120px 120px 24px !important;
@@ -2508,6 +2568,48 @@ textarea:focus-visible,
   opacity: 1;
 }
 
+.gallery-page-intro {
+  max-width: 42rem;
+  margin: 2.5rem auto 0;
+  text-align: center;
+}
+
+.gallery-page-intro p,
+.gallery-centres > p {
+  color: var(--text-muted);
+  line-height: var(--leading-prose);
+  margin: 0 0 1rem;
+}
+
+.gallery-centres {
+  max-width: 46rem;
+  margin: 0 auto 3.5rem;
+}
+
+.gallery-centre-list {
+  list-style: none;
+  padding: 0;
+  margin: 1.25rem 0 1.5rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.gallery-centre-list h3 {
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  margin: 0 0 0.35rem;
+}
+
+.gallery-centre-list p {
+  margin: 0;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.gallery-page-cta {
+  font-weight: 650;
+}
+
 @media screen and (max-width: 991px) {
   #Our_gallery .home-gallery-grid {
     grid-template-columns: 1fr 1fr;
@@ -2707,6 +2809,15 @@ textarea:focus-visible,
   line-height: 1.4;
 }
 
+.contact-maps-heading {
+  font-family: var(--font-heading);
+  font-size: var(--text-section);
+  font-weight: 700;
+  color: var(--text-ink);
+  margin: 0 0 20px;
+  text-align: center;
+}
+
 .contact-map-wrap {
   border-radius: 10px;
   overflow: hidden;
@@ -2747,6 +2858,43 @@ textarea:focus-visible,
   line-height: var(--leading-body);
   text-wrap: pretty;
   margin: var(--space-4) 0 0;
+}
+
+.neo-blog-all-index {
+  max-width: 46rem;
+  margin: 0 auto 3rem;
+  padding: 0 var(--space-4);
+}
+
+.neo-blog-all-index h2 {
+  font-family: var(--font-heading);
+  font-size: var(--text-section);
+  margin: 0 0 0.5rem;
+}
+
+.neo-blog-all-index p {
+  color: var(--text-muted);
+  margin: 0 0 1rem;
+  line-height: 1.6;
+}
+
+.neo-blog-all-index ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.neo-blog-all-index a {
+  color: var(--text-ink);
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.neo-blog-all-index a:hover {
+  color: var(--brand-orange);
+  text-decoration: underline;
 }
 
 .neo-blog-grid {
@@ -4287,6 +4435,7 @@ textarea:focus-visible,
   font-weight: 650;
 }
 
+.neo-footer-col h3,
 .neo-footer-col h4 {
   margin: 0 0 14px;
   color: #fff;
@@ -4415,7 +4564,7 @@ textarea:focus-visible,
 
 @media (min-width: 1024px) {
   .neo-footer-grid {
-    grid-template-columns: minmax(0, 1.45fr) 0.9fr 1fr 1fr;
+    grid-template-columns: minmax(0, 1.3fr) 0.75fr 0.85fr 0.8fr 0.95fr;
   }
 
   .neo-footer-brand {

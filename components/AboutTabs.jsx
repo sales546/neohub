@@ -26,7 +26,7 @@ export default function AboutTabs({ tabs }) {
                   onClick={() => setActiveTab(index)}
                 >
                   <div className="pricing-plan-tab-content">
-                    <h5>{tab.title}</h5>
+                    <span className="about-tab-label">{tab.title}</span>
                   </div>
                 </button>
               </li>

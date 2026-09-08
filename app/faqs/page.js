@@ -2,6 +2,7 @@ import PageBanner from "@/components/PageBanner";
 import FaqAccordion from "@/components/FaqAccordion";
 import FAQSchema from "@/components/seo/FAQSchema";
 import { constructMetadata } from "@/lib/seo/metadata";
+import Link from "next/link";
 
 export const metadata = constructMetadata({
   title: "Frequently Asked Questions",
@@ -58,6 +59,14 @@ export default function FaqsPage() {
 
       <section id="faq-page">
         <div className="container">
+          <div className="col-md-8 col-lg-7 heading-box m-auto text-center mb-lg-5 mb-4">
+            <h2 className="about-main-heading">Answers before you book a tour</h2>
+            <p>
+              Membership, hours, and meeting-room rules across Cyber Heights, Bhavya, and Experion.
+              Still deciding on a desk vs a cabin? Read{" "}
+              <Link href="/blog/coworking-space-pricing-lucknow-2026">Lucknow coworking pricing for 2026</Link>.
+            </p>
+          </div>
           <div className="row">
             <div className="col-lg-6 col-md-6 col-sm-12 faq-image pb-4">
               <img src="/assets/faq_3e32fb3d.webp" alt="Frequently Asked Questions" />

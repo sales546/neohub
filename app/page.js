@@ -9,6 +9,7 @@ import {
   pricingPlans,
   aboutHighlights,
   buildPlanWhatsAppUrl,
+  workspaceGuideLinks,
 } from "@/lib/siteData";
 import BlogCard from "@/components/blog/BlogCard";
 import { getBlogPosts } from "@/lib/blog/queries";
@@ -173,7 +174,7 @@ export default async function HomePage() {
                     <div className="services-img-box">
                       <img src={svc.icon} className="mx-auto d-block" alt={svc.title} width="400" height="400" />
                     </div>
-                    <h5 className="service-title"><Link href="/spaces">{svc.title}</Link></h5>
+                    <h3 className="service-title"><Link href="/spaces">{svc.title}</Link></h3>
                     <p>{svc.desc}</p>
                   </div>
                 </div>
@@ -210,11 +211,11 @@ export default async function HomePage() {
                         <div className="about-icon-img">
                           <img src={aboutHighlightIcons[index]} alt="" aria-hidden="true" />
                         </div>
-                        <h3 className="about-inner-title">
+                        <p className="about-inner-title">
                           <span className="about-counter-value">{item.value}</span>
                           <span>{item.suffix}</span>
-                        </h3>
-                        <h5 className="about-inner-paragraph">{item.label}</h5>
+                        </p>
+                        <p className="about-inner-paragraph">{item.label}</p>
                       </div>
                     ))}
                   </div>
@@ -239,7 +240,7 @@ export default async function HomePage() {
                   <div className="col-lg-4 col-md-6 pe-md-0 mb-2">
                     <div className="service-active-content-box">
                       <div className="service-active-inner-box">
-                        <h4 className="pt-2"><Link href={space.href}>{space.title}</Link></h4>
+                        <h3 className="pt-2"><Link href={space.href}>{space.title}</Link></h3>
                         <p className="service-active-text pb-xl-4 pb-2">{space.desc}</p>
                         <div className="spaces-information-outer-box pb-2">
                           {space.info.map(([label, value], j) => (
@@ -301,7 +302,7 @@ export default async function HomePage() {
                         </div>
                         <div className="col-md-9 col-sm-9 col-9 ps-0 text-start">
                           <div className="why-choose-us-box">
-                            <h5 className="why-choose-us-title pb-1">{item.title}</h5>
+                            <h3 className="why-choose-us-title pb-1">{item.title}</h3>
                             <p className="why-choose-us-text">{item.desc}</p>
                           </div>
                         </div>
@@ -356,7 +357,7 @@ export default async function HomePage() {
                   <div className="pricing-plans-box">
                     <p className="pricing-plan-tag align-self-center">{plan.tag}</p>
                     <div className="pricing-plan-icon"><img src={plan.icon} alt="" aria-hidden="true" /></div>
-                    <h5>{plan.name}</h5>
+                    <h3>{plan.name}</h3>
                     <div className="price-plan">
                       <p className="dollar">₹</p>
                       <span className="price">{plan.price}</span>
@@ -395,6 +396,16 @@ export default async function HomePage() {
               <BlogCard key={post.slug} post={post} compact titleAs="h3" />
             ))}
           </div>
+          <nav className="neo-guide-links" aria-label="Workspace guides">
+            <h3 className="neo-guide-links-title">Workspace guides</h3>
+            <ul>
+              {workspaceGuideLinks.map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href}>{link.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
         </div>
       </section>
     </>

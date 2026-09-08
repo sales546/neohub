@@ -113,6 +113,21 @@ export default function SpacesPage() {
       <div id="spaces-page" className="position-relative">
         <section className="position-relative">
           <div className="container">
+            <div className="col-md-8 col-lg-7 heading-box m-auto text-center mb-lg-5 mb-4">
+              <h2 className="about-main-heading">Workspaces and centres in Gomti Nagar</h2>
+              <p>
+                Cabins, desks, meeting rooms, and virtual office plans across Cyber Heights, Bhavya,
+                and Experion. Published rates are on{" "}
+                <Link href="/blog/coworking-space-pricing-lucknow-2026">
+                  coworking space pricing in Lucknow (2026)
+                </Link>
+                . Hourly rooms are covered in{" "}
+                <Link href="/blog/meeting-rooms-conference-booking-gomti-nagar">
+                  meeting room booking in Gomti Nagar
+                </Link>
+                .
+              </p>
+            </div>
             <div className="row">
               {spacesData.map((space) => (
                 <div key={space.title} className="col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 spaces-content-outer mb-4">
@@ -133,9 +148,9 @@ export default function SpacesPage() {
                   <div className="spaces-box-outer">
                     <div className="spaces-content-box">
                       <div className="spaces-text-box align-self-center text-center">
-                        <h5 className="spaces-title mb-2">
+                        <h3 className="spaces-title mb-2">
                           <Link href={space.href}>{space.title}</Link>
-                        </h5>
+                        </h3>
                         <p>{space.description}</p>
                       </div>
                     </div>

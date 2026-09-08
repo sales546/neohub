@@ -25,7 +25,7 @@ export const metadata = constructMetadata({
 });
 
 export default async function BlogPage() {
-  const posts = await getBlogPosts({ limit: 24 });
+  const posts = await getBlogPosts({ limit: 100 });
 
   const listSchema = getBlogListSchema(
     posts.map((post) => ({
@@ -57,6 +57,21 @@ export default async function BlogPage() {
           </div>
 
           <BlogInfiniteGrid posts={posts} />
+
+          <nav className="neo-blog-all-index" aria-label="All published articles">
+            <h2>All articles</h2>
+            <p>
+              Every published guide, including older pieces that sit below the grid. Use this list
+              if you are comparing pricing, cabins, or the three Gomti Nagar floors.
+            </p>
+            <ul>
+              {posts.map((post) => (
+                <li key={post.slug}>
+                  <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
           <div className="text-center pb-5">
             <Link className="neo-blog-list-cta" href="/contact">

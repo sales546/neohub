@@ -12,7 +12,7 @@ export default function HomeHero() {
       </div>
       <div className="container home-hero-layout">
         <div className="hero-banner-copy text-md-start text-center">
-          <h6 className="slide-small-heading">Premium Coworking · Gomti Nagar, Lucknow</h6>
+          <p className="slide-small-heading">Premium Coworking · Gomti Nagar, Lucknow</p>
           <h1 className="slide-heading-one">
             Your Team&apos;s Workspace at Levana Cyber Heights
           </h1>
@@ -39,7 +39,7 @@ export default function HomeHero() {
 
         <div className="hero-banner-form">
           <div className="slider-touch-form-box neo-form-card">
-            <h3>Start Working at NeoHub</h3>
+            <h2>Start Working at NeoHub</h2>
             <p className="neo-form-subtitle">Book a tour — we&apos;ll respond within 24 hours.</p>
             <HomeSliderForm />
           </div>

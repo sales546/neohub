@@ -21,7 +21,7 @@ export default function HomePricing() {
               <div className="pricing-plan-icon">
                 <SiteImage src={plan.icon} alt="" width={48} height={48} sizes="48px" />
               </div>
-              <h4>{plan.name}</h4>
+              <h3>{plan.name}</h3>
               <div className="home-pricing-amount">
                 <span>₹{plan.price}</span>
                 <small>{plan.unit || "/month"}</small>

@@ -86,7 +86,7 @@ export default function HomeHeroCarousel() {
 
         <div className="neo-hero-form">
           <div className="neo-form-card slider-touch-form-box">
-            <h3>Start Working at NeoHub</h3>
+            <h2>Start Working at NeoHub</h2>
             <p className="neo-form-subtitle">Book a tour — we&apos;ll respond within 24 hours.</p>
             <HomeSliderForm />
           </div>

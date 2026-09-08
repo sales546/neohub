@@ -63,10 +63,10 @@ export default function NeoHubLocations({ showMaps = false, title = "NeoHub Loca
           <div className="contact-maps-grid">
             {neoHubAddresses.map((location) => (
               <div key={location.id} className="contact-map-card">
-                <h5 className="contact-map-card-title">
+                <h3 className="contact-map-card-title">
                   {location.name}
                   {location.seats ? ` · ${location.seats} seats` : ""}
-                </h5>
+                </h3>
                 <div className="contact-map-wrap">
                   <iframe
                     width="100%"

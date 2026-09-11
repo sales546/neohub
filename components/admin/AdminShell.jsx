@@ -1,32 +1,30 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
+import AdminJumpSearch from "@/components/admin/AdminJumpSearch";
+import { ADMIN_NAV_GROUPS, headerMeta } from "@/components/admin/adminNav";
 import {
-  IconBlogs,
   IconClose,
   IconExternal,
-  IconLeads,
   IconLogout,
   IconMenu,
-  IconOverview,
-  IconQuotes,
 } from "@/components/admin/AdminIcons";
 
-const NAV = [
-  { href: "/admin", label: "Overview", icon: IconOverview, exact: true },
-  { href: "/admin/leads", label: "Leads", icon: IconLeads },
-  { href: "/admin/blogs", label: "Blogs", icon: IconBlogs },
-  { href: "/admin/testimonials", label: "Testimonials", icon: IconQuotes },
-];
+function navActive(pathname, item) {
+  return item.exact
+    ? pathname === item.href
+    : pathname === item.href || pathname.startsWith(`${item.href}/`);
+}
 
 export default function AdminShell({ email, children }) {
   const pathname = usePathname();
   const router = useRouter();
   const [navOpen, setNavOpen] = useState(false);
   const [signingOut, setSigningOut] = useState(false);
+  const meta = headerMeta(pathname);
 
   useEffect(() => {
     setNavOpen(false);
@@ -62,23 +60,26 @@ export default function AdminShell({ email, children }) {
         </div>
 
         <nav className="nh-admin-nav">
-          {NAV.map((item) => {
-            const active = item.exact
-              ? pathname === item.href
-              : pathname === item.href || pathname.startsWith(`${item.href}/`);
-            const Icon = item.icon;
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className={active ? "is-active" : undefined}
-                aria-current={active ? "page" : undefined}
-              >
-                <Icon />
-                <span>{item.label}</span>
-              </Link>
-            );
-          })}
+          {ADMIN_NAV_GROUPS.map((group) => (
+            <div key={group.id} className="nh-admin-nav-group">
+              <p className="nh-admin-nav-label">{group.label}</p>
+              {group.items.map((item) => {
+                const active = navActive(pathname, item);
+                const Icon = item.icon;
+                return (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className={active ? "is-active" : undefined}
+                    aria-current={active ? "page" : undefined}
+                  >
+                    <Icon />
+                    <span>{item.label}</span>
+                  </Link>
+                );
+              })}
+            </div>
+          ))}
         </nav>
 
         <div className="nh-admin-sidebar-foot">
@@ -120,12 +121,15 @@ export default function AdminShell({ email, children }) {
               {navOpen ? <IconClose /> : <IconMenu />}
             </button>
             <div>
-              <p className="nh-admin-kicker">NeoHub</p>
-              <p className="nh-admin-header-title">Content console</p>
+              <p className="nh-admin-kicker">{meta.kicker}</p>
+              <p className="nh-admin-header-title">{meta.title}</p>
             </div>
           </div>
 
           <div className="nh-admin-header-actions">
+            <Suspense fallback={null}>
+              <AdminJumpSearch />
+            </Suspense>
             <span className="nh-admin-header-email" title={email}>
               {email}
             </span>

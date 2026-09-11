@@ -64,7 +64,7 @@ export default function AdminLoginForm() {
       <form className="nh-login-card" onSubmit={onSubmit} noValidate>
         <img src="/assets/logo_67f6779b.png" alt="NeoHub" width={120} height={28} style={{ height: 28, width: "auto", marginBottom: 18 }} />
         <h1>Admin sign in</h1>
-        <p>Manage leads, blogs, and testimonials for neohubspaces.in</p>
+        <p>Leads, blogs, testimonials, and SEO growth for neohubspaces.in</p>
         {error ? <div className="nh-error" role="alert">{error}</div> : null}
         <div className="nh-field">
           <label htmlFor="admin-email">Email</label>

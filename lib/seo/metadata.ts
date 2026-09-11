@@ -10,7 +10,7 @@ const GOOGLE_VERIFICATION =
   "Hkp9pTIL4WF-gDlNCXWAVB0Yg7i0jmOBs6N3MkKPu_M";
 const BING_VERIFICATION = process.env.NEXT_PUBLIC_BING_VERIFICATION;
 
-const defaultKeywords = [
+export const DEFAULT_SEO_KEYWORDS = [
   "coworking space in lucknow",
   "coworking space gomti nagar",
   "best coworking space in lucknow",
@@ -23,6 +23,8 @@ const defaultKeywords = [
   "virtual office lucknow",
   "premium workstations lucknow",
 ];
+
+const defaultKeywords = DEFAULT_SEO_KEYWORDS;
 
 function toAbsoluteUrl(pathOrUrl: string) {
   if (!pathOrUrl) return BASE_URL;

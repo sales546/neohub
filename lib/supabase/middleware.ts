@@ -33,8 +33,10 @@ export async function updateSession(request: NextRequest) {
 
   if (isAdminRoute && !isLoginRoute && !user) {
     const redirectUrl = request.nextUrl.clone();
+    const nextTarget = `${path}${request.nextUrl.search}`;
     redirectUrl.pathname = "/admin/login";
-    redirectUrl.searchParams.set("next", path);
+    redirectUrl.search = "";
+    redirectUrl.searchParams.set("next", nextTarget);
     const response = NextResponse.redirect(redirectUrl);
     supabaseResponse.cookies.getAll().forEach((cookie) => {
       response.cookies.set(cookie.name, cookie.value);

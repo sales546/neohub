@@ -69,6 +69,8 @@ export async function saveBlogPost(formData) {
   }
 
   revalidatePath("/admin/blogs");
+  revalidatePath("/admin/growth");
+  revalidatePath("/admin");
   revalidatePath("/blog");
   revalidatePath("/");
   redirect("/admin/blogs");
@@ -80,5 +82,7 @@ export async function softDeleteBlogPost(formData) {
   if (!id) return;
   await supabase.from("blog_post").update({ deleted_at: new Date().toISOString(), status: "draft" }).eq("id", id);
   revalidatePath("/admin/blogs");
+  revalidatePath("/admin/growth");
+  revalidatePath("/admin");
   revalidatePath("/blog");
 }

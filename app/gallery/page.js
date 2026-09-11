@@ -5,10 +5,11 @@ import { galleryImages, neoHubAddresses, siteContact } from "@/lib/siteData";
 import { constructMetadata } from "@/lib/seo/metadata";
 
 export const metadata = constructMetadata({
-  title: "Office Gallery & Workspace Tour",
+  title: "NeoHub Office Gallery | Cyber Heights, Bhavya & Experion",
   description:
-    "Photos of NeoHub coworking in Gomti Nagar — dedicated desks, private cabins, meeting rooms, and lounges at Cyber Heights, Bhavya Corporate Tower, and Experion.",
+    "Tour photos of NeoHub’s Gomti Nagar centres — private cabins, open desks, and conference rooms at Cyber Heights, Bhavya, and Experion.",
   canonical: "/gallery",
+  absoluteTitle: true,
   ogSubtitle: "See the NeoHub coworking experience",
   ogImage: "/assets/slider1_0fe6417c.webp",
   keywords: ["neohub gallery", "coworking office photos lucknow", "cyber heights office tour"],
@@ -17,7 +18,7 @@ export const metadata = constructMetadata({
 export default function GalleryPage() {
   return (
     <>
-      <PageBanner title="Gallery" />
+      <PageBanner title="NeoHub Workspace Gallery — Gomti Nagar" breadcrumbLabel="Gallery" />
 
       <div className="gallery-page">
         <div className="container">

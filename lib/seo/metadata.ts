@@ -49,6 +49,16 @@ function brandTitle(title: string, absoluteTitle?: boolean) {
   return `${clean} | ${SITE_NAME_SHORT}`;
 }
 
+/** Clip at a word boundary. Never cut mid-word; keep a full sentence ≤160 chars. */
+export function clipMetaDescription(text: string, max = 160): string {
+  const clean = String(text || "").replace(/\s+/g, " ").trim();
+  if (clean.length <= max) return clean;
+  const window = clean.slice(0, max + 1);
+  const lastSpace = window.lastIndexOf(" ");
+  const clipped = (lastSpace > 0 ? window.slice(0, lastSpace) : clean.slice(0, max)).trim();
+  return clipped.replace(/[.,;:\-]+$/g, "").trim();
+}
+
 export function constructMetadata({
   title,
   description,
@@ -67,7 +77,7 @@ export function constructMetadata({
   const pageUrl = canonical ? toAbsoluteUrl(canonical) : BASE_URL;
   const displayTitle = brandTitle(title, absoluteTitle);
   const shortTitle = displayTitle.replace(new RegExp(`\\s*\\|\\s*${SITE_NAME_SHORT}$`, "i"), "");
-  const desc = description.replace(/\s+/g, " ").trim().slice(0, 160);
+  const desc = clipMetaDescription(description);
 
   const assembledKeywords = Array.isArray(keywords)
     ? [...defaultKeywords, ...keywords]
@@ -154,7 +164,7 @@ export function rootMetadata(): Metadata {
   // Kept under ~58 chars so Google does not truncate it in results.
   const title = "Coworking Space in Gomti Nagar, Lucknow | NeoHub";
   const description =
-    "Boost productivity at NeoHub — Lucknow's premium coworking across Bhavya Corporate Tower, Cyber Heights, and Experion in Gomti Nagar. Hot desks, private cabins, and conference rooms.";
+    "Private cabins, desks from ₹5,500/mo, and meeting rooms from ₹500/hr across Cyber Heights, Bhavya & Experion in Gomti Nagar.";
 
   return {
     ...constructMetadata({

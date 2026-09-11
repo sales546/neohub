@@ -5,10 +5,11 @@ import { siteContact, neoHubAddresses } from "@/lib/siteData";
 import { constructMetadata } from "@/lib/seo/metadata";
 
 export const metadata = constructMetadata({
-  title: "Contact Us & Book a Free Tour",
+  title: "Book a Free Tour | Contact NeoHub Lucknow",
   description:
-    "Visit NeoHub at Levana Cyber Heights, Bhavya Corporate Tower, and Experion in Gomti Nagar, Lucknow. Book a tour or enquire about pricing.",
+    "Book a NeoHub tour in Gomti Nagar. Call +91 70004 81286 or email contact@neohubspaces.in — Cyber Heights, Bhavya, Experion.",
   canonical: "/contact",
+  absoluteTitle: true,
   ogSubtitle: "3 locations in Gomti Nagar · Book a workspace tour",
   keywords: ["contact neohub", "book coworking tour lucknow", "neohub phone number"],
 });
@@ -23,7 +24,7 @@ const LocationIcon = () => (
 export default function ContactPage() {
   return (
     <>
-      <PageBanner title="Contact" />
+      <PageBanner title="Contact NeoHub — Book a Gomti Nagar Tour" breadcrumbLabel="Contact" />
 
       <section id="Get-Contact" style={{ position: "relative" }}>
         <div className="container">

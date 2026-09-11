@@ -57,7 +57,8 @@ export function buildCampaignKit(input: { keyword: string; title?: string }): Ca
   const ogImage = `/api/og?title=${encodeURIComponent(clip(title, 90))}&subtitle=${encodeURIComponent("Gomti Nagar · Lucknow coworking")}`;
 
   const internalLinks = [
-    { href: "/spaces", label: "Spaces & pricing" },
+    { href: "/spaces", label: "Spaces" },
+    { href: "/pricing", label: "Published pricing" },
     { href: "/contact", label: "Book a tour" },
     landing ? { href: `/${landing.slug}`, label: landing.name } : { href: "/gomti-nagar", label: "Gomti Nagar coworking" },
     { href: "/virtual-office", label: "Virtual office" },

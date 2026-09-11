@@ -6,10 +6,11 @@ import { trustStats, aboutHighlights } from "@/lib/siteData";
 import { constructMetadata } from "@/lib/seo/metadata";
 
 export const metadata = constructMetadata({
-  title: "About NeoHub Coworking Space",
+  title: "About NeoHub | Coworking in Gomti Nagar, Lucknow",
   description:
-    "Learn about NeoHub's mission, vision, and values. Premium flexible workspaces at Levana Cyber Heights, Gomti Nagar, Lucknow for startups and growing teams.",
+    "NeoHub runs three premium coworking centres in Gomti Nagar for startups and growing teams — cabins, desks, and client-ready meeting rooms.",
   canonical: "/about-us",
+  absoluteTitle: true,
   ogSubtitle: "Mission, vision & workspace culture in Lucknow",
   keywords: ["about neohub", "coworking company lucknow", "neohub gomti nagar"],
 });
@@ -44,7 +45,7 @@ const tabsData = [
 export default function AboutPage() {
   return (
     <>
-      <PageBanner title="About Us" />
+      <PageBanner title="About NeoHub Coworking in Lucknow" breadcrumbLabel="About Us" />
 
       <div className="about-page">
         <section id="about-sec" className="position-relative" style={{ backgroundSize: "100% 100%", backgroundPosition: "bottom" }}>

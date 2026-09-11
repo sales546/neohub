@@ -3,7 +3,7 @@ import { neoHubAddresses, siteContact } from "@/lib/siteData";
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.neohubspaces.in";
 
-/** Primary centre = Cyber Heights / Levana (isPrimary or first). */
+/** Primary NAP = the centre flagged `isPrimary` (currently Bhavya), else the first row. */
 function getPrimaryCentre() {
   return neoHubAddresses.find((a) => a.isPrimary) || neoHubAddresses[0];
 }
@@ -104,18 +104,18 @@ export function getBuildingSchema(centre: (typeof neoHubAddresses)[number]) {
 export function getLocalBusinessSchema() {
   const primary = getPrimaryCentre();
   const primaryPlace = centreToPlace(primary);
-  const departments = neoHubAddresses
-    .filter((c) => c.id !== primary.id)
-    .map((c) => centreToPlace(c));
+  // Hours are not the same across the network — do not copy Bhavya's 24h
+  // window onto the parent entity. Each centre is a department Place.
+  const departments = neoHubAddresses.map((c) => centreToPlace(c));
 
   return {
     "@context": "https://schema.org",
     "@type": "CoworkingSpace",
     "@id": `${BASE_URL}/#local-business`,
     name: "NeoHub Coworking Space Lucknow",
-    alternateName: primary.name,
+    alternateName: "NeoHub Gomti Nagar",
     description:
-      "Premium coworking in Gomti Nagar, Lucknow — private cabins, dedicated workstations, hot desks, and conference rooms across Cyber Heights, Bhavya Corporate Tower, and Experion.",
+      "Premium coworking in Gomti Nagar, Lucknow — private cabins, dedicated workstations, hot desks, and conference rooms across Cyber Heights, Bhavya Corporate Tower, and Experion. Hours vary by centre: Cyber Heights reception 9:00–17:00, Bhavya 24 hours, Experion 9:00–22:00.",
     url: BASE_URL,
     telephone: primary.phoneTel || siteContact.phoneTel,
     email: siteContact.email,
@@ -127,7 +127,6 @@ export function getLocalBusinessSchema() {
     ],
     address: primaryPlace.address,
     geo: primaryPlace.geo,
-    openingHoursSpecification: primaryPlace.openingHoursSpecification,
     hasMap: primary.googleMapsUrl,
     areaServed: [
       { "@type": "City", name: "Lucknow" },

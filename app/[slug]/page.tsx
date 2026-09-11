@@ -14,6 +14,8 @@ import { FAQItem, ServicePricingInfo } from '@/types/seo';
 import { neoHubAddresses, workspaceGuideLinks } from '@/lib/siteData';
 import { isSeoLandingSlug, seoLandings, SEO_LANDING_SLUGS } from '@/lib/content/seoLandings';
 import SeoLandingView from '@/components/seo/SeoLandingView';
+import GomtiNagarExtras from '@/components/seo/GomtiNagarExtras';
+import MeetingRoomsExtras from '@/components/seo/MeetingRoomsExtras';
 
 const CYBER_HEIGHTS_DEST =
   'Levana Cyber Heights, TC-212, Vibhuti Khand, Gomti Nagar, Lucknow';
@@ -61,6 +63,7 @@ const localityData: Record<LocalitySlug, {
   name: string;
   metaTitle: string;
   metaDescription: string;
+  bannerTitle?: string;
   slogan: string;
   description: string;
   landmarks: string[];
@@ -70,10 +73,11 @@ const localityData: Record<LocalitySlug, {
 }> = {
   'gomti-nagar': {
     name: 'Gomti Nagar',
-    metaTitle: 'Coworking Space in Gomti Nagar Lucknow | Premium Offices',
-    metaDescription: 'Looking for a coworking space in Gomti Nagar, Lucknow? Rent flexible workstations, hot desks, and private cabins at Levana Cyber Heights. Near Indira Gandhi Pratishthan.',
-    slogan: 'Premium Coworking Spaces in Gomti Nagar\'s Main Business Hub',
-    description: 'NeoHub Gomti Nagar offers modern startups, corporate teams, and freelancers a plug-and-play shared office ecosystem. Situated on the 2nd Floor of Levana Cyber Heights in Vibhuti Khand, our space provides prime visibility, walking distance proximity to top cafes and premium hotels, and unmatched business networking opportunities.',
+    metaTitle: 'Coworking Space in Gomti Nagar Lucknow | NeoHub Centres',
+    metaDescription: 'Three NeoHub centres in Vibhuti Khand — Cyber Heights, Bhavya (24h), Experion. Desks from ₹5,500/mo + GST. Tour within 24 hours.',
+    bannerTitle: 'Coworking Space in Gomti Nagar, Lucknow',
+    slogan: 'Three centres in Vibhuti Khand — desks, cabins, and meeting rooms',
+    description: 'NeoHub runs three coworking centres in Vibhuti Khand, Gomti Nagar: Levana Cyber Heights (130+ seats, reception 9 AM–5 PM), Bhavya Corporate Tower (500 seats, open 24 hours), and Experion (300+ seats, 9 AM–10 PM). Dedicated desks start at ₹5,500/mo + GST, private cabins from ₹20,000/cabin/mo + GST, and meeting rooms from ₹500/hr. Book a tour within 24 hours on +91 70004 81286.',
     landmarks: ['Indira Gandhi Pratishthan', 'Levana Cyber Heights', 'Taj Mahal Palace Lucknow', 'One Awadh Center Mall'],
     mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d444.89040154230764!2d81.00968106592566!3d26.867826200000007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x399be3f2ba4b28db%3A0x5fa240616cd71f28!2sNeohub%20-%20Levana%20-%20Co-Working%20Spaces!5e0!3m2!1sen!2sin!4v1755697550688!5m2!1sen!2sin',
     faqs: [
@@ -281,6 +285,9 @@ const serviceData: Record<ServiceSlug, {
   name: string;
   metaTitle: string;
   metaDescription: string;
+  bannerTitle?: string;
+  heroTitle?: string;
+  lead?: string;
   pricingDescription: string;
   features: string[];
   pricing: ServicePricingInfo[];
@@ -399,8 +406,10 @@ const serviceData: Record<ServiceSlug, {
   },
   'virtual-office': {
     name: 'Virtual Offices',
-    metaTitle: 'Virtual Office Lucknow | GST Registration Address',
-    metaDescription: 'Get a premium business address in Gomti Nagar, Lucknow for GST registration and company registration. Professional mail handling and call forwarding.',
+    metaTitle: 'Virtual Office Lucknow | GST & Company Registration Address',
+    metaDescription: 'Gomti Nagar business address from ₹12,000/year, or ₹18,000/year GST kit with documents. Mail handling included. No Google Business Profile.',
+    bannerTitle: 'Virtual Office in Lucknow — GST & Company Address',
+    heroTitle: 'Gomti Nagar business address, mail handling, GST kit',
     pricingDescription: 'Establish a corporate presence with a premium address at Levana Cyber Heights, complete with mail forwarding and GST registration compliance.',
     features: ['Premium Business Address', 'GST Registration Support', 'Company Registry Support', 'Professional Mail Handling', 'Meeting Room Access Credits'],
     pricing: [
@@ -439,14 +448,18 @@ const serviceData: Record<ServiceSlug, {
     ]
   },
   'meeting-rooms': {
-    name: 'High-Tech Meeting Rooms',
-    metaTitle: 'Meeting Room Rent Lucknow | Conference Rooms Gomti Nagar',
-    metaDescription: 'Book high-tech meeting rooms and presentation spaces in Gomti Nagar, Lucknow. LED screens, video conferencing, whiteboard, and beverage support.',
-    pricingDescription: 'Professional meeting rooms to host clients, conduct interviews, or collaborate with team members, equipped with presentation displays.',
+    name: 'Meeting Rooms',
+    metaTitle: 'Meeting Rooms in Gomti Nagar Lucknow | From ₹500/hr | NeoHub',
+    metaDescription: 'Book hourly meeting & conference rooms in Gomti Nagar. ₹500/hr at Cyber Heights & Bhavya, ₹600/hr at Experion. Members and non-members.',
+    bannerTitle: 'Meeting Rooms & Conference Booking in Gomti Nagar',
+    heroTitle: 'Rates by centre',
+    lead: 'Book hourly meeting and conference rooms at NeoHub in Gomti Nagar — members and external teams. Rooms include HD screens or a projector, video-conferencing gear, whiteboard, Wi-Fi, and beverages. Rates start at ₹500/hr at Cyber Heights and Bhavya, and ₹600/hr at Experion. Call +91 70004 81286, use the contact form, or WhatsApp to check the same-day calendar.',
+    pricingDescription: 'Hourly meeting and conference rooms with AV across Cyber Heights, Bhavya, and Experion — members and non-members.',
     features: ['High-Definition Smart Screens', 'Video Conferencing Gear', 'Whiteboards and Markers', 'Complimentary Water & Beverages', 'High-Speed Wi-Fi'],
     pricing: [
       { name: 'Conference Booking — Cyber Heights / Bhavya', price: '500', currency: 'INR', unit: 'Hour', unitCode: 'HUR' },
-      { name: 'Conference Booking — Experion', price: '600', currency: 'INR', unit: 'Hour', unitCode: 'HUR' }
+      { name: 'Conference Booking — Experion', price: '600', currency: 'INR', unit: 'Hour', unitCode: 'HUR' },
+      { name: 'Half-day conference package', price: '7500', currency: 'INR', unit: '4 Hours', unitCode: 'HUR', unitQuantity: 4, note: 'Cyber Heights & Bhavya; ask on tour for Experion' }
     ],
     faqs: [
       {
@@ -612,7 +625,7 @@ export default async function ProgrammaticPage({ params }: PageProps) {
 
     return (
       <>
-        <PageBanner title={`Coworking in ${data.name}`} breadcrumbLabel={data.name} />
+        <PageBanner title={data.bannerTitle || `Coworking in ${data.name}`} breadcrumbLabel={data.name} />
         <BreadcrumbSchema items={breadcrumbItems} />
         <FAQSchema items={data.faqs} />
 
@@ -624,6 +637,8 @@ export default async function ProgrammaticPage({ params }: PageProps) {
                 <h2 className="seo-title">{data.slogan}</h2>
                 <p className="seo-lead">{data.description}</p>
               </div>
+
+              {slug === 'gomti-nagar' ? <GomtiNagarExtras /> : null}
 
               <div className="seo-card">
                 <h2 className="seo-card-title">Strategic Proximity &amp; Near Landmarks</h2>
@@ -699,6 +714,9 @@ export default async function ProgrammaticPage({ params }: PageProps) {
                       <Link href={link.href}>{link.label}</Link>
                     </li>
                   ))}
+                  <li>
+                    <Link href="/pricing">Published pricing</Link>
+                  </li>
                 </ul>
               </div>
 
@@ -716,7 +734,11 @@ export default async function ProgrammaticPage({ params }: PageProps) {
   // 2. Render Service Landing Page
   if (isService) {
     const data = serviceData[slug as ServiceSlug];
-    const serviceSchema = getServiceSchema(data.name, data.pricingDescription, data.pricing);
+    const serviceSchema = getServiceSchema(
+      data.bannerTitle || data.name,
+      data.lead || data.pricingDescription,
+      data.pricing
+    );
     const breadcrumbItems = [
       { name: 'Home', item: '/' },
       { name: 'Spaces', item: '/spaces' },
@@ -725,7 +747,7 @@ export default async function ProgrammaticPage({ params }: PageProps) {
 
     return (
       <>
-        <PageBanner title={data.name} breadcrumbLabel={data.name} />
+        <PageBanner title={data.bannerTitle || data.name} breadcrumbLabel={data.name} />
         <JsonLd data={serviceSchema} />
         <BreadcrumbSchema items={breadcrumbItems} />
         <FAQSchema items={data.faqs} />
@@ -735,8 +757,8 @@ export default async function ProgrammaticPage({ params }: PageProps) {
             <div className="seo-page-inner">
               <div className="seo-hero">
                 <span className="seo-eyebrow">Office Solutions</span>
-                <h2 className="seo-title">{data.name} in Gomti Nagar</h2>
-                <p className="seo-lead">{data.pricingDescription}</p>
+                <h2 className="seo-title">{data.heroTitle || `${data.name} in Gomti Nagar`}</h2>
+                <p className="seo-lead">{data.lead || data.pricingDescription}</p>
               </div>
 
               <div className="seo-pricing-grid">
@@ -760,7 +782,7 @@ export default async function ProgrammaticPage({ params }: PageProps) {
               </div>
 
               <div className="seo-card">
-                <h2 className="seo-card-title">What is Included in Your Membership</h2>
+                <h2 className="seo-card-title">{slug === 'meeting-rooms' ? "What's included" : 'What is Included in Your Membership'}</h2>
                 <div className="seo-features-grid">
                   {data.features.map((feature, i) => (
                     <div key={i} className="seo-feature-item">
@@ -770,6 +792,8 @@ export default async function ProgrammaticPage({ params }: PageProps) {
                   ))}
                 </div>
               </div>
+
+              {slug === 'meeting-rooms' ? <MeetingRoomsExtras /> : null}
 
               {slug === 'virtual-office' ? (
                 <div className="seo-card">
@@ -812,6 +836,25 @@ export default async function ProgrammaticPage({ params }: PageProps) {
                   <li>
                     <Link href="/gomti-nagar">Coworking in Gomti Nagar</Link>
                   </li>
+                  <li>
+                    <Link href="/pricing">Published pricing</Link>
+                  </li>
+                  <li>
+                    <Link href="/contact">Book a tour</Link>
+                  </li>
+                  {slug === "meeting-rooms" ? (
+                    <>
+                      <li>
+                        <Link href="/levana-cyber-heights">Levana Cyber Heights</Link>
+                      </li>
+                      <li>
+                        <Link href="/bhavya-corporate-tower">Bhavya Corporate Tower</Link>
+                      </li>
+                      <li>
+                        <Link href="/experion">Experion</Link>
+                      </li>
+                    </>
+                  ) : null}
                   <li>
                     <Link href="/blog/coworking-space-pricing-lucknow-2026">
                       Coworking pricing in Lucknow (2026)

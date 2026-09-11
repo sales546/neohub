@@ -57,7 +57,7 @@ const CALENDAR_KEYWORDS: { keyword: string; landingHref?: string }[] = [
   { keyword: "office space for rent lucknow", landingHref: "/office-space-for-rent-lucknow" },
   { keyword: "managed office gomti nagar", landingHref: "/managed-office-gomti-nagar" },
   { keyword: "24 hour coworking lucknow", landingHref: "/bhavya-corporate-tower" },
-  { keyword: "coworking space pricing lucknow" },
+  { keyword: "coworking space pricing lucknow", landingHref: "/pricing" },
   { keyword: "startup office lucknow" },
 ];
 
@@ -94,7 +94,7 @@ function landingForKeyword(keyword: string, presetHref?: string): { href: string
   if (presetHref) {
     const slug = presetHref.replace(/^\//, "");
     const landing = seoLandings[slug];
-    return { href: presetHref, label: landing?.name || presetHref };
+    return { href: presetHref, label: landing?.name || slug.replace(/-/g, " ") };
   }
   const needle = normalize(keyword);
   for (const landing of Object.values(seoLandings)) {

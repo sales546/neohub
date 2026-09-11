@@ -19,10 +19,10 @@ export const metadata = constructMetadata({
   // Kept under ~58 chars so Google does not truncate it in results.
   title: "Coworking Space in Gomti Nagar, Lucknow | NeoHub",
   description:
-    "Boost your productivity at NeoHub, Lucknow's leading coworking space in Levana Cyber Heights, Gomti Nagar. Flexible hot desking, dedicated workstations, private office cabins, and high-tech meeting rooms.",
+    "Private cabins, desks from ₹5,500/mo, and meeting rooms from ₹500/hr across Cyber Heights, Bhavya & Experion in Gomti Nagar.",
   canonical: "/",
   absoluteTitle: true,
-  ogSubtitle: "Levana Cyber Heights · Gomti Nagar · Lucknow",
+  ogSubtitle: "Bhavya · Cyber Heights · Experion · Gomti Nagar",
   keywords: [
     "shared office space lucknow",
     "office space in gomti nagar",
@@ -280,7 +280,7 @@ export default async function HomePage() {
             <div className="row pb-lg-5 pb-4" style={{ justifyContent: "space-between" }}>
               <div className="col-xl-6 col-lg-6 col-md-6 heading-box text-md-start text-center pe-lg-5 aos-init" data-aos="fade-right">
                 <p className="section-kicker">Why Choose Us</p>
-                <h2 className="about-main-heading align-self-center">Lucknow&apos;s Premium Destination for High-Performance Teams</h2>
+                <h2 className="about-main-heading align-self-center">Three Gomti Nagar centres built for growing teams</h2>
               </div>
               <div className="col-xl-5 col-lg-6 col-md-6 text-md-start text-center align-self-center ps-lg-4 aos-init" data-aos="fade-left">
                 <p className="about-main-paragraph align-self-center">
@@ -349,6 +349,10 @@ export default async function HomePage() {
           <div className="col-md-6 col-sm-9 col-11 heading-box m-auto text-center mb-lg-5 mb-4">
             <p className="section-kicker">Our Pricing</p>
             <h2 className="about-main-heading align-self-center">Our Pricing plans</h2>
+            <p>
+              Starting rates by product. Compare all three centres on{" "}
+              <Link href="/pricing">published pricing</Link>.
+            </p>
           </div>
           <div className="owl-carousel">
             {pricingPlans.map((plan, i) => (

@@ -12,15 +12,16 @@ export const dynamic = 'force-dynamic';
  * unchanged — so bump the entry here when a page's content actually changes.
  */
 const CONTENT_UPDATED: Record<string, string> = {
-  '': '2026-09-07',
-  '/about-us': '2026-07-25',
-  '/spaces': '2026-09-07',
-  '/gallery': '2026-07-25',
-  '/faqs': '2026-07-25',
-  '/contact': '2026-09-07',
+  '': '2026-09-11',
+  '/about-us': '2026-09-11',
+  '/spaces': '2026-09-11',
+  '/pricing': '2026-09-11',
+  '/gallery': '2026-09-11',
+  '/faqs': '2026-09-11',
+  '/contact': '2026-09-11',
   '/privacy-policy': '2026-07-25',
   '/terms': '2026-07-25',
-  '/gomti-nagar': '2026-09-07',
+  '/gomti-nagar': '2026-09-11',
   '/vibhuti-khand': '2026-09-07',
   '/hazratganj': '2026-09-07',
   '/aliganj': '2026-09-07',
@@ -28,15 +29,15 @@ const CONTENT_UPDATED: Record<string, string> = {
   '/private-cabins': '2026-09-07',
   '/dedicated-desk': '2026-09-07',
   '/hot-desk': '2026-09-07',
-  '/virtual-office': '2026-09-07',
-  '/meeting-rooms': '2026-09-07',
+  '/virtual-office': '2026-09-11',
+  '/meeting-rooms': '2026-09-11',
   '/office-space-for-rent-lucknow': '2026-09-07',
   '/managed-office-gomti-nagar': '2026-09-07',
   '/gst-registration-lucknow': '2026-09-07',
   '/company-registration-lucknow': '2026-09-07',
-  '/levana-cyber-heights': '2026-09-07',
-  '/bhavya-corporate-tower': '2026-09-07',
-  '/experion': '2026-09-07'
+  '/levana-cyber-heights': '2026-09-11',
+  '/bhavya-corporate-tower': '2026-09-11',
+  '/experion': '2026-09-11'
 };
 
 const FALLBACK_UPDATED = '2026-07-25';
@@ -49,6 +50,7 @@ const staticRoutes = [
   { url: '', priority: 1.0, changeFrequency: 'weekly' as const },
   { url: '/about-us', priority: 0.8, changeFrequency: 'monthly' as const },
   { url: '/spaces', priority: 0.9, changeFrequency: 'weekly' as const },
+  { url: '/pricing', priority: 0.9, changeFrequency: 'weekly' as const },
   { url: '/gallery', priority: 0.5, changeFrequency: 'monthly' as const },
   { url: '/faqs', priority: 0.6, changeFrequency: 'monthly' as const },
   { url: '/contact', priority: 0.8, changeFrequency: 'monthly' as const },

@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
-import { redirectMap } from "@/lib/seo/redirects";
+import { resolveLegacyRedirect } from "@/lib/seo/redirects";
 import { updateSession } from "@/lib/supabase/middleware";
 
 export async function proxy(request: NextRequest) {
@@ -20,8 +20,9 @@ export async function proxy(request: NextRequest) {
 
   // Checked before the static-asset guard below: the legacy WordPress URLs in
   // redirectMap contain a ".html" extension and would otherwise be skipped.
-  if (redirectMap[pathname]) {
-    url.pathname = redirectMap[pathname];
+  const legacyPath = resolveLegacyRedirect(pathname);
+  if (legacyPath) {
+    url.pathname = legacyPath;
     return NextResponse.redirect(url, 301);
   }
 

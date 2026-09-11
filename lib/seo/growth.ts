@@ -85,6 +85,9 @@ export function indexNowTargets(posts: { slug: string; status: string }[]): stri
     `${BASE_URL}/`,
     `${BASE_URL}/blog`,
     `${BASE_URL}/spaces`,
+    `${BASE_URL}/pricing`,
+    `${BASE_URL}/meeting-rooms`,
+    `${BASE_URL}/gomti-nagar`,
     `${BASE_URL}/contact`,
   ];
   for (const post of posts.filter((item) => item.status === "published").slice(0, 20)) {

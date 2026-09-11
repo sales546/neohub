@@ -4,7 +4,8 @@ import { workspaceGuideLinks } from "@/lib/siteData";
 
 const quickLinks = [
   { href: "/about-us", label: "About Us" },
-  { href: "/spaces", label: "Pricing & Spaces" },
+  { href: "/pricing", label: "Pricing" },
+  { href: "/spaces", label: "Spaces" },
   { href: "/office-space-for-rent-lucknow", label: "Office for rent" },
   { href: "/managed-office-gomti-nagar", label: "Managed office" },
   { href: "/blog", label: "Blogs" },

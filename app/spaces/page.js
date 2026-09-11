@@ -4,10 +4,11 @@ import SiteImage from "@/components/SiteImage";
 import { constructMetadata } from "@/lib/seo/metadata";
 
 export const metadata = constructMetadata({
-  title: "Premium Shared Spaces & Meeting Rooms",
+  title: "Coworking Spaces & Meeting Rooms in Lucknow | NeoHub",
   description:
-    "Discover private office cabins, dedicated desks, flexible hot desking, meeting cabins, and high-tech conference rooms at NeoHub, Levana Cyber Heights, Gomti Nagar.",
+    "Cabins, dedicated desks, hot desks, meeting rooms, and virtual office plans across three Gomti Nagar centres. See live rates and book a tour.",
   canonical: "/spaces",
+  absoluteTitle: true,
   ogSubtitle: "Cabins · Workstations · Conference rooms in Lucknow",
   keywords: ["coworking spaces lucknow", "meeting rooms gomti nagar", "private cabin pricing"],
 });
@@ -108,16 +109,18 @@ const spacesData = [
 export default function SpacesPage() {
   return (
     <>
-      <PageBanner title="Spaces" />
+      <PageBanner title="Workspaces & Centres in Gomti Nagar" breadcrumbLabel="Spaces" />
 
       <div id="spaces-page" className="position-relative">
         <section className="position-relative">
           <div className="container">
             <div className="col-md-8 col-lg-7 heading-box m-auto text-center mb-lg-5 mb-4">
-              <h2 className="about-main-heading">Workspaces and centres in Gomti Nagar</h2>
+              <h2 className="about-main-heading">Cabins, desks, meeting rooms, and virtual office</h2>
               <p>
                 Cabins, desks, meeting rooms, and virtual office plans across Cyber Heights, Bhavya,
                 and Experion. Published rates are on{" "}
+                <Link href="/pricing">NeoHub pricing</Link>
+                {" "}and{" "}
                 <Link href="/blog/coworking-space-pricing-lucknow-2026">
                   coworking space pricing in Lucknow (2026)
                 </Link>

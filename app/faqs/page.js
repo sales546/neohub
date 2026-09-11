@@ -5,10 +5,11 @@ import { constructMetadata } from "@/lib/seo/metadata";
 import Link from "next/link";
 
 export const metadata = constructMetadata({
-  title: "Frequently Asked Questions",
+  title: "NeoHub FAQs | Hours, Pricing & Membership in Lucknow",
   description:
-    "FAQs on NeoHub membership plans, pricing, amenities, internet, conference rooms, and private cabins in Gomti Nagar, Lucknow.",
+    "Answers on NeoHub hours, desk and cabin pricing, meeting rooms, parking, and virtual office / GST address options in Gomti Nagar.",
   canonical: "/faqs",
+  absoluteTitle: true,
   ogSubtitle: "Pricing, amenities & membership answers",
   keywords: ["neohub faq", "coworking pricing lucknow", "coworking membership questions"],
 });
@@ -55,7 +56,7 @@ export default function FaqsPage() {
   return (
     <>
       <FAQSchema items={faqData} />
-      <PageBanner title="FAQ's" />
+      <PageBanner title="NeoHub FAQs — Coworking in Gomti Nagar" breadcrumbLabel="FAQs" />
 
       <section id="faq-page">
         <div className="container">
